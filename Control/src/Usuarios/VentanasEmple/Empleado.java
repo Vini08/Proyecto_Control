@@ -214,14 +214,14 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1120, Short.MAX_VALUE)
+            .addGap(0, 1130, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 41, Short.MAX_VALUE)
         );
 
-        inicioEmpleado.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 41));
+        inicioEmpleado.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 41));
 
         getContentPane().add(inicioEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1220, 770));
 
@@ -258,6 +258,8 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jButton2.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
         jButton2.setText("Nuevo Paciente");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setFocusPainted(false);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton2MouseEntered(evt);
@@ -469,6 +471,8 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jButton12.setForeground(new java.awt.Color(255, 255, 255));
         jButton12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vinicio\\Pictures\\Home_24px.png")); // NOI18N
         jButton12.setText("     Inicio");
+        jButton12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton12.setFocusPainted(false);
         jButton12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -526,7 +530,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 240, 610));
@@ -966,7 +970,7 @@ jButton2.setVisible(false);
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
+    public javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
