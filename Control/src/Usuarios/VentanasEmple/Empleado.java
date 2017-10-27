@@ -133,7 +133,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
                 jLabel2MouseMoved(evt);
             }
         });
-        inicioEmpleado.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1044, 0, 40, 40));
+        inicioEmpleado.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 0, 40, 40));
 
         jButton8.setBackground(new java.awt.Color(84, 101, 116));
         jButton8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -228,12 +228,12 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jPanel1.setBackground(new java.awt.Color(43, 62, 81));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vinicio\\Pictures\\False Teeth_48px.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/invent.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("French Script MT", 1, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(193, 78, 91));
+        jLabel4.setFont(new java.awt.Font("Gadugi", 1, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("dentista");
+        jLabel4.setText("Control Municipalidad");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
