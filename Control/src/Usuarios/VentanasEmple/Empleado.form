@@ -220,8 +220,8 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jLabel1" alignment="0" pref="240" max="32767" attributes="0"/>
-              <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+              <Component id="jLabel4" alignment="0" pref="240" max="32767" attributes="0"/>
+              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -241,7 +241,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/invent.png"/>
+              <Image iconType="3" name="/imagenes/stock.png"/>
             </Property>
           </Properties>
         </Component>
@@ -254,7 +254,7 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Control Municipalidad"/>
+            <Property name="text" type="java.lang.String" value="Aplicaci&#xf3;n de Control"/>
           </Properties>
         </Component>
       </SubComponents>
