@@ -75,7 +75,7 @@ repaint();
         jLabel1.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(47, 47, 47));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Nuevo Paciente");
+        jLabel1.setText("Nuevo Tratamiento");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 12, 1090, 88));
 
         jLabel2.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
