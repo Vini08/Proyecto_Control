@@ -307,7 +307,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jButton4.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vinicio\\Pictures\\Treatment Plan_24px.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Treatment Plan_24px.png"))); // NOI18N
         jButton4.setText("     Tratamiento");
         jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton4.setFocusPainted(false);
@@ -333,11 +333,13 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jButton1.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vinicio\\Pictures\\user.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
         jButton1.setText("     Pacientes");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.setFocusPainted(false);
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButton1.setIconTextGap(1);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -387,7 +389,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jButton5.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
         jButton5.setForeground(new java.awt.Color(16, 16, 16));
-        jButton5.setText("Pago de Tratamiento");
+        jButton5.setText("    Pago de Tratamiento");
         jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton5.setFocusPainted(false);
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -412,7 +414,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jButton7.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
         jButton7.setForeground(new java.awt.Color(20, 20, 20));
-        jButton7.setText("Actualizar Tratamiento");
+        jButton7.setText("   Actualizar Tratamiento");
         jButton7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton7.setFocusPainted(false);
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -437,7 +439,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jButton10.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 18)); // NOI18N
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vinicio\\Pictures\\diary1_24px.png")); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/diary1_24px.png"))); // NOI18N
         jButton10.setText("     Agenda");
         jButton10.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton10.setFocusPainted(false);
@@ -489,11 +491,13 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jButton12.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 18)); // NOI18N
         jButton12.setForeground(new java.awt.Color(255, 255, 255));
-        jButton12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vinicio\\Pictures\\Home_24px.png")); // NOI18N
-        jButton12.setText("     Inicio");
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Home_24px.png"))); // NOI18N
+        jButton12.setText("    Inicio");
         jButton12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton12.setFocusPainted(false);
         jButton12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton12.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jButton12.setIconTextGap(10);
         jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton12MouseEntered(evt);
