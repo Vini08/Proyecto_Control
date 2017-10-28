@@ -365,7 +365,7 @@
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Microsoft Yi Baiti" size="18" style="1"/>
+              <Font name="Microsoft Yi Baiti" size="26" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -373,7 +373,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/Treatment Plan_24px.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="     Tratamiento"/>
+            <Property name="text" type="java.lang.String" value="   Tratamiento"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder/>
@@ -392,7 +392,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Microsoft Yi Baiti" size="18" style="1"/>
+              <Font name="Microsoft Yi Baiti" size="26" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -400,7 +400,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/user.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="     Pacientes"/>
+            <Property name="text" type="java.lang.String" value="   Pacientes"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder/>
@@ -494,7 +494,7 @@
         <Component class="javax.swing.JButton" name="jButton10">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Microsoft Yi Baiti" size="18" style="1"/>
+              <Font name="Microsoft Yi Baiti" size="26" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -502,7 +502,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/diary1_24px.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="     Agenda"/>
+            <Property name="text" type="java.lang.String" value="   Agenda"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder/>
@@ -521,7 +521,7 @@
         <Component class="javax.swing.JButton" name="jButton11">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Microsoft Yi Baiti" size="18" style="1"/>
+              <Font name="Microsoft Yi Baiti" size="26" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -529,7 +529,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="C:\Users\Vinicio\Pictures\Toothpaste_24px.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="     Material Dental"/>
+            <Property name="text" type="java.lang.String" value="   Material Dental"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder/>
@@ -548,7 +548,7 @@
         <Component class="javax.swing.JButton" name="jButton12">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Microsoft Yi Baiti" size="18" style="1"/>
+              <Font name="Microsoft Yi Baiti" size="26" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -556,7 +556,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagenes/Home_24px.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="    Inicio"/>
+            <Property name="text" type="java.lang.String" value="  Inicio"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder/>
