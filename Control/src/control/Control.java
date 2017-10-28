@@ -22,10 +22,9 @@ public class Control {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                    Empleado p = new Empleado();
-                    p.setExtendedState(p.MAXIMIZED_BOTH);
-                    p.jButton12.setOpaque(true);
-        p.jButton12.setContentAreaFilled(false);
-                    p.setVisible(true);
+                   p.setLocationRelativeTo(null);        // Centering on screen...
+                    p.setSize(1365, 730);
+                     p.setVisible(true);
                     
             }
         });

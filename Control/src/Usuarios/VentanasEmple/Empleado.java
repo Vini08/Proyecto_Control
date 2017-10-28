@@ -28,8 +28,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
    Color BTNmenuMousePressed =new Color(95,122,148); 
     public Empleado() {
         initComponents();
-        
-        this.setExtendedState(MAXIMIZED_BOTH);
+                   
         SetearBTNS();
         
     }
@@ -257,6 +256,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jPanel3.setBackground(new java.awt.Color(45, 70, 94));
 
         jButton2.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(16, 16, 16));
         jButton2.setText("Nuevo Paciente");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.setFocusPainted(false);
@@ -281,7 +281,10 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         });
 
         jButton3.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(16, 16, 16));
         jButton3.setText("Actualizar Datos");
+        jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton3.setFocusPainted(false);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton3MouseEntered(evt);
@@ -306,6 +309,8 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vinicio\\Pictures\\Treatment Plan_24px.png")); // NOI18N
         jButton4.setText("     Tratamiento");
+        jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton4.setFocusPainted(false);
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -330,6 +335,8 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vinicio\\Pictures\\user.png")); // NOI18N
         jButton1.setText("     Pacientes");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton1.setFocusPainted(false);
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -354,7 +361,10 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         });
 
         jButton6.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(20, 20, 20));
         jButton6.setText("Nuevo Tratamiento");
+        jButton6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton6.setFocusPainted(false);
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton6MouseEntered(evt);
@@ -376,7 +386,10 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         });
 
         jButton5.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(16, 16, 16));
         jButton5.setText("Pago de Tratamiento");
+        jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton5.setFocusPainted(false);
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton5MouseEntered(evt);
@@ -398,7 +411,10 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         });
 
         jButton7.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(20, 20, 20));
         jButton7.setText("Actualizar Tratamiento");
+        jButton7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton7.setFocusPainted(false);
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton7MouseEntered(evt);
@@ -423,6 +439,8 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vinicio\\Pictures\\diary1_24px.png")); // NOI18N
         jButton10.setText("     Agenda");
+        jButton10.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton10.setFocusPainted(false);
         jButton10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -447,6 +465,8 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jButton11.setForeground(new java.awt.Color(255, 255, 255));
         jButton11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vinicio\\Pictures\\Toothpaste_24px.png")); // NOI18N
         jButton11.setText("     Material Dental");
+        jButton11.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton11.setFocusPainted(false);
         jButton11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -530,7 +550,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 240, 610));
