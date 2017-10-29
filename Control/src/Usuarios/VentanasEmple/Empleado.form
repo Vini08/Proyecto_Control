@@ -371,9 +371,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/Treatment Plan_24px.png"/>
+              <Image iconType="3" name="/imagenes/Edit File_24px.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="   Tratamiento"/>
+            <Property name="text" type="java.lang.String" value="   Modificar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder/>
@@ -398,9 +398,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/user.png"/>
+              <Image iconType="3" name="/imagenes/Registration_24px.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="   Pacientes"/>
+            <Property name="text" type="java.lang.String" value="   Registrar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder/>
@@ -500,9 +500,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/diary1_24px.png"/>
+              <Image iconType="3" name="/imagenes/Delete File_24px.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="   Agenda"/>
+            <Property name="text" type="java.lang.String" value="   Eliminar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder/>
@@ -527,9 +527,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Vinicio\Pictures\Toothpaste_24px.png"/>
+              <Image iconType="3" name="/imagenes/reports.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="   Material Dental"/>
+            <Property name="text" type="java.lang.String" value="   Reportes"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder/>
