@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuarios.VentanasEmple;
+package ventanas_SupervisorCajero;
 
 import java.awt.Color;
 import javax.swing.border.Border;
@@ -227,7 +227,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jPanel1.setBackground(new java.awt.Color(43, 62, 81));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/stock.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Control_70px.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Gadugi", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 255));
@@ -255,11 +255,12 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jPanel3.setBackground(new java.awt.Color(45, 70, 94));
 
-        jButton2.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(16, 16, 16));
-        jButton2.setText("Nuevo Paciente");
+        jButton2.setText("       Nuevo Registro");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.setFocusPainted(false);
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton2MouseEntered(evt);
@@ -280,11 +281,12 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(16, 16, 16));
-        jButton3.setText("Actualizar Datos");
+        jButton3.setText("       Registros");
         jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton3.setFocusPainted(false);
+        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton3MouseEntered(evt);
@@ -362,7 +364,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(20, 20, 20));
         jButton6.setText("Nuevo Tratamiento");
         jButton6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -387,7 +389,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(16, 16, 16));
         jButton5.setText("    Pago de Tratamiento");
         jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -412,7 +414,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
             }
         });
 
-        jButton7.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 16)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 18)); // NOI18N
         jButton7.setForeground(new java.awt.Color(20, 20, 20));
         jButton7.setText("   Actualizar Tratamiento");
         jButton7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -523,14 +525,14 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
             .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -541,9 +543,9 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
                 .addGap(3, 3, 3)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -554,7 +556,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 240, 610));
@@ -575,10 +577,6 @@ Border thickBorder = new LineBorder(BTVentana, 54);
            
 // TODO add your handling code here:
     }//GEN-LAST:event_inicioEmpleadoMouseMoved
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 jPanel2.removeAll();
@@ -689,16 +687,6 @@ jButton2.setOpaque(true);
      jButton3.setOpaque(true);   // TODO add your handling code here:
     }//GEN-LAST:event_jButton3MouseExited
 
-    private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
-    jButton5.setBackground(BTNmenuMouse);
-    jButton5.setOpaque(true);  // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseEntered
-
-    private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
-     jButton5.setBackground(BTNmenuACT);
-     jButton5.setOpaque(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseExited
-
     private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
     jButton6.setBackground(BTNmenuMouse);
     jButton6.setOpaque(true);    // TODO add your handling code here:
@@ -747,11 +735,6 @@ jButton3.setBackground(BTNmenuMouse);
 jButton3.setOpaque(true);          // TODO add your handling code here:
     }//GEN-LAST:event_jButton3MouseReleased
 
-    private void jButton5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseReleased
-jButton5.setBackground(BTNmenuMouse);
-jButton5.setOpaque(true);          // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseReleased
-
     private void jButton6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseReleased
 jButton6.setBackground(BTNmenuMouse);
 jButton6.setOpaque(true);          // TODO add your handling code here:
@@ -766,11 +749,6 @@ jButton7.setOpaque(true);          // TODO add your handling code here:
 jButton3.setBackground(BTNmenuMousePressed);
 jButton3.setOpaque(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3MousePressed
-
-    private void jButton5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MousePressed
-jButton5.setBackground(BTNmenuMousePressed);
-jButton5.setOpaque(true);         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MousePressed
 
     private void jButton6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MousePressed
 jButton6.setBackground(BTNmenuMousePressed);
@@ -953,6 +931,30 @@ jButton2.setVisible(false);
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseReleased
+        jButton5.setBackground(BTNmenuMouse);
+        jButton5.setOpaque(true);          // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseReleased
+
+    private void jButton5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MousePressed
+        jButton5.setBackground(BTNmenuMousePressed);
+        jButton5.setOpaque(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MousePressed
+
+    private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
+        jButton5.setBackground(BTNmenuACT);
+        jButton5.setOpaque(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseExited
+
+    private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
+        jButton5.setBackground(BTNmenuMouse);
+        jButton5.setOpaque(true);  // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseEntered
 
     /**
      * @param args the command line arguments

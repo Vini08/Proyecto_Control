@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuarios.VentanasEmple;
+package ventanas_SupervisorCajero;
 
 import java.awt.Dimension;
 import javax.swing.JComponent;

@@ -5,7 +5,7 @@
  */
 package control;
 
-import Usuarios.VentanasEmple.Empleado;
+import ventanas_SupervisorCajero.Empleado;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
