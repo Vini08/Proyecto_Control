@@ -21,8 +21,8 @@ public class Conexion {
     
   
     static String bd="XE";
-    static String login="pruebau";//Valores por definir
-    static String password="bar1019";//Valores por definir
+    static String login="pruebau";//Valores de prueba 
+    static String password="bar1019";//Valores de prueba
     static String url="jdbc:oracle:thin:@localhost:1521:XE";
     
     public static Connection Enlace(Connection conn)throws SQLException    {
@@ -42,6 +42,4 @@ public class Conexion {
         st=conn.createStatement();
         return st;
     }
-   
-
 }
