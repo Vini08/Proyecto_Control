@@ -92,6 +92,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         });
         inicioEmpleado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -827,7 +828,11 @@ jButton8.setOpaque(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8MouseReleased
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+jPanel2.removeAll();
+jPanel2.repaint();
+Reportes list = new Reportes();
+jPanel2.add(list);
+list.show();         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseEntered
