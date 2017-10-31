@@ -104,6 +104,8 @@ repaint();
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 310, 57));
+
+        jDateChooser1.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 310, 50));
 
         pack();
