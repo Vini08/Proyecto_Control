@@ -8,6 +8,13 @@ package ventanas_SupervisorCajero;
 import java.awt.Color;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,12 +23,9 @@ import javax.swing.border.LineBorder;
 public class Supervisor_Cajero extends javax.swing.JFrame {
 private int x;
 private int y;
-   Color grisMoved =new Color(180,180,180);
-Color BTVentana =new Color(84,101,116);
-Color grisPress =new Color(179,179,179);
-Color ColorFont =new Color(123,123,123);
-Color ColorSalida =new Color(0,102,204);
-Color ColorSalida2 =new Color(2,72,142);
+
+      
+        
 Border thickBorde = new LineBorder(Color.WHITE, 4);
    Color BTNmenuACT =new Color(45,70,94);
    Color BTNmenuMouse =new Color(34,57,79);
@@ -857,9 +861,8 @@ jButton9.setOpaque(true);        // Codigo para que vuelva el color de fondo ori
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+   
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

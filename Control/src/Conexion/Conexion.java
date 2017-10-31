@@ -20,9 +20,9 @@ public class Conexion {
     static ResultSet rs=null;
     
   
-    static String bd="XE";
-    static String login="pruebau";//Valores de prueba 
-    static String password="bar1019";//Valores de prueba
+    static String bd="ConectNEtbeans";
+    static String login="system";//Valores de prueba 
+    static String password="oracle88";//Valores de prueba
     static String url="jdbc:oracle:thin:@localhost:1521:XE";
     
     public static Connection Enlace(Connection conn)throws SQLException    {
