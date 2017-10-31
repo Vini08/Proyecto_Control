@@ -23,10 +23,6 @@ import javax.swing.border.LineBorder;
  * @author Vinicio
  */
 public class Registrar_Cliente extends javax.swing.JInternalFrame {
-private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
-private static final String DB_CONNECTION = "jdbc:oracle:thin:@localhost:1521:XE";;
-private static final String DB_USER = "system";
-private static final String DB_PASSWORD = "oracle88";
 
 private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null; 
@@ -273,33 +269,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     }//GEN-LAST:event_jLabel10MouseExited
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        Connection dbConnection = null;
-	CallableStatement callableStatement = null;
-		String insertStoreProc = "{call INSERTAR_PROD(?)}";
-		try {
-			dbConnection = getDBConnection();
-			callableStatement = dbConnection.prepareCall(insertStoreProc);
-			callableStatement.setString(1, jTextField1.getText());
-			callableStatement.executeUpdate();
-			JOptionPane.showMessageDialog(this,"Insertado Correctamente");
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		} finally {
-			if (callableStatement != null) {
-                            try {
-                                callableStatement.close();
-                            } catch (SQLException ex) {
-                                Logger.getLogger(Supervisor_Cajero.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-			}
-			if (dbConnection != null) {
-                            try {
-                                dbConnection.close();
-                            } catch (SQLException ex) {
-                                Logger.getLogger(Supervisor_Cajero.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-			}
-		}      // TODO add your handling code here:        // TODO add your handling code here:
+          // TODO add your handling code here:        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10MouseClicked
 
 
@@ -325,19 +295,4 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 
-private static Connection getDBConnection() {
-		Connection dbConnection = null;
-		try {
-			Class.forName(DB_DRIVER);
-		} catch (ClassNotFoundException e) {
-			System.out.println(e.getMessage());
-		}
-		try {
-			dbConnection = DriverManager.getConnection(
-			DB_CONNECTION, DB_USER,DB_PASSWORD);
-			return dbConnection;
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}
-		return dbConnection;
-	}}
+}
