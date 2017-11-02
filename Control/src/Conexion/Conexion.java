@@ -21,7 +21,7 @@ public class Conexion {
     
   
     static String bd="XE";
-    static String login="pruebau";//Valores de prueba 
+    static String login="facturacion";//Valores de prueba 
     static String password="bar1019";//Valores de prueba
     static String url="jdbc:oracle:thin:@localhost:1521:XE";
     
@@ -41,5 +41,11 @@ public class Conexion {
         conn=Enlace(conn);
         st=conn.createStatement();
         return st;
+    }
+    
+     public static ResultSet Cliente(ResultSet rs)throws SQLException    {
+       st=sta(st);
+       rs=st.executeQuery("select * from CLIENTE");
+        return rs;
     }
 }

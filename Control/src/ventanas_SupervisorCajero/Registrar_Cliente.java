@@ -5,12 +5,15 @@
  */
 package ventanas_SupervisorCajero;
 
+import Conexion.Conexion;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
@@ -256,6 +259,71 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        try {                                         
+            // TODO add your handling code here:
+            
+            Connection conn=null;
+            Connection miConexion = (Connection) Conexion.Enlace(conn);
+            
+            try {
+                Statement statement = (Statement) miConexion.createStatement();
+                
+                String Nombre = jTextField1.getText();
+                String Apellido = jTextField7.getText();
+                String Dpi = jTextField2.getText();
+                String Nit = jTextField3.getText();
+                int Telefono = Integer.parseInt(jTextField6.getText());
+                
+                
+                //Aquí se asigna a la fecha en un formato el cual puede ser cambiado
+                
+                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                        + "CLIENTE(NOMBRE, APELLIDO, DPI, NIT, TELEFONO) "
+                        + " values(?,?,?,?,?)");
+                
+               
+                pstm.setString(1, Nombre);
+                pstm.setString(2, Apellido);
+                pstm.setString(3,Dpi);
+                pstm.setString(4,Nit);
+                pstm.setInt(5,Telefono);
+                
+               
+            
+                pstm.execute();
+                pstm.close();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Error " + ex.getMessage());
+            }
+            
+            
+            try {
+                Statement statement = (Statement) miConexion.createStatement();
+                
+                String Direccion = jTextField4.getText();
+                int Zona = Integer.parseInt(jTextField5.getText());
+                
+                
+                //Aquí se asigna a la fecha en un formato el cual puede ser cambiado
+                
+                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                        + "INMUEBLE(DIRECCION, ZONA) "
+                        + " values(?,?)");
+                
+               
+                pstm.setString(1, Direccion);
+                pstm.setInt(2, Zona);
+                JOptionPane.showMessageDialog(this, "Datos ingresados correctamente");
+                pstm.execute();
+                pstm.close();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "Error " + ex.getMessage());
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Registrar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
