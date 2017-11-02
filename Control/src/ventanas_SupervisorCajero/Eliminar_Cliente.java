@@ -10,10 +10,12 @@ import Conexion.MostrarTabla;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
@@ -243,6 +245,35 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+         try{
+        String dpi = JOptionPane.showInputDialog(this, "Ingrese el DPI del cliente ", "Eliminar", JOptionPane.ERROR_MESSAGE);
+        if(dpi == null){
+           return;
+       }
+         Connection conn=null;
+        Connection miConexion = (Connection) Conexion.Enlace(conn);
+        try {
+
+            PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("delete from cliente where dpi = ?");
+            pstm.setString(1, dpi);
+            JOptionPane.showMessageDialog(this, "Datos Eliminados correctamente");
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+        }
+        
+       Conexion cxn = new Conexion();// llamamos a la clase Conexion
+        MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
+        DefaultTableModel modelo = new DefaultTableModel();
+        conn=Conexion.Enlace(conn);
+        rs=Conexion.Cliente(rs);    
+        modelo=tabla.Imprimir(rs,modelo);
+        jTable1.setModel(modelo);
+       
+          }catch (Exception e){
+            
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
