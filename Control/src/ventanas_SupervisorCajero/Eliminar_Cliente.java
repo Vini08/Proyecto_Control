@@ -14,6 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
@@ -26,7 +28,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Eliminar_Cliente extends javax.swing.JInternalFrame {
 
-    static Connection conn=null;
+ static Connection conn=null;
  static Statement s=null;
  static ResultSet rs=null;
     
@@ -36,30 +38,31 @@ Color BTNmenuACT =new Color(45,70,94);
 Color BTNmenuMouse =new Color(31,51,70);
 Color X1 =new Color(69,69,69);
 Color X2 =new Color(102,102,102);
-    public Eliminar_Cliente() throws SQLException {
-        initComponents();
-        
-        Conexion cxn = new Conexion();// llamamos a la clase Conexion
-        MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
-        DefaultTableModel modelo = new DefaultTableModel();
-        conn=Conexion.Enlace(conn);
-        rs=Conexion.Cliente(rs);    
-        modelo=tabla.Imprimir(rs,modelo);
-        jTable1.setModel(modelo);
-        
-        
-        QuitarLaBarraTitulo();
-        jButton1.setOpaque(true);
-        jButton1.setContentAreaFilled(false);
-        jButton2.setOpaque(true);
-        jButton2.setContentAreaFilled(false);
-        jButton3.setOpaque(true);
-        jButton3.setContentAreaFilled(false);
-       Border thickBorder = new LineBorder(BTNmenuACT, 86);
-       Border thickBorderSearch = new LineBorder(X2, 86);
-       jButton1.setBorder(thickBorder);
-       jButton2.setBorder(thickBorder);
-       jButton3.setBorder(thickBorderSearch);
+    public Eliminar_Cliente()  {
+     try {
+         initComponents();
+         
+         Conexion cxn = new Conexion();// llamamos a la clase Conexion
+         MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
+         DefaultTableModel modelo = new DefaultTableModel();
+         conn=Conexion.Enlace(conn);
+         rs=Conexion.Cliente(rs);
+         modelo=tabla.Imprimir(rs,modelo);
+         jTable1.setModel(modelo);
+         
+         
+         QuitarLaBarraTitulo();
+         jButton1.setOpaque(true);
+         jButton1.setContentAreaFilled(false);
+         jButton2.setOpaque(true);
+         jButton2.setContentAreaFilled(false);
+         Border thickBorder = new LineBorder(BTNmenuACT, 86);
+         Border thickBorderSearch = new LineBorder(X2, 86);
+         jButton1.setBorder(thickBorder);
+         jButton2.setBorder(thickBorder);
+     } catch (SQLException ex) {
+         Logger.getLogger(Eliminar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+     }
     }
 
     public void QuitarLaBarraTitulo()
@@ -85,8 +88,6 @@ repaint();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -159,33 +160,6 @@ repaint();
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 250, 57));
-
-        jLabel11.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Buscar");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
-            }
-        });
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 480, 250, 50));
-
-        jButton3.setBackground(new java.awt.Color(102, 102, 102));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 480, 250, 57));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -276,32 +250,12 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-   Border thickBorder = new LineBorder(X1, 86);
-       jButton3.setBorder(thickBorder);     // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseEntered
-
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-     Border thickBorder = new LineBorder(X2, 86);
-       jButton3.setBorder(thickBorder);    // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseExited
-
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseEntered
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
