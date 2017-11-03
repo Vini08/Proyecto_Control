@@ -5,6 +5,8 @@
  */
 package ventanas_SupervisorCajero;
 
+import CRUD.Insertar;
+import Clases.Cliente;
 import Conexion.Conexion;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -68,18 +70,14 @@ repaint();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
@@ -97,57 +95,42 @@ repaint();
         jLabel1.setForeground(new java.awt.Color(47, 47, 47));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registro de Cliente");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 1090, 50));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 1090, 50));
 
         jLabel2.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(88, 88, 88));
         jLabel2.setText("Nombre");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 120, 56));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 120, 56));
 
         jLabel3.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(88, 88, 88));
         jLabel3.setText("Apellido");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 120, 56));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 120, 56));
 
         jLabel4.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(88, 88, 88));
         jLabel4.setText("Teléfono");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, 120, 57));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 120, 57));
 
         jLabel5.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(88, 88, 88));
         jLabel5.setText("NIT");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 120, 58));
-
-        jLabel6.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(88, 88, 88));
-        jLabel6.setText("Dirección");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 120, 56));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 120, 58));
 
         jTextField1.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 456, 56));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 456, 56));
 
         jTextField2.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 456, 56));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 456, 56));
 
         jTextField3.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 456, 56));
-
-        jTextField4.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 456, 56));
-
-        jTextField5.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 510, 456, 56));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 456, 56));
 
         jLabel8.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,22 +162,17 @@ repaint();
         jLabel9.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(88, 88, 88));
         jLabel9.setText("Dpi");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 120, 56));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 120, 56));
 
         jTextField7.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 456, 56));
+        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 456, 56));
 
         jTextField6.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 600, 456, 56));
-
-        jLabel7.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(88, 88, 88));
-        jLabel7.setText("Zona");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 120, 57));
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, 456, 56));
 
         jLabel10.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -259,70 +237,19 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        try {                                         
-            // TODO add your handling code here:
-            
-            Connection conn=null;
-            Connection miConexion = (Connection) Conexion.Enlace(conn);
-            
-            try {
-                Statement statement = (Statement) miConexion.createStatement();
-                
-                String Nombre = jTextField1.getText();
-                String Apellido = jTextField7.getText();
-                String Dpi = jTextField2.getText();
-                String Nit = jTextField3.getText();
-                int Telefono = Integer.parseInt(jTextField6.getText());
-                
-                
-                //Aquí se asigna a la fecha en un formato el cual puede ser cambiado
-                
-                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
-                        + "CLIENTE(NOMBRE, APELLIDO, DPI, NIT, TELEFONO) "
-                        + " values(?,?,?,?,?)");
-                
-               
-                pstm.setString(1, Nombre);
-                pstm.setString(2, Apellido);
-                pstm.setString(3,Dpi);
-                pstm.setString(4,Nit);
-                pstm.setInt(5,Telefono);
-                
-               
-            
-                pstm.execute();
-                pstm.close();
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Error " + ex.getMessage());
-            }
-            
-            
-            try {
-                Statement statement = (Statement) miConexion.createStatement();
-                
-                String Direccion = jTextField4.getText();
-                int Zona = Integer.parseInt(jTextField5.getText());
-                
-                
-                //Aquí se asigna a la fecha en un formato el cual puede ser cambiado
-                
-                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
-                        + "INMUEBLE(DIRECCION, ZONA) "
-                        + " values(?,?)");
-                
-               
-                pstm.setString(1, Direccion);
-                pstm.setInt(2, Zona);
-                JOptionPane.showMessageDialog(this, "Datos ingresados correctamente");
-                pstm.execute();
-                pstm.close();
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Error " + ex.getMessage());
-            }
-            
-            
+       try {
+      Cliente cli = new Cliente();
+        cli.setNombre(jTextField1.getText());
+        cli.setApellido(jTextField7.getText());
+        cli.setDpi(jTextField2.getText());
+        cli.setNit(jTextField3.getText());
+        cli.setTelefono (Integer.parseInt(jTextField6.getText()));        
+        
+            Insertar.ingresarCliente(cli);
+        
+        JOptionPane.showMessageDialog(null, "Datos Agregados");
         } catch (SQLException ex) {
-            Logger.getLogger(Registrar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
+          
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -350,15 +277,11 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
