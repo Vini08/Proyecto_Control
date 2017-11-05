@@ -6,19 +6,54 @@
 package CRUD;
 
 import Clases.Cliente;
+import Clases.Empleado;
 import Clases.Inmueble;
 import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import ventanas_Administrador.Registrar_Usuario;
 
 /**
  *
  * @author Fernando Ambrosio
  */
 public class Insertar {
+    
+      public static Empleado ingresarEmpleado(Empleado empleado) throws SQLException {
+             
+             Connection conn=null;
+            Connection miConexion = (Connection) Conexion.Enlace(conn);
+            
+            try {
+                Statement statement = (Statement) miConexion.createStatement();
+            
+                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                        + "EMPLEADO(NOMBRE, APELLIDO, USUARIO, PASSWORD, DPI, DIRECCION, TELEFONO) "
+                        + " values(?,?,?,?,?,?,?)");
+                
+               
+                pstm.setString(1, empleado.getNombre());
+                pstm.setString(2, empleado.getApellido());
+                pstm.setString(3, empleado.getUsuario());
+                pstm.setString(4, empleado.getPassword());
+                pstm.setString(5, empleado.getDpi());
+                pstm.setString(6, empleado.getDirrecion());
+                pstm.setInt(7, empleado.getTelefono());
+                
+               
+            
+                pstm.execute();
+                pstm.close();
+            } catch (Exception ex) {
+              
+            }
+            return empleado;
+         }
             
          public static Cliente ingresarCliente(Cliente cliente) throws SQLException {
              

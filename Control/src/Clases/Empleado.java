@@ -17,7 +17,7 @@ public class Empleado {
     private String password;
     private String dpi;
     private String dirrecion;
-    private String telefono;
+    private int telefono;
 
     public Empleado() {
     }
@@ -70,11 +70,11 @@ public class Empleado {
         this.dirrecion = dirrecion;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
     

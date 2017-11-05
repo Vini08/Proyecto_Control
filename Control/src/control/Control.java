@@ -8,6 +8,7 @@ package control;
 import ventanas_SupervisorCajero.Supervisor_Cajero;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import ventanas_Administrador.Administrador;
 
 /**
  *
