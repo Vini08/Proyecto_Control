@@ -6,6 +6,7 @@
 package CRUD;
 
 import Clases.Cliente;
+import Clases.Inmueble;
 import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,6 +47,33 @@ public class Insertar {
                
             }
             return cliente;
+         }
+         
+         
+           public static Inmueble ingresarInmueble(Inmueble inmueble) throws SQLException {
+             
+             Connection conn=null;
+            Connection miConexion = (Connection) Conexion.Enlace(conn);
+            
+            try {
+                Statement statement = (Statement) miConexion.createStatement();
+            
+                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                        + "INMUEBLE(DIRECCION, ZONA, IDCLIENTE) "
+                        + " values(?,?,?)");
+                
+               
+                pstm.setString(1, inmueble.getDireccion());
+                pstm.setInt(2,inmueble.getZona());
+                pstm.setInt(3,inmueble.getIdcliente());
+               
+            
+                pstm.execute();
+                pstm.close();
+            } catch (Exception ex) {
+               
+            }
+            return inmueble;
          }
     
 }

@@ -249,7 +249,7 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
         
         JOptionPane.showMessageDialog(null, "Datos Agregados");
         } catch (SQLException ex) {
-          
+          Logger.getLogger(Registrar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

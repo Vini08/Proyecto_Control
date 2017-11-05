@@ -173,7 +173,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jButton2.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 21)); // NOI18N
         jButton2.setForeground(new java.awt.Color(16, 16, 16));
-        jButton2.setText("        Ingresar");
+        jButton2.setText("    Datos Personales");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.setFocusPainted(false);
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -311,7 +311,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jButton5.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 21)); // NOI18N
         jButton5.setForeground(new java.awt.Color(16, 16, 16));
-        jButton5.setText("        Editar");
+        jButton5.setText("   Datos de Inmueble");
         jButton5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton5.setFocusPainted(false);
         jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);

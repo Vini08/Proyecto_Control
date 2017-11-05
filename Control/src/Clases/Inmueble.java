@@ -12,7 +12,8 @@ package Clases;
 public class Inmueble {
     
     private String direccion;
-    private String zona;
+    private int zona;
+    private int idcliente;
 
     public Inmueble() {
     }
@@ -25,12 +26,20 @@ public class Inmueble {
         this.direccion = direccion;
     }
 
-    public String getZona() {
+    public int getZona() {
         return zona;
     }
 
-    public void setZona(String zona) {
+    public void setZona(int zona) {
         this.zona = zona;
+    }
+
+    public int getIdcliente() {
+        return idcliente;
+    }
+
+    public void setIdcliente(int idcliente) {
+        this.idcliente = idcliente;
     }
     
     
