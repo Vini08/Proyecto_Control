@@ -108,7 +108,7 @@ repaint();
         jLabel1.setForeground(new java.awt.Color(47, 47, 47));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Eliminar Usuario");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1090, 50));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1090, 50));
 
         jLabel8.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -243,7 +243,7 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
         MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
         DefaultTableModel modelo = new DefaultTableModel();
         conn=Conexion.Enlace(conn);
-        rs=Conexion.Cliente(rs);    
+        rs=Conexion.Empleado(rs);    
         modelo=tabla.Imprimir(rs,modelo);
         jTable1.setModel(modelo);
        

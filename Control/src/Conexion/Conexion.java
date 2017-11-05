@@ -49,11 +49,23 @@ public class Conexion {
         return rs;
     }
      
-      public static ResultSet Empleado(ResultSet rs)throws SQLException    {
-       st=sta(st);
-       rs=st.executeQuery("select * from EMPLEADO");
-        return rs;
-    }
+     public static ResultSet Empleado(ResultSet rs) throws SQLException
+                {
+                     Connection conn=null;
+                     Connection miConexion = (Connection) Conexion.Enlace(conn);
+                    ResultSet res = null;
+                    
+                    try
+                    {
+                        
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select empleado.NOMBRE, empleado.APELLIDO, empleado.DPI, empleado.DIRECCION, empleado.TELEFONO from empleado");
+                        res=pstm.executeQuery();
+                    } catch (Exception e)
+                    {
+                       
+                    }
+                    return res;
+                }
      
       public static ResultSet Buscaridcliente(int dpi) throws SQLException
                 {
