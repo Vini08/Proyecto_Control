@@ -48,4 +48,23 @@ public class Conexion {
        rs=st.executeQuery("select * from CLIENTE");
         return rs;
     }
+     
+      public static ResultSet Buscaridcliente(int dpi) throws SQLException
+                {
+                     Connection conn=null;
+                     Connection miConexion = (Connection) Conexion.Enlace(conn);
+                    ResultSet res = null;
+                    
+                    try
+                    {
+                        
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.idcliente from cliente where cliente.dpi = ?");
+                        pstm.setInt(1, dpi);
+                        res=pstm.executeQuery();
+                    } catch (Exception e)
+                    {
+                       
+                    }
+                    return res;
+                }
 }

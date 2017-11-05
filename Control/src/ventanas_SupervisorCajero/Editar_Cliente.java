@@ -5,7 +5,11 @@
  */
 package ventanas_SupervisorCajero;
 
+import CRUD.Insertar;
+import Clases.Cliente;
+import Clases.Inmueble;
 import Conexion.Conexion;
+import static Conexion.Conexion.sta;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,17 +17,24 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import static ventanas_SupervisorCajero.Eliminar_Cliente.conn;
 
 /**
  *
  * @author Vinicio
  */
 public class Editar_Cliente extends javax.swing.JInternalFrame {
+    
+     static Connection conn=null;
+     static Statement s=null;
+     static ResultSet rs=null;
 
     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null; 
@@ -139,6 +150,7 @@ repaint();
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 456, 56));
 
+        jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -288,6 +300,18 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+         try {
+      Inmueble in = new Inmueble();
+        in.setDireccion(jTextField7.getText());
+        in.setZona(Integer.parseInt(jTextField3.getText())); 
+        in.setIdcliente(Integer.parseInt(jTextField2.getText()));        
+        
+            Insertar.ingresarInmueble(in);
+        
+        JOptionPane.showMessageDialog(null, "Datos Agregados");
+        } catch (SQLException ex) {
+          Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -310,6 +334,18 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+         try {
+        int dpi= Integer.parseInt(jTextField1.getText());
+     
+        conn=Conexion.Enlace(conn);
+        rs=Conexion.Buscaridcliente(dpi);
+        
+          while(rs.next()){
+        jTextField2.setText(rs.getString("IDCLIENTE"));
+            }
+        } catch (SQLException ex) {
+         Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+     }
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
