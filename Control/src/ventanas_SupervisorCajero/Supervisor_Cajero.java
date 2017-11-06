@@ -32,7 +32,11 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
    Color BTNmenuMousePressed =new Color(95,122,148); 
     public Supervisor_Cajero() {
         initComponents();
-                   
+       jButton13.setOpaque(true);
+       jButton13.setContentAreaFilled(false);
+       Border thickBorderSearch = new LineBorder(BTNmenuACT, 86);
+       jButton13.setBorder(thickBorderSearch);
+                 
         SetearBTNS();
         
     }
@@ -49,6 +53,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         inicioEmpleado = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -108,36 +113,50 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
+            .addGap(0, 730, Short.MAX_VALUE)
         );
 
-        inicioEmpleado.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, -1, 740));
+        inicioEmpleado.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, 730));
 
         jPanel4.setBackground(new java.awt.Color(84, 101, 116));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton13.setBackground(new java.awt.Color(144, 144, 144));
-        jButton13.setText("X");
+        jLabel10.setBackground(new java.awt.Color(0, 51, 102));
+        jLabel10.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("X");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel10MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel10MouseExited(evt);
+            }
+        });
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1075, 0, 50, 50));
+
+        jButton13.setBackground(new java.awt.Color(45, 70, 94));
         jButton13.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton13MouseExited(evt);
+            }
+        });
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
             }
         });
+        jPanel4.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1075, 0, 50, 50));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 1089, Short.MAX_VALUE)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-        );
-
-        inicioEmpleado.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 41));
+        inicioEmpleado.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 50));
 
         getContentPane().add(inicioEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1220, 770));
 
@@ -845,10 +864,6 @@ ed.show();        // TODO add your handling code here:
         jButton5.setOpaque(true);  // TODO add your handling code here:
     }//GEN-LAST:event_jButton5MouseEntered
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-System.exit(1);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
-
     private void jButton8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseEntered
 jButton8.setBackground(BTNmenuMouse);
 jButton8.setOpaque(true);        // TODO add your handling code here:
@@ -930,6 +945,32 @@ jButton9.setOpaque(true);        // Codigo para que vuelva el color de fondo ori
         del.show(); 
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        System.exit(1);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
+        Border thickBorder = new LineBorder(BTNmenuMouse, 86);
+        jButton13.setBorder(thickBorder);    // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseEntered
+
+    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
+        Border thickBorder = new LineBorder(BTNmenuACT, 86);
+        jButton13.setBorder(thickBorder);    // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseExited
+
+    private void jButton13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13MouseEntered
+
+    private void jButton13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13MouseExited
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
+
    
     
     public static void main(String args[]) {
@@ -981,6 +1022,7 @@ jButton9.setOpaque(true);        // Codigo para que vuelva el color de fondo ori
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
