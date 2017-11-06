@@ -76,7 +76,7 @@ public class Conexion {
                     try
                     {
                         
-                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.idcliente from cliente where cliente.dpi = ?");
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.idcliente, cliente.nombre, cliente.apellido from cliente where cliente.dpi = ?");
                         pstm.setInt(1, dpi);
                         res=pstm.executeQuery();
                     } catch (Exception e)

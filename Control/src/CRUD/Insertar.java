@@ -8,9 +8,11 @@ package CRUD;
 import Clases.Cliente;
 import Clases.Empleado;
 import Clases.Inmueble;
+import Clases.Medidor;
 import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -110,5 +112,5 @@ public class Insertar {
             }
             return inmueble;
          }
-    
+                     
 }

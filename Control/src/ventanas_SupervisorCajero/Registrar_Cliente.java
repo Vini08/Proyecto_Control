@@ -7,6 +7,7 @@ package ventanas_SupervisorCajero;
 
 import CRUD.Insertar;
 import Clases.Cliente;
+import Clases.Medidor;
 import Conexion.Conexion;
 import java.awt.Color;
 import java.awt.Dimension;
