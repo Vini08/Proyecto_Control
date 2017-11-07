@@ -66,10 +66,10 @@ repaint();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -164,11 +164,6 @@ repaint();
         jLabel9.setText("Lectura Anterior ");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 340, 56));
 
-        jTextField7.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 456, 56));
-
         jLabel7.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(88, 88, 88));
         jLabel7.setText("Cobro");
@@ -200,6 +195,9 @@ repaint();
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 510, 250, 57));
+
+        jDateChooser1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 460, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -250,6 +248,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -264,6 +263,5 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

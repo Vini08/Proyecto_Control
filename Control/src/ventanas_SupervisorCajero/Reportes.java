@@ -104,7 +104,9 @@ repaint();
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 310, 57));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 149, 300, 30));
+
+        jDateChooser1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 139, 300, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

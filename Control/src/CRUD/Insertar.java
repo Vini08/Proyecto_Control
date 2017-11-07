@@ -8,6 +8,7 @@ package CRUD;
 import Clases.Cliente;
 import Clases.Empleado;
 import Clases.Inmueble;
+import Clases.Lectura;
 import Clases.Medidor;
 import Conexion.Conexion;
 import java.sql.Connection;
@@ -134,6 +135,32 @@ public class Insertar {
                
             }
             return medidor;
+         }
+           
+            public static Lectura ingresarLectura(Lectura lectura) throws SQLException {
+             
+             Connection conn=null;
+            Connection miConexion = (Connection) Conexion.Enlace(conn);
+            
+            try {
+                Statement statement = (Statement) miConexion.createStatement();
+            
+                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                        + "LECTURA(FECHALECTURA, LECTURAANTERIO, LECTURAACTUAL, METROSCUBICOS, IDMEDIDOR) "
+                        + " values(?,?,?,?,?)");
+                
+               
+                pstm.setString(1, lectura.getFechalectura());
+                pstm.setInt(2, lectura.getLecturaanterior());
+                pstm.setInt(3, lectura.getLecturaactual());
+                pstm.setInt(4, lectura.getMetroscubicos());
+                pstm.setInt(5, lectura.getIdmedidor());
+                pstm.execute();
+                pstm.close();
+            } catch (Exception ex) {
+               
+            }
+            return lectura;
          }
                      
 }
