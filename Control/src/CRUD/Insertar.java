@@ -112,5 +112,28 @@ public class Insertar {
             }
             return inmueble;
          }
+           
+           public static Medidor ingresarMedidor(Medidor medidor) throws SQLException {
+             
+             Connection conn=null;
+            Connection miConexion = (Connection) Conexion.Enlace(conn);
+            
+            try {
+                Statement statement = (Statement) miConexion.createStatement();
+            
+                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                        + "MEDIDOR(IDINMUEBLE) "
+                        + " values(?)");
+                
+               
+                pstm.setInt(1, medidor.getIdinmueble());
+           
+                pstm.execute();
+                pstm.close();
+            } catch (Exception ex) {
+               
+            }
+            return medidor;
+         }
                      
 }

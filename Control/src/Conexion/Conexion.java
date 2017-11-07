@@ -85,4 +85,23 @@ public class Conexion {
                     }
                     return res;
                 }
+      
+        public static ResultSet BuscarInmueble(int dpi) throws SQLException
+                {
+                     Connection conn=null;
+                     Connection miConexion = (Connection) Conexion.Enlace(conn);
+                    ResultSet res = null;
+                    
+                    try
+                    {
+                        
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("SELECT IDINMUEBLE, DIRECCION, ZONA FROM INMUEBLE INNER JOIN CLIENTE ON CLIENTE.IDCLIENTE = INMUEBLE.IDCLIENTE WHERE CLIENTE.DPI = ?");
+                        pstm.setInt(1, dpi);
+                        res=pstm.executeQuery();
+                    } catch (Exception e)
+                    {
+                       
+                    }
+                    return res;
+                }
 }
