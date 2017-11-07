@@ -18,5 +18,16 @@ import java.sql.Statement;
  * @author Pablo
  */
 public class Consultar {
+    
+    public int login() throws SQLException{
+        int result=0;
+        Connection conn=null;
+        Connection miConexion = (Connection) Conexion.Enlace(conn);
+        
+        ResultSet resultado = null;
+        
+       
+        return result;
+    }
      
 }

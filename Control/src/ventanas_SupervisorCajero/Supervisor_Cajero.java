@@ -5,6 +5,7 @@
  */
 package ventanas_SupervisorCajero;
 
+import Conexion.Conexion;
 import java.awt.Color;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -820,16 +821,18 @@ jButton12.setOpaque(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton12MouseMoved
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-jPanel2.removeAll();
-jPanel2.repaint();
-jButton2.setVisible(false);
+        jPanel2.removeAll();
+        jPanel2.repaint();
+        jButton2.setVisible(false);
         jButton3.setVisible(false);
         jButton5.setVisible(false);
         jButton6.setVisible(false);
         jButton7.setVisible(false);
         jButton8.setVisible(false);
         jButton9.setVisible(false);
-        jButton10.setVisible(false);// TODO add your handling code here:
+        jButton10.setVisible(false);
+        
+        
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked

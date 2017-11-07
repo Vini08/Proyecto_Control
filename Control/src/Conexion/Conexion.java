@@ -29,6 +29,11 @@ public class Conexion {
         try {
          Class.forName("oracle.jdbc.OracleDriver");
          conn=DriverManager.getConnection(url, login, password);
+         if (conn != null) {
+                System.out.println("Conexion exitosa!");
+            } else {
+                System.out.println("Conexion fallida!");
+            }
         }
         catch(ClassNotFoundException e )
         {

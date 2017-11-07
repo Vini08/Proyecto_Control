@@ -5,6 +5,7 @@
  */
 package control;
 
+import Conexion.Conexion;
 import ventanas_SupervisorCajero.Supervisor_Cajero;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -26,7 +27,8 @@ public class Control {
                    p.setLocationRelativeTo(null);        // Centering on screen...
                     p.setSize(1365, 730);
                      p.setVisible(true);
-                    
+                     
+                  
             }
         });
     }
