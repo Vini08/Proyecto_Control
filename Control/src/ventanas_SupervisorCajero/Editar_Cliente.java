@@ -204,6 +204,9 @@ repaint();
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Registrar");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel10MouseEntered(evt);
             }
@@ -231,6 +234,9 @@ repaint();
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Buscar");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel11MouseEntered(evt);
             }
@@ -332,22 +338,7 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         try {
-      Inmueble in = new Inmueble();
-        in.setDireccion(jTextField7.getText());
-        in.setZona(Integer.parseInt(jTextField3.getText())); 
-        in.setIdcliente(Integer.parseInt(jTextField2.getText()));        
-        
-            Insertar.ingresarInmueble(in);    
-        JOptionPane.showMessageDialog(null, "Datos Agregados");
-        } catch (SQLException ex) {
-          Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
-        }
-         
-         
-         
-         
-         
+          
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -370,6 +361,11 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
          try {
         int dpi= Integer.parseInt(jTextField1.getText());
      
@@ -384,7 +380,23 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
         } catch (SQLException ex) {
          Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
      }
-    }//GEN-LAST:event_jButton3ActionPerformed
+        
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        // TODO add your handling code here:
+         try {
+      Inmueble in = new Inmueble();
+        in.setDireccion(jTextField7.getText());
+        in.setZona(Integer.parseInt(jTextField3.getText())); 
+        in.setIdcliente(Integer.parseInt(jTextField2.getText()));        
+        
+            Insertar.ingresarInmueble(in);    
+        JOptionPane.showMessageDialog(null, "Datos Agregados");
+        } catch (SQLException ex) {
+          Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
+        }
+    }//GEN-LAST:event_jLabel10MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

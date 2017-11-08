@@ -139,6 +139,9 @@ repaint();
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Eliminar");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel10MouseEntered(evt);
             }
@@ -218,6 +221,10 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
     }//GEN-LAST:event_jButton2MouseEntered
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:  
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
          try{
         String dpi = JOptionPane.showInputDialog(this, "Ingrese el DPI del cliente ", "Eliminar", JOptionPane.ERROR_MESSAGE);
@@ -247,8 +254,7 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
           }catch (Exception e){
             
         }
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jLabel10MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -195,6 +195,9 @@ repaint();
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Generar");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel10MouseEntered(evt);
             }
@@ -222,6 +225,9 @@ repaint();
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Buscar");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel11MouseEntered(evt);
             }
@@ -349,16 +355,7 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-        try {
-      Medidor med = new Medidor();
-        med.setIdinmueble(Integer.parseInt(jTextField6.getText()));        
         
-            Insertar.ingresarMedidor(med);
-        
-        JOptionPane.showMessageDialog(null, "Codigo Generado");
-        } catch (SQLException ex) {
-          Logger.getLogger(Registrar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
-        }  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -380,8 +377,16 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
     }//GEN-LAST:event_jButton3MouseEntered
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:                 
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
-         try {
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+        try {
         int dpi= Integer.parseInt(jTextField1.getText());
      
         conn=Conexion.Enlace(conn);
@@ -410,12 +415,22 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
         } catch (SQLException ex) {
          Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
      }
-                       
-    }//GEN-LAST:event_jButton3ActionPerformed
+        
+    }//GEN-LAST:event_jLabel11MouseClicked
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+       try {
+      Medidor med = new Medidor();
+        med.setIdinmueble(Integer.parseInt(jTextField6.getText()));        
+        
+            Insertar.ingresarMedidor(med);
+        
+        JOptionPane.showMessageDialog(null, "Codigo Generado");
+        } catch (SQLException ex) {
+          Logger.getLogger(Registrar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
+        }   
+    }//GEN-LAST:event_jLabel10MouseClicked
 
     
 

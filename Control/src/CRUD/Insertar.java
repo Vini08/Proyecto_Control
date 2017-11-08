@@ -146,7 +146,7 @@ public class Insertar {
                 Statement statement = (Statement) miConexion.createStatement();
             
                 PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
-                        + "LECTURA(FECHALECTURA, LECTURAANTERIO, LECTURAACTUAL, METROSCUBICOS, IDMEDIDOR) "
+                        + "LECTURA(FECHALECTURA, LECTURAANTERIOR, LECTURAACTUAL, METROSCUBICOS, IDMEDIDOR) "
                         + " values(?,?,?,?,?)");
                 
                
