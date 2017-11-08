@@ -68,9 +68,11 @@ try {
     conn=Enlace(conn);
     st=conn.createStatement();
     ResultSet rs=st.executeQuery("SELECT DISTINCT ZONA FROM INMUEBLE");
+    modelo.addElement("----");
     while(rs.next())
     {                
         modelo.addElement(rs.getString("ZONA"));
+        
     }
      jComboBox1.setModel(modelo); // seteamos el modelo y se cargan los datos
 } catch (SQLException ex) {
@@ -154,12 +156,13 @@ try {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 680, 410));
 
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 80, 40));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 70, 40));
 
         jLabel9.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(88, 88, 88));
