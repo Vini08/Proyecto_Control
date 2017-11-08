@@ -380,36 +380,8 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
     }//GEN-LAST:event_jButton3MouseEntered
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-         try {
-        int dpi= Integer.parseInt(jTextField1.getText());
      
-        conn=Conexion.Enlace(conn);
-        rs=Conexion.Buscaridcliente(dpi);
-        
-          while(rs.next()){
-        jTextField2.setText(rs.getString("IDCLIENTE"));
-        jTextField5.setText(rs.getString("NOMBRE"));
-        jTextField4.setText(rs.getString("APELLIDO"));
-            }
-        } catch (SQLException ex) {
-         Logger.getLogger(Registrar_Medidor.class.getName()).log(Level.SEVERE, null, ex);
-     }
-         
-          
-         
-          try {
-        int dpi= Integer.parseInt(jTextField1.getText());
-        MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
-        DefaultTableModel modelo = new DefaultTableModel();    
-        conn=Conexion.Enlace(conn);
-        rs=Conexion.BuscarInmueble(dpi);
-        
-         modelo=tabla.Imprimir(rs,modelo);
-         jTable1.setModel(modelo);
-        } catch (SQLException ex) {
-         Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-     }
+     
                        
     }//GEN-LAST:event_jButton3ActionPerformed
 

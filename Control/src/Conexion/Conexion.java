@@ -22,7 +22,7 @@ public class Conexion {
   
     static String bd="XE";
     static String login="facturacion";//Valores de prueba 
-    static String password="bar1019";//Valores de prueba
+    static String password="oracle88";//Valores de prueba
     static String url="jdbc:oracle:thin:@localhost:1521:XE";
     
     public static Connection Enlace(Connection conn)throws SQLException    {
@@ -72,7 +72,7 @@ public class Conexion {
                     return res;
                 }
      
-      public static ResultSet Buscaridcliente(int dpi) throws SQLException
+      public static ResultSet Buscaridcliente(String dpi) throws SQLException
                 {
                      Connection conn=null;
                      Connection miConexion = (Connection) Conexion.Enlace(conn);
@@ -82,19 +82,19 @@ public class Conexion {
                     {
                         
                         PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.idcliente, cliente.nombre, cliente.apellido from cliente where cliente.dpi = ?");
-                        pstm.setInt(1, dpi);
+                        pstm.setString(1, dpi);
                         res=pstm.executeQuery();
                     } catch (Exception e)
                     {
-                       
+                       System.out.println(e.getMessage());
                     }
                     return res;
                 }
       
         public static ResultSet BuscarInmueble(int dpi) throws SQLException
                 {
-                     Connection conn=null;
-                     Connection miConexion = (Connection) Conexion.Enlace(conn);
+                    Connection conn=null;
+                    Connection miConexion = (Connection) Conexion.Enlace(conn);
                     ResultSet res = null;
                     
                     try
@@ -109,4 +109,10 @@ public class Conexion {
                     }
                     return res;
                 }
+
+        public void InsertInmueble_Medidor(int dpi) throws SQLException
+        {
+       
+         }
+        
 }

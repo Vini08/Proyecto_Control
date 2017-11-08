@@ -11,7 +11,9 @@ import Clases.Inmueble;
 import Clases.Lectura;
 import Clases.Medidor;
 import Conexion.Conexion;
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +28,11 @@ import ventanas_Administrador.Registrar_Usuario;
  * @author Fernando Ambrosio
  */
 public class Insertar {
-    
+private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
+private static final String DB_CONNECTION = "jdbc:oracle:thin:@localhost:1521:XE";;
+private static final String DB_USER = "facturacion";
+private static final String DB_PASSWORD = "oracle88";
+public static String ID_INMueble;    
       public static Empleado ingresarEmpleado(Empleado empleado) throws SQLException {
              
              Connection conn=null;
@@ -162,5 +168,46 @@ public class Insertar {
             }
             return lectura;
          }
-                     
+           
+public static void insertarINMUEBLE_MEDIDOR(String direccion, String zona, String idcliente) throws SQLException {
+             
+  Connection conn=null;
+  Connection miConexion = (Connection) Conexion.Enlace(conn);
+  
+  //INSERTA LOS DATOS A LA TABLA INMUEBE
+  try {
+      PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+      + "INMUEBLE(DIRECCION, ZONA, IDCLIENTE) "
+      + " values(?,?,?)");        
+      pstm.setString(1, direccion);
+      pstm.setString(2, zona);
+      pstm.setString(3, idcliente);
+      pstm.execute();
+      pstm.close();
+      } catch (Exception ex) {
+      System.out.println(ex.getMessage());
+      }   
+  //SELECCIONA IDINMUBLE PARA PODER USARLO EN LA TABLA MEDIDOR
+            Statement stmt; 
+                ResultSet rsult; 
+                stmt = Conexion.Enlace(conn).createStatement(); 
+                rsult= stmt.executeQuery("SELECT IDINMUEBLE FROM (SELECT INMUEBLE.IDINMUEBLE FROM INMUEBLE ORDER BY IDINMUEBLE DESC) WHERE ROWNUM = 1"); 
+                while (rsult.next()) { 
+                ID_INMueble = rsult.getString("IDINMUEBLE");                
+                } 
+  //INSERTA EL ESTADO Y IDINMUEBLE EN LA TABLA MEDIDOR              
+            try {
+                Statement statement = (Statement) miConexion.createStatement();
+                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                + "MEDIDOR(ESTADO, IDINMUEBLE) "
+                + " values(?,?)");        
+                pstm.setInt(1, 1);
+                pstm.setString(2, ID_INMueble);
+                pstm.execute();
+                pstm.close();
+            } catch (Exception ex) {
+               System.out.println(ex.getMessage());
+            }   
+}
+
 }
