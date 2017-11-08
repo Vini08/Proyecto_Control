@@ -190,7 +190,7 @@ repaint();
                 jLabel10MouseExited(evt);
             }
         });
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 250, 50));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 250, 56));
 
         jButton2.setBackground(new java.awt.Color(45, 70, 94));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,20 +238,7 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       try {
-      Cliente cli = new Cliente();
-        cli.setNombre(jTextField1.getText());
-        cli.setApellido(jTextField7.getText());
-        cli.setDpi(jTextField2.getText());
-        cli.setNit(jTextField3.getText());
-        cli.setTelefono (Integer.parseInt(jTextField6.getText()));        
-        
-            Insertar.ingresarCliente(cli);
-        
-        JOptionPane.showMessageDialog(null, "Datos Agregados");
-        } catch (SQLException ex) {
-          Logger.getLogger(Registrar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
-        }
+     
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
@@ -265,7 +252,20 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     }//GEN-LAST:event_jLabel10MouseExited
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-          // TODO add your handling code here:        // TODO add your handling code here:
+    try {
+      Cliente cli = new Cliente();
+        cli.setNombre(jTextField1.getText());
+        cli.setApellido(jTextField7.getText());
+        cli.setDpi(jTextField2.getText());
+        cli.setNit(jTextField3.getText());
+        cli.setTelefono (Integer.parseInt(jTextField6.getText()));        
+        
+            Insertar.ingresarCliente(cli);
+        
+        JOptionPane.showMessageDialog(null, "Datos Agregados");
+        } catch (SQLException ex) {
+          Logger.getLogger(Registrar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
+        }          // TODO add your handling code here:        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10MouseClicked
 
 
