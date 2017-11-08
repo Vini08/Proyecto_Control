@@ -205,6 +205,7 @@ public static void insertarINMUEBLE_MEDIDOR(String direccion, String zona, Strin
                 pstm.setString(2, ID_INMueble);
                 pstm.execute();
                 pstm.close();
+                
             } catch (Exception ex) {
                System.out.println(ex.getMessage());
             }   

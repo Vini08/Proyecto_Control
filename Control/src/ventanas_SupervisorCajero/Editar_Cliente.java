@@ -384,7 +384,7 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
             apellido.setText("");
             direccion.setText("");
             zona.setText("");
-            
+            JOptionPane.showMessageDialog(this,"Datos almacenados Correctamente");
          } catch (SQLException ex) {
              Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
          }
