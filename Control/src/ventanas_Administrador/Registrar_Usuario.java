@@ -194,6 +194,9 @@ repaint();
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Registrar");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel10MouseEntered(evt);
             }
@@ -201,7 +204,7 @@ repaint();
                 jLabel10MouseExited(evt);
             }
         });
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 250, 50));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 250, 55));
 
         jButton2.setBackground(new java.awt.Color(45, 70, 94));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -252,7 +255,21 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         try {
+     
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
+Border thickBorder = new LineBorder(BTNmenuMouse, 86);
+       jButton2.setBorder(thickBorder);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseEntered
+
+    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
+    Border thickBorder = new LineBorder(BTNmenuACT, 86);
+       jButton2.setBorder(thickBorder);    // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseExited
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+    try {
       Empleado emp = new Empleado();
         emp.setNombre(jTextField1.getText());
         emp.setApellido(jTextField7.getText());
@@ -268,18 +285,8 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
         } catch (SQLException ex) {
           Logger.getLogger(Registrar_Usuario.class.getName()).log(Level.SEVERE, null,ex);
         }
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
-Border thickBorder = new LineBorder(BTNmenuMouse, 86);
-       jButton2.setBorder(thickBorder);        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel10MouseEntered
-
-    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
-    Border thickBorder = new LineBorder(BTNmenuACT, 86);
-       jButton2.setBorder(thickBorder);    // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel10MouseExited
+                // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
