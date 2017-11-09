@@ -262,8 +262,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
 
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
         // TODO add your handling code here:
-        
-        ResultSet rs;
+         ResultSet rs;
         int a = Integer.parseInt(jTextField3.getText());
         int b = Integer.parseInt(jTextField2.getText());
         int resta = a-b;
@@ -272,7 +271,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
         
         jTextField4.setText(total);
         
-        if (jTextField4.getText().length() <= 15){
+        if (resta <= 15){
             
             try {
             PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select costo from tarifa where idtarifa=1 ");
@@ -288,14 +287,17 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Registrar_Lectura.class.getName()).log(Level.SEVERE, null, ex);
         }
         
            
         }
         
-                 
-            if (jTextField4.getText().length() <= 30 ){
+       else
+        {
+            
+        
+            if (resta <= 30 ){
             
             try {
             PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select costo from tarifa where idtarifa=2 ");
@@ -311,13 +313,17 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Registrar_Lectura.class.getName()).log(Level.SEVERE, null, ex);
         }
         
            
         }
             
-             if (jTextField4.getText().length() <= 75){
+            else {
+                
+            
+            
+             if (resta <= 75){
             
             try {
             PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select costo from tarifa where idtarifa=3 ");
@@ -333,14 +339,16 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Registrar_Lectura.class.getName()).log(Level.SEVERE, null, ex);
         }
         
            
         }
             
-           
-            if (jTextField4.getText().length() <= 100){
+             else {
+                 
+             
+            if (resta <= 100){
             
             try {
             PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select costo from tarifa where idtarifa=4 ");
@@ -356,13 +364,16 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Registrar_Lectura.class.getName()).log(Level.SEVERE, null, ex);
         }
         
            
         }
+            else {
+                
+            
            
-             if (jTextField4.getText().length() >= 101){
+             if (resta >= 101){
             
             try {
             PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select costo from tarifa where idtarifa=5 ");
@@ -378,13 +389,18 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Registrar_Lectura.class.getName()).log(Level.SEVERE, null, ex);
         }
         
            
         }
-   
-         
+   }
+            } 
+             }
+             
+             
+             }
+              
     }//GEN-LAST:event_jTextField3KeyReleased
 
 
