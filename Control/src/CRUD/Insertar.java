@@ -32,7 +32,8 @@ private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
 private static final String DB_CONNECTION = "jdbc:oracle:thin:@localhost:1521:XE";;
 private static final String DB_USER = "facturacion";
 private static final String DB_PASSWORD = "bar1019";
-public static String ID_INMueble;    
+public static String ID_INMueble; 
+public static String ID_Tarifa;
       public static Empleado ingresarEmpleado(Empleado empleado) throws SQLException {
              
              Connection conn=null;
@@ -119,56 +120,7 @@ public static String ID_INMueble;
             }
             return inmueble;
          }
-           
-           public static Medidor ingresarMedidor(Medidor medidor) throws SQLException {
-             
-             Connection conn=null;
-            Connection miConexion = (Connection) Conexion.Enlace(conn);
-            
-            try {
-                Statement statement = (Statement) miConexion.createStatement();
-            
-                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
-                        + "MEDIDOR(IDINMUEBLE) "
-                        + " values(?)");
-                
-               
-                pstm.setInt(1, medidor.getIdinmueble());
-           
-                pstm.execute();
-                pstm.close();
-            } catch (Exception ex) {
-               
-            }
-            return medidor;
-         }
-           
-            public static Lectura ingresarLectura(Lectura lectura) throws SQLException {
-             
-             Connection conn=null;
-            Connection miConexion = (Connection) Conexion.Enlace(conn);
-            
-            try {
-                Statement statement = (Statement) miConexion.createStatement();
-            
-                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
-                        + "LECTURA(FECHALECTURA, LECTURAANTERIO, LECTURAACTUAL, METROSCUBICOS, IDMEDIDOR) "
-                        + " values(?,?,?,?,?)");
-                
-               
-                pstm.setString(1, lectura.getFechalectura());
-                pstm.setInt(2, lectura.getLecturaanterior());
-                pstm.setInt(3, lectura.getLecturaactual());
-                pstm.setInt(4, lectura.getMetroscubicos());
-                pstm.setInt(5, lectura.getIdmedidor());
-                pstm.execute();
-                pstm.close();
-            } catch (Exception ex) {
-               
-            }
-            return lectura;
-         }
-           
+                     
 public static void insertarINMUEBLE_MEDIDOR(String direccion, String zona, String idcliente) throws SQLException {
              
   Connection conn=null;
@@ -188,7 +140,7 @@ public static void insertarINMUEBLE_MEDIDOR(String direccion, String zona, Strin
       System.out.println(ex.getMessage());
       }   
   //SELECCIONA IDINMUBLE PARA PODER USARLO EN LA TABLA MEDIDOR
-            Statement stmt; 
+                Statement stmt; 
                 ResultSet rsult; 
                 stmt = Conexion.Enlace(conn).createStatement(); 
                 rsult= stmt.executeQuery("SELECT IDINMUEBLE FROM (SELECT INMUEBLE.IDINMUEBLE FROM INMUEBLE ORDER BY IDINMUEBLE DESC) WHERE ROWNUM = 1"); 

@@ -62,7 +62,7 @@ try {
     modelo.removeAllElements(); // eliminamos lo elementos
     conn=Enlace(conn);
     st=conn.createStatement();
-    ResultSet rs=st.executeQuery("SELECT DISTINCT ZONA from INMUEBLE");
+    ResultSet rs=st.executeQuery("SELECT DISTINCT ZONA from INMUEBLE order by ZONA ASC");
     modelo.addElement("---");
     while(rs.next())
     {                

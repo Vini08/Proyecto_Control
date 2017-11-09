@@ -5,16 +5,25 @@
  */
 package ventanas_SupervisorCajero;
 
+import CRUD.Insertar;
+import static CRUD.Insertar.ID_INMueble;
+import Clases.Cliente;
+import Clases.Lectura;
 import Conexion.Conexion;
+import com.mxrck.autocompleter.TextAutoCompleter;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
@@ -25,7 +34,7 @@ import javax.swing.border.LineBorder;
 public class Registrar_Lectura extends javax.swing.JInternalFrame {
     
     static Connection conn=null;
-
+    public static String ID_Tarifa;
     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null; 
 Color BTNmenuACT =new Color(45,70,94);
@@ -42,6 +51,29 @@ Color BTNmenuMouse =new Color(31,51,70);
        Border thickBorder = new LineBorder(BTNmenuACT, 86);
        jButton1.setBorder(thickBorder);
        jButton2.setBorder(thickBorder);
+       
+       
+       ResultSet rs;
+        
+          TextAutoCompleter textAutoAcompleter = new TextAutoCompleter(medidor);
+           Connection conn=null;
+           
+        try {
+            PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select * from MEDIDOR ");
+               rs= pstm.executeQuery(); 
+        
+               while( rs.next() )
+
+            {
+
+            textAutoAcompleter.addItem( rs.getString( "IDMEDIDOR" ) );
+            
+            
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void QuitarLaBarraTitulo()
@@ -67,7 +99,7 @@ repaint();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        medidor = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
@@ -116,10 +148,10 @@ repaint();
         jLabel6.setText("Metros Cúbicos Consumidos");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 340, 56));
 
-        jTextField1.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 456, 56));
+        medidor.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
+        medidor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        medidor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(medidor, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 456, 56));
 
         jTextField2.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -190,6 +222,9 @@ repaint();
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Registrar");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel10MouseEntered(evt);
             }
@@ -403,6 +438,64 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
               
     }//GEN-LAST:event_jTextField3KeyReleased
 
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+         try {                                      
+             // TODO add your handling code here:
+             
+             Connection conn=null;
+             
+             
+             String fechaLectura= new SimpleDateFormat("yyyy/MM/dd").format(jDateChooser1.getDate());
+             int lecturaAnterior=Integer.parseInt(jTextField2.getText());
+             int lecturaActual=Integer.parseInt(jTextField3.getText());
+             int metrosCubicos=Integer.parseInt(jTextField4.getText());
+             int idMedidor=Integer.parseInt(medidor.getText());
+             int idtarifa= Integer.parseInt(jTextField5.getText()); 
+             
+             Statement stmt;
+             ResultSet rsult;
+             PreparedStatement pstm1 = Conexion.Enlace(conn).prepareStatement("select idtarifa from tarifa where COSTO = ?");
+             pstm1.setInt(1, idtarifa);
+             rsult=pstm1.executeQuery();
+            
+             while (rsult.next()) {
+                 ID_Tarifa = rsult.getString("IDTARIFA");
+             }
+             
+             
+             try {
+                 Connection miConexion = (Connection) Conexion.Enlace(conn);
+                 
+                 Statement statement = (Statement) miConexion.createStatement();
+                 
+                 PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                         + "LECTURA(FECHALECTURA, LECTURAANTERIOR, LECTURAACTUAL, METROSCUBICOS, IDMEDIDOR, IDTARIFA) "
+                         + " values(?,?,?,?,?,?)");
+                 
+                 
+                 pstm.setString(1, fechaLectura);
+                 pstm.setInt(2, lecturaAnterior);
+                 pstm.setInt(3, lecturaActual);
+                 pstm.setInt(4, metrosCubicos);
+                 pstm.setInt(5, idMedidor);
+                 pstm.setString (6, ID_Tarifa);
+                 pstm.execute();
+                 pstm.close();
+                 
+                 JOptionPane.showMessageDialog(null, "Datos Agregados");
+             } catch (Exception ex) {
+                 
+             }
+             
+             
+         } catch (SQLException ex) {
+            Logger.getLogger(Registrar_Lectura.class.getName()).log(Level.SEVERE, null, ex);
+               
+            }
+        
+        
+    }//GEN-LAST:event_jLabel10MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -417,10 +510,10 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField medidor;
     // End of variables declaration//GEN-END:variables
 }
