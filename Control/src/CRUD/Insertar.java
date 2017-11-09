@@ -31,7 +31,7 @@ public class Insertar {
 private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
 private static final String DB_CONNECTION = "jdbc:oracle:thin:@localhost:1521:XE";;
 private static final String DB_USER = "facturacion";
-private static final String DB_PASSWORD = "oracle88";
+private static final String DB_PASSWORD = "bar1019";
 public static String ID_INMueble;    
       public static Empleado ingresarEmpleado(Empleado empleado) throws SQLException {
              

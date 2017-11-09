@@ -5,8 +5,16 @@
  */
 package ventanas_SupervisorCajero;
 
+import static Conexion.Conexion.Enlace;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -16,7 +24,11 @@ import javax.swing.border.LineBorder;
  * @author Vinicio
  */
 public class Listado_Recibos extends javax.swing.JInternalFrame {
-
+    
+    static Connection conn=null;
+    static Statement st=null;
+    static ResultSet rs=null;
+    static DefaultComboBoxModel modelo;
     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null; 
 Color BTNmenuACT =new Color(45,70,94);
@@ -25,15 +37,14 @@ Color X1 =new Color(69,69,69);
 Color X2 =new Color(102,102,102);
     public Listado_Recibos() {
         initComponents();
+         modelo = new DefaultComboBoxModel();
+         llena_combo(); 
         QuitarLaBarraTitulo();
         jButton2.setOpaque(true);
         jButton2.setContentAreaFilled(false);
-        jButton3.setOpaque(true);
-        jButton3.setContentAreaFilled(false);
        Border thickBorder = new LineBorder(BTNmenuACT, 86);
        Border thickBorderSearch = new LineBorder(X2, 86);
        jButton2.setBorder(thickBorder);
-       jButton3.setBorder(thickBorderSearch);
     }
 
     public void QuitarLaBarraTitulo()
@@ -43,6 +54,25 @@ DimensionBarra = Barra.getPreferredSize();
 Barra.setSize(0,0); 
 Barra.setPreferredSize(new Dimension(0,0)); 
 repaint(); 
+}
+    
+    public void llena_combo(){ // static para poder llamarlo desde el otro frame o JDialog
+
+try {
+    modelo.removeAllElements(); // eliminamos lo elementos
+    conn=Enlace(conn);
+    st=conn.createStatement();
+    ResultSet rs=st.executeQuery("SELECT DISTINCT ZONA from INMUEBLE");
+    modelo.addElement("---");
+    while(rs.next())
+    {                
+        modelo.addElement(rs.getString("ZONA"));
+        jComboBox1.setModel(modelo);
+    }
+      // seteamos el modelo y se cargan los datos
+} catch (SQLException ex) {
+    Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
+}     
 }
     
     /**
@@ -57,11 +87,12 @@ repaint();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -106,53 +137,34 @@ repaint();
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 540, 250, 57));
 
-        jTextField8.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField8.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
-        jTextField8.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 420, 250, 56));
-
-        jLabel11.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Buscar");
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
-            }
-        });
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 480, 250, 50));
-
-        jButton3.setBackground(new java.awt.Color(102, 102, 102));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 480, 250, 57));
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 680, 530));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 740, 300));
+
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 100, 40));
+
+        jLabel9.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(88, 88, 88));
+        jLabel9.setText("Mes");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 60, 30));
+
+        jLabel11.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(88, 88, 88));
+        jLabel11.setText("Zona");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 60, 30));
+
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 100, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -179,33 +191,16 @@ repaint();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-   Border thickBorder = new LineBorder(X1, 86);
-       jButton3.setBorder(thickBorder);     // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseEntered
-
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-     Border thickBorder = new LineBorder(X2, 86);
-       jButton3.setBorder(thickBorder);    // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseExited
-
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseEntered
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

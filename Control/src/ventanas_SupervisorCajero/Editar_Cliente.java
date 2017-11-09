@@ -119,7 +119,6 @@ repaint();
         jLabel6 = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -306,9 +305,6 @@ repaint();
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 255), null), "Datos Cliente"));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 750, 250));
 
-        jButton4.setText("jButton4");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -434,7 +430,6 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

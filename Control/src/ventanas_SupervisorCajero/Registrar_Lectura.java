@@ -5,8 +5,15 @@
  */
 package ventanas_SupervisorCajero;
 
+import Conexion.Conexion;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -16,6 +23,8 @@ import javax.swing.border.LineBorder;
  * @author Vinicio
  */
 public class Registrar_Lectura extends javax.swing.JInternalFrame {
+    
+    static Connection conn=null;
 
     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null; 
@@ -120,13 +129,20 @@ repaint();
         jTextField3.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField3KeyReleased(evt);
+            }
+        });
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 456, 56));
 
+        jTextField4.setEditable(false);
         jTextField4.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 456, 56));
 
+        jTextField5.setEditable(false);
         jTextField5.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -243,6 +259,133 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     Border thickBorder = new LineBorder(BTNmenuACT, 86);
        jButton2.setBorder(thickBorder);    // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10MouseExited
+
+    private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
+        // TODO add your handling code here:
+        
+        ResultSet rs;
+        int a = Integer.parseInt(jTextField3.getText());
+        int b = Integer.parseInt(jTextField2.getText());
+        int resta = a-b;
+       
+        String total= Integer.toString(resta);
+        
+        jTextField4.setText(total);
+        
+        if (jTextField4.getText().length() <= 15){
+            
+            try {
+            PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select costo from tarifa where idtarifa=1 ");
+               rs= pstm.executeQuery(); 
+        
+               while( rs.next() )
+
+            {
+
+            jTextField5.setText(rs.getString( "costo" ) );
+            
+            
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+           
+        }
+        
+                 
+            if (jTextField4.getText().length() <= 30 ){
+            
+            try {
+            PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select costo from tarifa where idtarifa=2 ");
+               rs= pstm.executeQuery(); 
+        
+               while( rs.next() )
+
+            {
+
+            jTextField5.setText(rs.getString( "costo" ) );
+            
+            
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+           
+        }
+            
+             if (jTextField4.getText().length() <= 75){
+            
+            try {
+            PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select costo from tarifa where idtarifa=3 ");
+               rs= pstm.executeQuery(); 
+        
+               while( rs.next() )
+
+            {
+
+            jTextField5.setText(rs.getString( "costo" ) );
+            
+            
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+           
+        }
+            
+           
+            if (jTextField4.getText().length() <= 100){
+            
+            try {
+            PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select costo from tarifa where idtarifa=4 ");
+               rs= pstm.executeQuery(); 
+        
+               while( rs.next() )
+
+            {
+
+            jTextField5.setText(rs.getString( "costo" ) );
+            
+            
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+           
+        }
+           
+             if (jTextField4.getText().length() >= 101){
+            
+            try {
+            PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select costo from tarifa where idtarifa=5 ");
+               rs= pstm.executeQuery(); 
+        
+               while( rs.next() )
+
+            {
+
+            jTextField5.setText(rs.getString( "costo" ) );
+            
+            
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+           
+        }
+   
+         
+    }//GEN-LAST:event_jTextField3KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
