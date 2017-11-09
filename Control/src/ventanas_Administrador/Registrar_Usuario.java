@@ -5,6 +5,7 @@
  */
 package ventanas_Administrador;
 
+import CRUD.Consultar;
 import CRUD.Insertar;
 import Clases.Cliente;
 import Clases.Empleado;
@@ -41,6 +42,10 @@ Color BTNmenuMouse =new Color(31,51,70);
        Border thickBorder = new LineBorder(BTNmenuACT, 86);
        jButton1.setBorder(thickBorder);
        jButton2.setBorder(thickBorder);
+       sel_rol.addItem("Administrador");
+       sel_rol.addItem("Supervisor Cajero");
+       sel_rol.addItem("Cajero");
+       sel_rol.addItem("Tesoreria");
     }
 
     public void QuitarLaBarraTitulo()
@@ -80,6 +85,8 @@ repaint();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel11 = new javax.swing.JLabel();
+        sel_rol = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -105,22 +112,22 @@ repaint();
         jLabel3.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(88, 88, 88));
         jLabel3.setText("Apellido");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 120, 56));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 120, 56));
 
         jLabel4.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(88, 88, 88));
-        jLabel4.setText("Teléfono");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, 120, 57));
+        jLabel4.setText("Funcion");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 550, 120, 57));
 
         jLabel5.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(88, 88, 88));
         jLabel5.setText("Password");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 120, 58));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 120, 58));
 
         jLabel6.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(88, 88, 88));
         jLabel6.setText("DPI");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 120, 56));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 120, 56));
 
         jTextField1.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -130,17 +137,17 @@ repaint();
         jTextField2.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 456, 56));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 456, 56));
 
         jTextField4.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 456, 56));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 456, 56));
 
         jTextField5.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 510, 456, 56));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 456, 56));
 
         jLabel8.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,7 +161,7 @@ repaint();
                 jLabel8MouseExited(evt);
             }
         });
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 600, 250, 50));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 550, 250, 50));
 
         jButton1.setBackground(new java.awt.Color(45, 70, 94));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -167,27 +174,32 @@ repaint();
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 600, 250, 57));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 550, 250, 57));
 
         jLabel9.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(88, 88, 88));
         jLabel9.setText("Usuario");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 120, 56));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 120, 56));
 
         jTextField7.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 456, 56));
+        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 456, 56));
 
         jTextField6.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 600, 456, 56));
+        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField6KeyTyped(evt);
+            }
+        });
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, 456, 56));
 
         jLabel7.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(88, 88, 88));
         jLabel7.setText("Direccion");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 120, 57));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 120, 57));
 
         jLabel10.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -204,7 +216,7 @@ repaint();
                 jLabel10MouseExited(evt);
             }
         });
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 250, 55));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, 250, 55));
 
         jButton2.setBackground(new java.awt.Color(45, 70, 94));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -217,10 +229,18 @@ repaint();
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 250, 57));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 490, 250, 57));
 
         jPasswordField1.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 460, 60));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 460, 60));
+
+        jLabel11.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(88, 88, 88));
+        jLabel11.setText("Teléfono");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 120, 57));
+
+        sel_rol.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
+        getContentPane().add(sel_rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 550, 460, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -269,31 +289,74 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     }//GEN-LAST:event_jLabel10MouseExited
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-    try {
-      Empleado emp = new Empleado();
-        emp.setNombre(jTextField1.getText());
-        emp.setApellido(jTextField7.getText());
-        emp.setUsuario(jTextField2.getText());
-        emp.setPassword(jPasswordField1.getText());
-        emp.setDpi(jTextField4.getText());
-        emp.setDirrecion(jTextField5.getText());
-        emp.setTelefono (Integer.parseInt(jTextField6.getText()));        
+        Consultar compara=new Consultar();
+        if("".equals(jTextField1.getText())||"".equals(jTextField7.getText())||"".equals(jTextField2.getText())||
+                "".equals(jTextField4.getText())||"".equals(jTextField5.getText())||"".equals(jTextField6.getText())||
+                "".equals(jPasswordField1.getText())){
+            JOptionPane.showMessageDialog(null, "Llene los datos de formulario de registro");
+        }else{
+            try {
+                int b=compara.CompararUsuario(jTextField2.getText());
+                if(b==1){
+                    JOptionPane.showMessageDialog(null, "Este nombre de Usuario ya esta siendo usado");
+                    jTextField2.setText("");
+                    jTextField2.requestFocus();
+                }else{
+                    try {
+                        Empleado emp = new Empleado();
+                        emp.setNombre(jTextField1.getText());
+                        emp.setApellido(jTextField7.getText());
+                        emp.setUsuario(jTextField2.getText());
+                        emp.setPassword(jPasswordField1.getText());
+                        emp.setDpi(jTextField4.getText());
+                        emp.setDirrecion(jTextField5.getText());
+                        emp.setTelefono (Integer.parseInt(jTextField6.getText())); 
+                        emp.setRol(sel_rol.getSelectedIndex()+1);
         
-            Insertar.ingresarEmpleado(emp);
-        
-        JOptionPane.showMessageDialog(null, "Datos Agregados");
-        } catch (SQLException ex) {
-          Logger.getLogger(Registrar_Usuario.class.getName()).log(Level.SEVERE, null,ex);
+                        int a=Insertar.ingresarEmpleado(emp);
+                        if(a==1){
+                            resetearEdit();
+                            JOptionPane.showMessageDialog(null, "Usuario Guardado");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Error al Guardar Usuario");
+                        }
+                
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Registrar_Usuario.class.getName()).log(Level.SEVERE, null,ex);
+                    }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Registrar_Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
-                // TODO add your handling code here:
+        
     }//GEN-LAST:event_jLabel10MouseClicked
 
+    private void jTextField6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyTyped
+        char c=evt.getKeyChar();
+        if(Character.isLetter(c)&&!evt.isAltDown()){
+            evt.consume();
+        }  
+    }//GEN-LAST:event_jTextField6KeyTyped
+
+    public void resetearEdit(){
+        jTextField1.setText("");
+        jTextField7.setText("");
+        jTextField2.setText("");
+        jPasswordField1.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        sel_rol.setSelectedIndex(0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -309,5 +372,6 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JComboBox<String> sel_rol;
     // End of variables declaration//GEN-END:variables
 }

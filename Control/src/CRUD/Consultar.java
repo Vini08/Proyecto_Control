@@ -56,5 +56,18 @@ public class Consultar {
         return result;
        
     }
+    
+    public int CompararUsuario(String user) throws SQLException{
+        int result=0;
+        Statement sentencia = miConexion.createStatement();
+        ResultSet resultado = sentencia.executeQuery( "SELECT * from EMPLEADO WHERE usuario='"+user+"'" );
+        
+        while(resultado.next()){
+            result=1;
+        }
+        
+        return result;
+       
+    }
      
 }

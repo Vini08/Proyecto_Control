@@ -280,10 +280,10 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoKeyTyped
-     char c=evt.getKeyChar();
+        char c=evt.getKeyChar();
         if(Character.isLetter(c)&&!evt.isAltDown()){
             evt.consume();
-        }        // TODO add your handling code here:
+        }     
     }//GEN-LAST:event_telefonoKeyTyped
 
     private void dpiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dpiKeyTyped

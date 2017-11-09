@@ -18,6 +18,7 @@ public class Empleado {
     private String dpi;
     private String dirrecion;
     private int telefono;
+    private int rol;
 
     public Empleado() {
     }
@@ -77,6 +78,16 @@ public class Empleado {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
+
+    public int getRol() {
+        return rol;
+    }
+
+    public void setRol(int rol) {
+        this.rol = rol;
+    }
+    
+    
     
     
 }

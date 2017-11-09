@@ -34,17 +34,17 @@ private static final String DB_USER = "facturacion";
 private static final String DB_PASSWORD = "bar1019";
 public static String ID_INMueble; 
 public static String ID_Tarifa;
-      public static Empleado ingresarEmpleado(Empleado empleado) throws SQLException {
-             
-             Connection conn=null;
+      public static int ingresarEmpleado(Empleado empleado) throws SQLException {
+            int result=0;
+            Connection conn=null;
             Connection miConexion = (Connection) Conexion.Enlace(conn);
             
             try {
                 Statement statement = (Statement) miConexion.createStatement();
             
                 PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
-                        + "EMPLEADO(NOMBRE, APELLIDO, USUARIO, PASSWORD, DPI, DIRECCION, TELEFONO) "
-                        + " values(?,?,?,?,?,?,?)");
+                        + "EMPLEADO(NOMBRE, APELLIDO, USUARIO, PASSWORD, DPI, DIRECCION, TELEFONO,IDROL) "
+                        + " values(?,?,?,?,?,?,?,?)");
                 
                
                 pstm.setString(1, empleado.getNombre());
@@ -54,15 +54,18 @@ public static String ID_Tarifa;
                 pstm.setString(5, empleado.getDpi());
                 pstm.setString(6, empleado.getDirrecion());
                 pstm.setInt(7, empleado.getTelefono());
+                pstm.setInt(8, empleado.getRol());
                 
                
             
                 pstm.execute();
+                result=1;
+                
                 pstm.close();
             } catch (Exception ex) {
-              
+                result=0;
             }
-            return empleado;
+            return result;
          }
             
          public static Cliente ingresarCliente(Cliente cliente) throws SQLException {
