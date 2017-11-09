@@ -5,10 +5,17 @@
  */
 package ventanas_Logueo;
 
+import CRUD.Consultar;
 import ventanas_SupervisorCajero.*;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import ventanas_Administrador.Administrador;
+import ventanas_Cajero.Cajero;
 
 /**
  *
@@ -24,7 +31,7 @@ Color X2 =new Color(102,102,102);
     public inicio_logueo() {
         initComponents();
        this.setLocationRelativeTo(null);
-       jTextField1.requestFocus();
+       txt_user.requestFocus();
        jButton2.setOpaque(true);
        jButton2.setContentAreaFilled(false);
        jButton13.setOpaque(true);
@@ -58,13 +65,13 @@ Color X2 =new Color(102,102,102);
         jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_user = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txt_pass = new javax.swing.JPasswordField();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
@@ -192,15 +199,15 @@ Color X2 =new Color(102,102,102);
         jLabel7.setText("Usuario");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 120, 40));
 
-        jTextField1.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txt_user.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
+        txt_user.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_user.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txt_userActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 380, 56));
+        jPanel2.add(txt_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 380, 56));
 
         jLabel8.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(88, 88, 88));
@@ -213,6 +220,9 @@ Color X2 =new Color(102,102,102);
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Ingresar");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel11MouseEntered(evt);
             }
@@ -243,10 +253,10 @@ Color X2 =new Color(102,102,102);
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/User Male_52px.png"))); // NOI18N
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
-        jPasswordField1.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 380, 60));
+        txt_pass.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
+        txt_pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_pass.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel2.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 380, 60));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 50, 540, 370));
 
@@ -315,9 +325,9 @@ Color X2 =new Color(102,102,102);
       // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txt_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_userActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txt_userActionPerformed
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
         Border thickBorder = new LineBorder(BTNmenuMouse, 86);
@@ -358,6 +368,48 @@ Color X2 =new Color(102,102,102);
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
 System.exit(1);        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        Consultar consult=new Consultar();
+        try {
+            if("".equals(txt_user.getText())||"".equals(txt_pass.getText())){
+                JOptionPane.showMessageDialog(this, "Complete los campos");
+                txt_user.requestFocus();
+            }else{
+                int a=consult.login(txt_user.getText(), txt_pass.getText());
+            if(a>0){
+                if(a==1){
+                    Administrador nuevo=new Administrador();
+                    nuevo.setVisible(true);
+                    nuevo.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+                if(a==2){
+                    Supervisor_Cajero nuevo=new Supervisor_Cajero();
+                    nuevo.setVisible(true);
+                    nuevo.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+                if(a==3){
+                    Cajero nuevo=new Cajero();
+                    nuevo.setVisible(true);
+                    nuevo.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+                if(a==4){
+                    JOptionPane.showMessageDialog(this, "Tesoreria");
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "Credenciales Invalidas");
+                txt_user.setText("");
+                txt_pass.setText("");
+                txt_user.requestFocus();
+            }
+        }  
+        } catch (SQLException ex) {
+        Logger.getLogger(inicio_logueo.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments
@@ -417,8 +469,8 @@ System.exit(1);        // TODO add your handling code here:
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField txt_pass;
+    private javax.swing.JTextField txt_user;
     // End of variables declaration//GEN-END:variables
 
 
