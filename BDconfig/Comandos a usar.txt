@@ -1,0 +1,56 @@
+
+//***********************importar base de datos***************************//
+
+imp facturacion/bar1019 file=C:\Users\Pablo\Documents\NetBeansProjects\Proyecto_Control\BDconfig\Tareas.DMP full=y rows=y indexes=y buffer=200000
+
+//imp usuario/contraseña file="ubicacion del dmp" full=y indexex=y buffer=200000
+
+
+CREAR ESPACIO DE TRABAJO Y USUARIO DE BASE DE DATOS
+
+//conectar al usuario system para poder crear el tablespace y usuario
+
+//create tablespace "nombre" datafile "ubicacion" //no la del proyecto--
+
+create tablespace tbs_fac datafile 'C:\Users\Pablo\Documents\tbs_fac.dbs' size 100m;
+
+//crear usuario
+
+//create user "nombre" identified by "contraseña" default tablespace "tablespace creado"
+
+create user facturacion identified by bar10190 default tablespace tbs_fac;
+
+
+//PERMISOS PARA EL USUARIO
+
+//grant connect , resource to "usuario";
+
+grant connect , resource to facturacion;
+
+//grant create table to "usuario";
+
+grant create table to facturacion;
+
+//grant create view to "usuario";
+
+grant create view to facturacion;
+
+
+
+
+
+//ELIMINAR USUARIOS ORACLE
+Dropping a Database User: Example
+
+If user Sidney's schema contains no objects, then you can drop sidney by issuing the statement:
+
+DROP USER sidney; 
+
+If Sidney's schema contains objects, then you must use the CASCADE clause to drop sidney and the objects:
+
+DROP USER sidney CASCADE; 
+
+ 
+
+
+
