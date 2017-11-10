@@ -113,10 +113,10 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
 
-        inicioEmpleado.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, 730));
+        inicioEmpleado.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, 720));
 
         jPanel4.setBackground(new java.awt.Color(84, 101, 116));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -137,7 +137,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
                 jLabel10MouseExited(evt);
             }
         });
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1075, 0, 50, 50));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 0, 50, 50));
 
         jButton13.setBackground(new java.awt.Color(45, 70, 94));
         jButton13.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -154,11 +154,11 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
                 jButton13ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1075, 0, 50, 50));
+        jPanel4.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 0, 50, 50));
 
         inicioEmpleado.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 50));
 
-        getContentPane().add(inicioEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1220, 770));
+        getContentPane().add(inicioEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1130, 770));
 
         jPanel1.setBackground(new java.awt.Color(43, 62, 81));
 

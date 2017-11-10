@@ -16,6 +16,7 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import ventanas_Administrador.Administrador;
 import ventanas_Cajero.Cajero;
+import ventanas_Tesoreria.Tesoreria;
 
 /**
  *
@@ -397,7 +398,10 @@ System.exit(1);        // TODO add your handling code here:
                     this.dispose();
                 }
                 if(a==4){
-                    JOptionPane.showMessageDialog(this, "Tesoreria");
+                  Tesoreria nuevo=new Tesoreria();
+                    nuevo.setVisible(true);
+                    nuevo.setLocationRelativeTo(null);
+                    this.dispose();  
                 }
             }else{
                 JOptionPane.showMessageDialog(this, "Credenciales Invalidas");
