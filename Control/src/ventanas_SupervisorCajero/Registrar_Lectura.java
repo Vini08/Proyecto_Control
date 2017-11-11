@@ -5,6 +5,7 @@
  */
 package ventanas_SupervisorCajero;
 
+import CRUD.Consultar;
 import CRUD.Insertar;
 import static CRUD.Insertar.ID_INMueble;
 import Clases.Cliente;
@@ -20,6 +21,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
@@ -51,6 +54,7 @@ Color BTNmenuMouse =new Color(31,51,70);
        Border thickBorder = new LineBorder(BTNmenuACT, 86);
        jButton1.setBorder(thickBorder);
        jButton2.setBorder(thickBorder);
+       
        
        
        ResultSet rs;
@@ -185,6 +189,9 @@ repaint();
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Cancelar");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel8MouseEntered(evt);
             }
@@ -492,11 +499,66 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
             Logger.getLogger(Registrar_Lectura.class.getName()).log(Level.SEVERE, null, ex);
                
             }
+         
+         reciboNuevo(Double.parseDouble(jTextField5.getText()));
         
         
     }//GEN-LAST:event_jLabel10MouseClicked
 
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+       
+    }//GEN-LAST:event_jLabel8MouseClicked
 
+
+    public void reciboNuevo(Double cobro){
+        Consultar nuevo=new Consultar();
+        ArrayList<String> obtener=new ArrayList<String>();
+        try {
+            
+            int idlec=Integer.parseInt(nuevo.UltimaLectura().get(0));
+            String flectura=nuevo.UltimaLectura().get(1);
+            String idmed=nuevo.UltimaLectura().get(2);
+            int Inzona=Integer.parseInt(nuevo.obtenerZona(idmed));
+            String fechaVencimiento="";
+            if(Inzona>0&Inzona<5){
+                fechaVencimiento=14+"/"+fVencimiento(flectura);
+            }if(Inzona>4){
+                fechaVencimiento=18+"/"+fVencimiento(flectura);
+            }
+            
+            Insertar.ingresarRecibo(fechaVencimiento, cobro, idlec);
+            
+            
+            
+            
+            
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(Registrar_Lectura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public String fVencimiento(String fecha){
+        String result="";
+        StringTokenizer st = new StringTokenizer(fecha, "/");
+        int anio=Integer.parseInt(st.nextToken());
+        int mes=Integer.parseInt(st.nextToken());
+        int dia=Integer.parseInt(st.nextToken());
+        
+        if(mes>=1||mes<=11){
+            mes=mes+1;
+            result=mes+"/"+anio;
+        }
+        if(mes==12){
+            mes=1;
+            anio=anio+1;
+            result=mes+"/"+anio;
+        }
+        
+        return result;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -36,6 +36,18 @@ grant create table to facturacion;
 grant create view to facturacion;
 
 
+CAMBIAR TIPO DE DATOS DE UNA TABLA
+
+ alter table NOMBRETABLA
+  modify NOMBRECAMPO NUEVADEFINICION;
+
+En el siguiente ejemplo modificamos el campo "precio" de la tabla "libros" para que tome valores de 6 dígitos incluyendo 2 decimales y no acepte valores nulos:
+
+ alter table libros
+  modify precio number(6,2) not null;
+
+
+
 
 
 

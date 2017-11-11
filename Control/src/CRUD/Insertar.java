@@ -166,4 +166,29 @@ public static void insertarINMUEBLE_MEDIDOR(String direccion, String zona, Strin
             }   
 }
 
+        public static void ingresarRecibo(String fechavenci,double total,int idlectura) throws SQLException {
+            Connection conn=null;
+            Connection miConexion = (Connection) Conexion.Enlace(conn);
+            
+            try {
+                Statement statement = (Statement) miConexion.createStatement();
+            
+                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                        + "RECIBO(FECHAVENCI, TOTAL, IDLECTURA) "
+                        + " values(?,?,?)");
+                
+               
+                pstm.setString(1, fechavenci);
+                pstm.setDouble(2,total);
+                pstm.setInt(3,idlectura);
+               
+            
+                pstm.execute();
+              
+                pstm.close();
+            } catch (Exception ex) {
+               
+            }
+         }
+
 }

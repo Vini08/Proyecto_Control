@@ -1,1 +1,0 @@
-imp XE/bar1019 file=C:\Users\Pablo\Documents\NetBeansProjects\Proyecto_Control\BDconfig\Documents.DMP full=y rows=y indexes=y buffer=200000

@@ -547,11 +547,11 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
     }//GEN-LAST:event_inicioEmpleadoMouseMoved
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-jPanel2.removeAll();
-jPanel2.repaint();
-Registrar_Lectura reg = new Registrar_Lectura();
-jPanel2.add(reg);
-reg.show();        // TODO add your handling code here:
+        jPanel2.removeAll();
+        jPanel2.repaint();
+        Registrar_Lectura reg = new Registrar_Lectura();
+        jPanel2.add(reg);
+        reg.show();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

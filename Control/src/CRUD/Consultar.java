@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -69,5 +70,33 @@ public class Consultar {
         return result;
        
     }
+    
+    public ArrayList<String> UltimaLectura() throws SQLException{
+        ArrayList<String> result=null;
+        Statement sentencia = miConexion.createStatement();
+        ResultSet resultado = sentencia.executeQuery("select idlectura,fechalectura,idmedidor from lectura where idlectura = (select max(idlectura) from lectura)");
+        
+        while(resultado.next()){
+            result=new ArrayList<String>();
+            result.add(resultado.getString("idlectura"));
+            result.add(resultado.getString("fechalectura"));
+            result.add(resultado.getString("idmedidor"));
+        }
+        
+        return result;
+    }
+    
+    public String obtenerZona(String idMed) throws SQLException{
+        String result="";
+        
+        Statement sentencia = miConexion.createStatement();
+        ResultSet resultado = sentencia.executeQuery( "SELECT zona from inmueble WHERE idinmueble=(select idinmueble from medidor where idmedidor='"+idMed+"')" );
+        
+        while(resultado.next()){
+            result=resultado.getString("zona");
+        }
+        
+        return result;
+    } 
      
 }
