@@ -520,18 +520,13 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
             String idmed=nuevo.UltimaLectura().get(2);
             int Inzona=Integer.parseInt(nuevo.obtenerZona(idmed));
             String fechaVencimiento="";
-            if(Inzona>0&Inzona<5){
+            if(Inzona>=1||Inzona<=4){
                 fechaVencimiento=14+"/"+fVencimiento(flectura);
-            }if(Inzona>4){
+            }if(Inzona>=5){
                 fechaVencimiento=18+"/"+fVencimiento(flectura);
             }
-            
             Insertar.ingresarRecibo(fechaVencimiento, cobro, idlec);
-            
-            
-            
-            
-            
+           
            
         } catch (SQLException ex) {
             Logger.getLogger(Registrar_Lectura.class.getName()).log(Level.SEVERE, null, ex);
@@ -545,15 +540,16 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
         int mes=Integer.parseInt(st.nextToken());
         int dia=Integer.parseInt(st.nextToken());
         
+        
         if(mes>=1||mes<=11){
             mes=mes+1;
             result=mes+"/"+anio;
-        }
-        if(mes==12){
+        }else{
             mes=1;
             anio=anio+1;
             result=mes+"/"+anio;
         }
+        
         
         return result;
     }
