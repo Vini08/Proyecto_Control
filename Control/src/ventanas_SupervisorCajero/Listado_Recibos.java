@@ -21,9 +21,7 @@ import javax.swing.JComponent;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import static ventanas_SupervisorCajero.Editar_Cliente.conn;
-import static ventanas_SupervisorCajero.Editar_Cliente.rs;
-import static ventanas_SupervisorCajero.Eliminar_Cliente.conn;
+
 
 /**
  *
