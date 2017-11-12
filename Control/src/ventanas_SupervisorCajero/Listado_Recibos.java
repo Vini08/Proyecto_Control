@@ -5,6 +5,7 @@
  */
 package ventanas_SupervisorCajero;
 
+import Clases.listadoRecibos;
 import Conexion.Conexion;
 import static Conexion.Conexion.Enlace;
 import Conexion.MostrarTabla;
@@ -14,6 +15,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -21,6 +26,13 @@ import javax.swing.JComponent;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 /**
@@ -149,6 +161,9 @@ try {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Generar Recibo");
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel10MouseEntered(evt);
             }
@@ -248,6 +263,44 @@ try {
         }
         
     }//GEN-LAST:event_jComboBox1KeyReleased
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        //TODO add your handling code here:
+       List lista = new ArrayList();
+        for(int i=0; i<jTable1.getRowCount();i++){
+           listadoRecibos recibos = new listadoRecibos(jTable1.getValueAt(i, 0).toString(), jTable1.getValueAt(i, 1).toString(), jTable1.getValueAt(i, 2).toString(), jTable1.getValueAt(i, 3).toString(), jTable1.getValueAt(i, 4).toString(), jTable1.getValueAt(i, 5).toString(),jTable1.getValueAt(i, 6).toString(), jTable1.getValueAt(i, 7).toString(), jTable1.getValueAt(i, 8).toString() );
+            lista.add(recibos);
+        }
+            
+        try {
+          JasperReport reporte = (JasperReport) JRLoader.loadObject("recibos.jasper");
+           Map parametro = new HashMap();
+            parametro.put("zona", jComboBox1.getSelectedItem());
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, new JRBeanCollectionDataSource(lista));
+            JasperViewer.viewReport(jprint);
+        } catch (JRException ex) {
+            Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        /** String path= "";
+        try{
+            URL url = this.getClass().getResource("/Reportes/recibos.jasper");
+            path = URLDecoder.decode(path, "UTF-8");
+            
+             Connection conn=null;
+             Connection miConexion = (Connection) Conexion.Enlace(conn);
+            
+            Map parametros = new HashMap();
+            JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte,parametros, miConexion);
+            JasperViewer visor = new JasperViewer(imprimir,false);
+            visor.setTitle("Libro Diario");
+            visor.setVisible(true);
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+         }  */ 
+    }//GEN-LAST:event_jLabel10MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
