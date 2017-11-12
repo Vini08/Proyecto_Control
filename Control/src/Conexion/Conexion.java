@@ -110,9 +110,23 @@ public class Conexion {
                     return res;
                 }
 
-        public void InsertInmueble_Medidor(int dpi) throws SQLException
-        {
-       
-         }
+        public static ResultSet BuscarRecibo(int zona) throws SQLException
+                {
+                    Connection conn=null;
+                    Connection miConexion = (Connection) Conexion.Enlace(conn);
+                    ResultSet res = null;
+                    
+                    try
+                    {
+                        
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO, inmueble.zona,  lectura.LECTURAANTERIOR, lectura.LECTURAACTUAL, lectura.METROSCUBICOS, recibo.fechavenci, recibo.TOTAL, recibo.IDRECIBO  from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on medidor.IDMEDIDOR = medidor.IDINMUEBLE inner join lectura on lectura.IDLECTURA = medidor.IDINMUEBLE inner join recibo on  recibo.IDRECIBO = recibo.IDLECTURA where inmueble.zona=?");
+                       pstm.setInt(1, zona);
+                        res=pstm.executeQuery();
+                    } catch (Exception e)
+                    {
+                       
+                    }
+                    return res;
+                }
         
 }

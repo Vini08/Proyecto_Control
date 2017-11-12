@@ -5,7 +5,9 @@
  */
 package ventanas_SupervisorCajero;
 
+import Conexion.Conexion;
 import static Conexion.Conexion.Enlace;
+import Conexion.MostrarTabla;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
@@ -18,6 +20,10 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import static ventanas_SupervisorCajero.Editar_Cliente.conn;
+import static ventanas_SupervisorCajero.Editar_Cliente.rs;
+import static ventanas_SupervisorCajero.Eliminar_Cliente.conn;
 
 /**
  *
@@ -36,15 +42,45 @@ Color BTNmenuMouse =new Color(31,51,70);
 Color X1 =new Color(69,69,69);
 Color X2 =new Color(102,102,102);
     public Listado_Recibos() {
-        initComponents();
-         modelo = new DefaultComboBoxModel();
-         llena_combo(); 
-        QuitarLaBarraTitulo();
-        jButton2.setOpaque(true);
-        jButton2.setContentAreaFilled(false);
-       Border thickBorder = new LineBorder(BTNmenuACT, 86);
-       Border thickBorderSearch = new LineBorder(X2, 86);
-       jButton2.setBorder(thickBorder);
+     
+      //  try {
+            //7try {
+            initComponents();
+            modelo = new DefaultComboBoxModel();
+            llena_combo();
+            
+           // Conexion cxn = new Conexion();// llamamos a la clase Conexion
+            //MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
+            //DefaultTableModel modelo = new DefaultTableModel();
+            //conn=Conexion.Enlace(conn);
+            //rs=Conexion.BuscarRecibo(rs);
+            //modelo=tabla.Imprimir(rs,modelo);
+            //jTable1.setModel(modelo);
+            
+            QuitarLaBarraTitulo();
+            jButton2.setOpaque(true);
+            jButton2.setContentAreaFilled(false);
+            Border thickBorder = new LineBorder(BTNmenuACT, 86);
+            Border thickBorderSearch = new LineBorder(X2, 86);
+            jButton2.setBorder(thickBorder);
+            jComboBox2.addItem("ENERO");
+            jComboBox2.addItem("FEBRERO");
+            jComboBox2.addItem("MARZO");
+            jComboBox2.addItem("ABRIL");
+            jComboBox2.addItem("MAYO");
+            jComboBox2.addItem("JUNIO");
+            jComboBox2.addItem("JULIO");
+            jComboBox2.addItem("AGOSTO");
+            jComboBox2.addItem("SEPTIEMBRE");
+            jComboBox2.addItem("OCTUBRE");
+            jComboBox2.addItem("NOVIEMBRE");
+            jComboBox2.addItem("DICEMBRE");
+            //} catch (SQLException ex) {
+            //   Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
+            //}
+       // } catch (SQLException ex) {
+         //   Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
+        //}
     }
 
     public void QuitarLaBarraTitulo()
@@ -150,8 +186,13 @@ try {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 740, 300));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 950, 300));
 
+        jComboBox1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jComboBox1KeyReleased(evt);
+            }
+        });
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 100, 40));
 
         jLabel9.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
@@ -190,6 +231,25 @@ try {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox1KeyReleased
+        // TODO add your handling code here:
+          try {
+            // TODO add your handling code here:
+            int zona=Integer.parseInt((String) jComboBox1.getSelectedItem());
+            Conexion cxn = new Conexion();// llamamos a la clase Conexion
+            MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
+            DefaultTableModel modelot = new DefaultTableModel();
+            conn=Conexion.Enlace(conn);
+            rs=Conexion.BuscarRecibo(zona);
+            modelot=tabla.Imprimir(rs,modelot);
+            jTable1.setModel(modelot);
+              
+        } catch (SQLException ex) {
+            Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jComboBox1KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
