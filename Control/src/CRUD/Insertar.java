@@ -13,6 +13,7 @@ import Clases.Medidor;
 import Conexion.Conexion;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -175,7 +176,7 @@ public static void insertarINMUEBLE_MEDIDOR(String direccion, String zona, Strin
             
                 PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
                         + "RECIBO(FECHAVENCI, TOTAL, IDLECTURA) "
-                        + " values(?,?,?)");
+                        + " values(TO_DATE(?,'dd/mm/yyyy hh24:mi:ss'),?,?)");
                 
                
                 pstm.setString(1, fechavenci);

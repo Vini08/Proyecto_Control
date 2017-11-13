@@ -20,6 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -513,17 +514,28 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     public void reciboNuevo(Double cobro){
         Consultar nuevo=new Consultar();
         ArrayList<String> obtener=new ArrayList<String>();
+        java.util.Date utilDate=new java.util.Date();
+        long InMilisegundos=utilDate.getTime();
+        
+        java.sql.Time sqlTime=new java.sql.Time(InMilisegundos);
+        
+        
+       
+        
+        
         try {
             
             int idlec=Integer.parseInt(nuevo.UltimaLectura().get(0));
             String flectura=nuevo.UltimaLectura().get(1);
             String idmed=nuevo.UltimaLectura().get(2);
             int Inzona=Integer.parseInt(nuevo.obtenerZona(idmed));
+         
             String fechaVencimiento="";
             if(Inzona>=1||Inzona<=4){
-                fechaVencimiento=14+"/"+fVencimiento(flectura);
+                fechaVencimiento=14+"-"+fVencimiento(flectura)+" "+sqlTime;
             }if(Inzona>=5){
-                fechaVencimiento=18+"/"+fVencimiento(flectura);
+                fechaVencimiento=18+"-"+fVencimiento(flectura)+" "+sqlTime;
+                
             }
             Insertar.ingresarRecibo(fechaVencimiento, cobro, idlec);
            
@@ -543,11 +555,11 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
         
         if(mes>=1||mes<=11){
             mes=mes+1;
-            result=mes+"/"+anio;
+            result=mes+"-"+anio;
         }else{
             mes=1;
             anio=anio+1;
-            result=mes+"/"+anio;
+            result=mes+"-"+anio;
         }
         
         
