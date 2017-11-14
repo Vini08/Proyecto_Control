@@ -250,11 +250,12 @@ try {
           try {
             // TODO add your handling code here:
             int zona=Integer.parseInt((String) jComboBox1.getSelectedItem());
+            String fecha= (String) jComboBox2.getSelectedItem();
             Conexion cxn = new Conexion();// llamamos a la clase Conexion
             MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
             DefaultTableModel modelot = new DefaultTableModel();
             conn=Conexion.Enlace(conn);
-            rs=Conexion.BuscarRecibo(zona);
+            rs=Conexion.BuscarRecibo(fecha, zona);
             modelot=tabla.Imprimir(rs,modelot);
             jTable1.setModel(modelot);
               

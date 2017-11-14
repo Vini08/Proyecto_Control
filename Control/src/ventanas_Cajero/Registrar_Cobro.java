@@ -32,6 +32,7 @@ import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import ventanas_Logueo.inicio_logueo;
 
 /**
  *
@@ -42,14 +43,16 @@ public class Registrar_Cobro extends javax.swing.JInternalFrame {
     static Connection conn=null;
     static Statement st=null;
     static ResultSet rs=null;
-  
+   
     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null; 
 Color BTNmenuACT =new Color(45,70,94);
 Color BTNmenuMouse =new Color(31,51,70);
 
     public Registrar_Cobro() {
+        
         initComponents();
+        inicio_logueo.username = jTextField6.getText();
         QuitarLaBarraTitulo();
         jButton1.setOpaque(true);
         jButton1.setContentAreaFilled(false);
@@ -131,6 +134,7 @@ repaint();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jTextField6 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -377,6 +381,11 @@ repaint();
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 810, 120));
 
+        jTextField6.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
+        jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 20));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -559,6 +568,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField mc;
     private javax.swing.JTextField to;
     // End of variables declaration//GEN-END:variables

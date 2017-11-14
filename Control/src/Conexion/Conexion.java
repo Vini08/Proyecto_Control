@@ -110,7 +110,7 @@ public class Conexion {
                     return res;
                 }
 
-        public static ResultSet BuscarRecibo(int zona) throws SQLException
+        public static ResultSet BuscarRecibo(String fecha, int zona) throws SQLException
                 {
                     Connection conn=null;
                     Connection miConexion = (Connection) Conexion.Enlace(conn);
@@ -119,8 +119,9 @@ public class Conexion {
                     try
                     {
                         
-                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO,inmueble.zona, lectura.LECTURAANTERIOR, lectura.LECTURAACTUAL, lectura.METROSCUBICOS, recibo.fechavenci, recibo.TOTAL, recibo.IDRECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where inmueble.ZONA = ?");
-                       pstm.setInt(1, zona);
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO,inmueble.zona, lectura.LECTURAANTERIOR, lectura.LECTURAACTUAL, lectura.METROSCUBICOS, recibo.fechavenci, recibo.TOTAL, recibo.IDRECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where  FECHAVENCI  < TO_DATE(?, 'MM') and inmueble.ZONA = ? ");
+                       pstm.setString(1,fecha);
+                       pstm.setInt(2, zona);
                         res=pstm.executeQuery();
                     } catch (Exception e)
                     {

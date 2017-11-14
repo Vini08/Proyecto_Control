@@ -23,6 +23,7 @@ import ventanas_Tesoreria.Tesoreria;
  * @author Vinicio
  */
 public class inicio_logueo extends javax.swing.JFrame {
+    public static String username;
     
 Color BTNmenuACT =new Color(45,70,94);
 Color BTNmenuMouse =new Color(31,51,70);
@@ -380,24 +381,28 @@ System.exit(1);        // TODO add your handling code here:
                 int a=consult.login(txt_user.getText(), txt_pass.getText());
             if(a>0){
                 if(a==1){
+                    username=txt_user.getText();
                     Administrador nuevo=new Administrador();
                     nuevo.setVisible(true);
                     nuevo.setLocationRelativeTo(null);
                     this.dispose();
                 }
                 if(a==2){
+                    username=txt_user.getText();
                     Supervisor_Cajero nuevo=new Supervisor_Cajero();
                     nuevo.setVisible(true);
                     nuevo.setLocationRelativeTo(null);
                     this.dispose();
                 }
                 if(a==3){
+                    username=txt_user.getText();
                     Cajero nuevo=new Cajero();
                     nuevo.setVisible(true);
                     nuevo.setLocationRelativeTo(null);
                     this.dispose();
                 }
                 if(a==4){
+                    username=txt_user.getText();
                   Tesoreria nuevo=new Tesoreria();
                     nuevo.setVisible(true);
                     nuevo.setLocationRelativeTo(null);
