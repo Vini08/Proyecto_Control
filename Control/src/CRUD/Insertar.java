@@ -35,6 +35,8 @@ private static final String DB_USER = "facturacion";
 private static final String DB_PASSWORD = "bar1019";
 public static String ID_INMueble; 
 public static String ID_Tarifa;
+public static String ID_Cliente;
+public static String ID_Lectura;
       public static int ingresarEmpleado(Empleado empleado) throws SQLException {
             int result=0;
             Connection conn=null;
@@ -192,5 +194,43 @@ public static void insertarINMUEBLE_MEDIDOR(String direccion, String zona, Strin
                
             }
          }
+        
+         public static void ingresarFactura(String fecha,double total , int idempleado, int idpago) throws SQLException {
+            Connection conn=null;
+            Connection miConexion = (Connection) Conexion.Enlace(conn);
+            
+              Statement stmt; 
+                ResultSet rsult; 
+                stmt = Conexion.Enlace(conn).createStatement(); 
+                rsult= stmt.executeQuery("select CLIENTE.IDCLIENTE , lectura.IDLECTURA from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where recibo.IDRECIBO = ?"); 
+                while (rsult.next()) { 
+                ID_Cliente = rsult.getString("IDCLIENTE");  
+                ID_Lectura = rsult.getString("IDLECTURA"); 
+                } 
+            
+            try {
+                Statement statement = (Statement) miConexion.createStatement();
+            
+                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                        + "RECIBO(FECHA, TOTAL, IDCLIENTE, IDEMPELADO,IDPAGO,IDLECTURA) "
+                        + " values(TO_DATE(?,'dd/mm/yyyy hh24:mi:ss'),?,?,?,?,?)");
+                
+               
+                pstm.setString(1, fecha);
+                pstm.setDouble(2,total);
+                pstm.setString(3, ID_Cliente);
+                pstm.setInt(4,idempleado);
+                pstm.setInt(5, idpago);
+                pstm.setString(6, ID_Lectura);
+               
+            
+                pstm.execute();
+              
+                pstm.close();
+            } catch (Exception ex) {
+               
+            }
+         }
+
 
 }
