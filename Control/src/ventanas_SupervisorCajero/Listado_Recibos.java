@@ -249,8 +249,73 @@ try {
         // TODO add your handling code here:
           try {
             // TODO add your handling code here:
+            int fecha = 0;
+            
+             
+            if (jComboBox2.getSelectedItem().toString().equals("ENERO")){
+                fecha = 1;
+            }
+            else {
+            if (jComboBox2.getSelectedItem().toString().equals("FEBRERO")){
+                fecha = 2;
+            }
+            else {
+                
+            if (jComboBox2.getSelectedItem().toString().equals("MARZO")){
+                fecha = 3;
+            }
+            else {
+             if (jComboBox2.getSelectedItem().toString().equals("ABRIL")){
+                fecha = 4;
+            }  
+             else {
+             if (jComboBox2.getSelectedItem().toString().equals("MAYO")){
+                fecha = 5;
+            }
+             else {
+            if (jComboBox2.getSelectedItem().toString().equals("JUNIO")){
+                fecha = 6;
+            }
+            else {
+            if (jComboBox2.getSelectedItem().toString().equals("JULIO")){
+                fecha = 7;
+            }
+            else {
+            if (jComboBox2.getSelectedItem().toString().equals("AGOSTO")){
+                fecha = 8;
+            } 
+            else {
+            if (jComboBox2.getSelectedItem().toString().equals("SEPTIEMBRE")){
+                fecha = 9;
+            } 
+            else {
+            if (jComboBox2.getSelectedItem().toString().equals("OCTUBRE")){
+                fecha = 10;
+            }
+            else{
+            if (jComboBox2.getSelectedItem().toString().equals("NOVIMBRE")){
+                fecha = 11;
+            }
+            else {
+            if (jComboBox2.getSelectedItem().toString().equals("DICIEMBRE")){
+                fecha = 12;
+            }    
+            }
+            }   
+            }
+            }
+            }
+            }
+             }
+             } 
+            }    
+            }  
+            } 
+            
+            
+            
             int zona=Integer.parseInt((String) jComboBox1.getSelectedItem());
-            String fecha= (String) jComboBox2.getSelectedItem();
+            
             Conexion cxn = new Conexion();// llamamos a la clase Conexion
             MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
             DefaultTableModel modelot = new DefaultTableModel();
