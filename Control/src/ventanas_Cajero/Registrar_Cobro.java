@@ -8,10 +8,12 @@ package ventanas_Cajero;
 import ventanas_SupervisorCajero.*;
 import CRUD.Consultar;
 import CRUD.Insertar;
+import static CRUD.Insertar.ID_Cliente;
 import static CRUD.Insertar.ID_INMueble;
 import Clases.Cliente;
 import Clases.Lectura;
 import Conexion.Conexion;
+import static Conexion.Conexion.Enlace;
 import Conexion.MostrarTabla;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import java.awt.Color;
@@ -27,12 +29,14 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import ventanas_Logueo.inicio_logueo;
+import static ventanas_SupervisorCajero.Registrar_Lectura.ID_Tarifa;
 
 /**
  *
@@ -43,6 +47,9 @@ public class Registrar_Cobro extends javax.swing.JInternalFrame {
     static Connection conn=null;
     static Statement st=null;
     static ResultSet rs=null;
+    public static String ID_Cliente;
+    public static String nombreTipo;
+    static DefaultComboBoxModel modelo;
    
     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null; 
@@ -52,6 +59,8 @@ Color BTNmenuMouse =new Color(31,51,70);
     public Registrar_Cobro() {
         
         initComponents();
+         modelo = new DefaultComboBoxModel();
+         llena_combo();
         inicio_logueo.username = jTextField6.getText();
         QuitarLaBarraTitulo();
         jButton1.setOpaque(true);
@@ -62,30 +71,6 @@ Color BTNmenuMouse =new Color(31,51,70);
        Border thickBorder = new LineBorder(BTNmenuACT, 86);
        jButton1.setBorder(thickBorder);
        jButton2.setBorder(thickBorder);
-       
-       
-       
-       ResultSet rs;
-        
-          TextAutoCompleter textAutoAcompleter = new TextAutoCompleter(c2);
-           Connection conn=null;
-           
-        try {
-            PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select * from MEDIDOR ");
-               rs= pstm.executeQuery(); 
-        
-               while( rs.next() )
-
-            {
-
-            textAutoAcompleter.addItem( rs.getString( "IDMEDIDOR" ) );
-            
-            
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     public void QuitarLaBarraTitulo()
@@ -95,6 +80,25 @@ DimensionBarra = Barra.getPreferredSize();
 Barra.setSize(0,0); 
 Barra.setPreferredSize(new Dimension(0,0)); 
 repaint(); 
+}
+    
+    public void llena_combo(){ // static para poder llamarlo desde el otro frame o JDialog
+
+try {
+    modelo.removeAllElements(); // eliminamos lo elementos
+    conn=Enlace(conn);
+    st=conn.createStatement();
+    ResultSet rs=st.executeQuery("SELECT DISTINCT NOMBRETIPO from TIPOPAGO ");
+    modelo.addElement("---");
+    while(rs.next())
+    {                
+        modelo.addElement(rs.getString("NOMBRETIPO"));
+        jComboBox1.setModel(modelo);
+    }
+      // seteamos el modelo y se cargan los datos
+} catch (SQLException ex) {
+    Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
+}     
 }
     
     /**
@@ -135,6 +139,8 @@ repaint();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jTextField6 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -154,13 +160,13 @@ repaint();
 
         jLabel2.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(88, 88, 88));
-        jLabel2.setText("Numero de Recibo");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 240, 56));
+        jLabel2.setText("Tipo de Pago:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 180, 56));
 
         jLabel3.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(88, 88, 88));
         jLabel3.setText("Fecha de Emision");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 220, 56));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 220, 56));
 
         c2.setEditable(false);
         c2.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
@@ -177,7 +183,7 @@ repaint();
         jTextField5.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 110, 40));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 110, 40));
 
         jLabel8.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -245,7 +251,7 @@ repaint();
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 310, 250, 57));
 
         jDateChooser1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 310, 40));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 310, 40));
 
         to.setEditable(false);
         to.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
@@ -386,6 +392,14 @@ repaint();
         jTextField6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 20));
 
+        jLabel6.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(88, 88, 88));
+        jLabel6.setText("Numero de Recibo");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 240, 56));
+
+        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, 220, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -432,34 +446,78 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     }//GEN-LAST:event_jLabel10MouseExited
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-     
-        DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
-        
-        Object [] fila=new Object[7]; 
-        fila[0]=c1.getText(); 
-        fila[1]=c2.getText();
-        fila[2]=di.getText();
-        fila[3]=di2.getText();
-        fila[4]=mc.getText();
-        fila[5]=co.getText();
-        fila[6]=to.getText();
-         modelo.addRow(fila);
-        
-          jTable2.setModel(modelo);
-          
-     
-      
 
-//  Object[] fila = {
-        //    c1.getText(),
-          //  c2.getText(),
-            //di.getText(),
-            //di2.getText(),
-            //mc.getText(),
-            //co.getText(),
-            //to.getText()
-        //};
-             
+                                          
+        try {
+            
+            
+            DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
+            Object [] fila=new Object[7];
+            fila[0]=c1.getText();
+            fila[1]=c2.getText();
+            fila[2]=di.getText();
+            fila[3]=di2.getText();
+            fila[4]=mc.getText();
+            fila[5]=co.getText();
+            fila[6]=to.getText();
+            modelo.addRow(fila);
+            jTable2.setModel(modelo);
+            
+            int idrecibo=Integer.parseInt(jTextField5.getText());
+            String fecha= new SimpleDateFormat("dd/MM/yyyy").format(jDateChooser1.getDate());
+            int total=Integer.parseInt(to.getText());
+            String nombretipo= (String) jComboBox1.getSelectedItem();
+            int idempleado=Integer.parseInt(jTextField6.getText());
+            int idlectura= Integer.parseInt(co.getText());
+            
+            Statement stmt;
+            ResultSet rsult;
+            PreparedStatement pstm1 = Conexion.Enlace(conn).prepareStatement("select IDTIPO from tipopago where NOMBRETIPO = ?");
+            pstm1.setString(1, nombretipo );
+            rsult=pstm1.executeQuery();
+            
+            while (rsult.next()) {
+                nombreTipo = rsult.getString("IDTIPO");
+            }
+            
+            
+            PreparedStatement pstm2 = Conexion.Enlace(conn).prepareStatement("select CLIENTE.IDCLIENTE from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where recibo.IDRECIBO = ?");
+            pstm2.setInt(1, idrecibo );
+            rsult=pstm2.executeQuery();
+            
+            while (rsult.next()) {
+                ID_Cliente = rsult.getString("IDCLIENTE");
+            }
+            
+            try {
+                Connection miConexion = (Connection) Conexion.Enlace(conn);
+                
+                Statement statement = (Statement) miConexion.createStatement();
+                
+                
+                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                        + "FACTURA(FECHA, TOTAL, IDCLIENTE, IDEMPLEADO,IDPAGO,IDLECTURA) "
+                        + " values(TO_DATE(?,'dd/mm/yyyy hh24:mi:ss'),?,?,?,?,?)");
+                
+                
+                pstm.setString(1, fecha);
+                pstm.setInt(2,total);
+                pstm.setString(3, ID_Cliente);
+                pstm.setInt(4,idempleado);
+                pstm.setString(5, nombreTipo);
+                pstm.setInt(6, idlectura);
+                
+                
+                pstm.execute();
+                
+                pstm.close();
+            } catch (Exception ex) {
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }             
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -551,6 +609,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
+    private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -561,6 +620,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

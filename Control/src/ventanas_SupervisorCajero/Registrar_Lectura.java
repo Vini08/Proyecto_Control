@@ -518,11 +518,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
         long InMilisegundos=utilDate.getTime();
         
         java.sql.Time sqlTime=new java.sql.Time(InMilisegundos);
-        
-        
-       
-        
-        
+         
         try {
             
             int idlec=Integer.parseInt(nuevo.UltimaLectura().get(0));

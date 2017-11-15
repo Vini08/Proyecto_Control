@@ -385,7 +385,10 @@ jButton4.setOpaque(true);        // TODO add your handling code here:
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 jPanel2.removeAll();
-jPanel2.repaint();
+        jPanel2.repaint();
+        Consultar_Estado nw = new Consultar_Estado();
+        jPanel2.add(nw);
+nw.show();
        // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
