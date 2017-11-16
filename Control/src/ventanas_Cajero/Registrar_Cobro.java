@@ -38,6 +38,7 @@ import ventanas_Logueo.inicio_logueo;
  * @author Vinicio
  */
 public class Registrar_Cobro extends javax.swing.JInternalFrame {
+    public static String NameUsuario;
     
     static Connection conn=null;
     static Statement st=null;
@@ -51,12 +52,13 @@ private Dimension DimensionBarra = null;
 Color BTNmenuACT =new Color(45,70,94);
 Color BTNmenuMouse =new Color(31,51,70);
 
-    public Registrar_Cobro() {
+    public Registrar_Cobro(String usernam) {
         
         initComponents();
          modelo = new DefaultComboBoxModel();
          llena_combo();
-        inicio_logueo.username = jTextField6.getText();
+         NameUsuario = usernam;
+        jTextField6.setText(NameUsuario);
         QuitarLaBarraTitulo();
         jButton1.setOpaque(true);
         jButton1.setContentAreaFilled(false);
@@ -382,10 +384,11 @@ try {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 810, 120));
 
-        jTextField6.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
+        jTextField6.setEditable(false);
+        jTextField6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 20));
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 30));
 
         jLabel6.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(88, 88, 88));

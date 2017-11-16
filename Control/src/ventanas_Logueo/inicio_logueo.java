@@ -258,6 +258,11 @@ Color X2 =new Color(102,102,102);
         txt_pass.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         txt_pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_pass.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txt_pass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_passKeyPressed(evt);
+            }
+        });
         jPanel2.add(txt_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 380, 60));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 50, 540, 370));
@@ -372,53 +377,15 @@ System.exit(1);        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Consultar consult=new Consultar();
-        try {
-            if("".equals(txt_user.getText())||"".equals(txt_pass.getText())){
-                JOptionPane.showMessageDialog(this, "Complete los campos");
-                txt_user.requestFocus();
-            }else{
-                int a=consult.login(txt_user.getText(), txt_pass.getText());
-            if(a>0){
-                if(a==1){
-                    username=txt_user.getText();
-                    Administrador nuevo=new Administrador();
-                    nuevo.setVisible(true);
-                    nuevo.setLocationRelativeTo(null);
-                    this.dispose();
-                }
-                if(a==2){
-                    username=txt_user.getText();
-                    Supervisor_Cajero nuevo=new Supervisor_Cajero();
-                    nuevo.setVisible(true);
-                    nuevo.setLocationRelativeTo(null);
-                    this.dispose();
-                }
-                if(a==3){
-                    username=txt_user.getText();
-                    Cajero nuevo=new Cajero(username);
-                    nuevo.setVisible(true);
-                    nuevo.setLocationRelativeTo(null);
-                    this.dispose();
-                }
-                if(a==4){
-                    username=txt_user.getText();
-                  Tesoreria nuevo=new Tesoreria();
-                    nuevo.setVisible(true);
-                    nuevo.setLocationRelativeTo(null);
-                    this.dispose();  
-                }
-            }else{
-                JOptionPane.showMessageDialog(this, "Credenciales Invalidas");
-                txt_user.setText("");
-                txt_pass.setText("");
-                txt_user.requestFocus();
-            }
-        }  
-        } catch (SQLException ex) {
-        Logger.getLogger(inicio_logueo.class.getName()).log(Level.SEVERE, null, ex);
-    }
+       inicia();
     }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void txt_passKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==10){
+        inicia();
+}
+    }//GEN-LAST:event_txt_passKeyPressed
 
     /**
      * @param args the command line arguments
@@ -482,6 +449,54 @@ System.exit(1);        // TODO add your handling code here:
     private javax.swing.JTextField txt_user;
     // End of variables declaration//GEN-END:variables
 
+    public void inicia (){
+      Consultar consult=new Consultar();
+        try {
+            if("".equals(txt_user.getText())||"".equals(txt_pass.getText())){
+                JOptionPane.showMessageDialog(this, "Complete los campos");
+                txt_user.requestFocus();
+            }else{
+                int a=consult.login(txt_user.getText(), txt_pass.getText());
+            if(a>0){
+                if(a==1){
+                    username=txt_user.getText();
+                    Administrador nuevo=new Administrador();
+                    nuevo.setVisible(true);
+                    nuevo.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+                if(a==2){
+                    username=txt_user.getText();
+                    Supervisor_Cajero nuevo=new Supervisor_Cajero();
+                    nuevo.setVisible(true);
+                    nuevo.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+                if(a==3){
+                    username=txt_user.getText();
+                    Cajero nuevo=new Cajero(username);
+                    nuevo.setVisible(true);
+                    nuevo.setLocationRelativeTo(null);
+                    this.dispose();
+                }
+                if(a==4){
+                    username=txt_user.getText();
+                  Tesoreria nuevo=new Tesoreria();
+                    nuevo.setVisible(true);
+                    nuevo.setLocationRelativeTo(null);
+                    this.dispose();  
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "Credenciales Invalidas");
+                txt_user.setText("");
+                txt_pass.setText("");
+                txt_user.requestFocus();
+            }
+        }  
+        } catch (SQLException ex) {
+        Logger.getLogger(inicio_logueo.class.getName()).log(Level.SEVERE, null, ex);
+    }   
+    }
 
 
 }
