@@ -27,13 +27,15 @@ public class Cajero extends javax.swing.JFrame {
 private int x;
 private int y;
 
+
       
         
 Border thickBorde = new LineBorder(Color.WHITE, 4);
    Color BTNmenuACT =new Color(45,70,94);
    Color BTNmenuMouse =new Color(34,57,79);
    Color BTNmenuMousePressed =new Color(95,122,148); 
-    public Cajero() {
+    
+   public Cajero() {
         initComponents();
        jButton13.setOpaque(true);
        jButton13.setContentAreaFilled(false);

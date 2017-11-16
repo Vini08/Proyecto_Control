@@ -6,27 +6,22 @@
 package ventanas_Cajero;
 
 import ventanas_SupervisorCajero.*;
-import CRUD.Consultar;
-import CRUD.Insertar;
-import static CRUD.Insertar.ID_Cliente;
-import static CRUD.Insertar.ID_INMueble;
-import Clases.Cliente;
-import Clases.Lectura;
+
 import Conexion.Conexion;
 import static Conexion.Conexion.Enlace;
 import Conexion.MostrarTabla;
-import com.mxrck.autocompleter.TextAutoCompleter;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
-import java.sql.Date;
+
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -36,7 +31,7 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import ventanas_Logueo.inicio_logueo;
-import static ventanas_SupervisorCajero.Registrar_Lectura.ID_Tarifa;
+
 
 /**
  *
@@ -449,19 +444,19 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
 
                                           
         try {
+            Connection conn=null;
             
-            
-            DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
-            Object [] fila=new Object[7];
-            fila[0]=c1.getText();
-            fila[1]=c2.getText();
-            fila[2]=di.getText();
-            fila[3]=di2.getText();
-            fila[4]=mc.getText();
-            fila[5]=co.getText();
-            fila[6]=to.getText();
-            modelo.addRow(fila);
-            jTable2.setModel(modelo);
+           DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
+           Object [] fila=new Object[7];
+           fila[0]=c1.getText();
+           fila[1]=c2.getText();
+           fila[2]=di.getText();
+           fila[3]=di2.getText();
+           fila[4]=mc.getText();
+           fila[5]=co.getText();
+           fila[6]=to.getText();
+           modelo.addRow(fila);
+           jTable2.setModel(modelo);
             
             int idrecibo=Integer.parseInt(jTextField5.getText());
             String fecha= new SimpleDateFormat("dd/MM/yyyy").format(jDateChooser1.getDate());
@@ -488,32 +483,48 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
             while (rsult.next()) {
                 ID_Cliente = rsult.getString("IDCLIENTE");
             }
-            
+              
             try {
                 Connection miConexion = (Connection) Conexion.Enlace(conn);
                 
                 Statement statement = (Statement) miConexion.createStatement();
                 
                 
-                PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
+                PreparedStatement pstm4 = Conexion.Enlace(conn).prepareStatement("insert into "
                         + "FACTURA(FECHA, TOTAL, IDCLIENTE, IDEMPLEADO,IDPAGO,IDLECTURA) "
                         + " values(TO_DATE(?,'dd/mm/yyyy hh24:mi:ss'),?,?,?,?,?)");
                 
                 
-                pstm.setString(1, fecha);
-                pstm.setInt(2,total);
-                pstm.setString(3, ID_Cliente);
-                pstm.setInt(4,idempleado);
-                pstm.setString(5, nombreTipo);
-                pstm.setInt(6, idlectura);
-                
-                
-                pstm.execute();
-                
-                pstm.close();
+                pstm4.setString(1, fecha);
+                pstm4.setInt(2,total);
+                pstm4.setString(3, ID_Cliente);
+                pstm4.setInt(4,idempleado);
+                pstm4.setString(5, nombreTipo);
+                pstm4.setInt(6, idlectura);
+                pstm4.execute();
+                pstm4.close();     
             } catch (Exception ex) {
-                
+                Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            try{
+                Connection miConexion = (Connection) Conexion.Enlace(conn);
+                
+                Statement statement = (Statement) miConexion.createStatement();
+                
+                
+                try (PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("UPDATE RECIBO "
+                        + "SET ESTADO = ? "
+                        + "WHERE IDRECIBO = ? ")) {
+                    pstm.setInt(1, 2);
+                    pstm.setInt(2, idrecibo);
+                    pstm.execute();
+                }  
+            } catch (SQLException ex) {
+            Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }   
+            
         } catch (SQLException ex) {
             Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
             

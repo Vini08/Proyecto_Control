@@ -177,14 +177,14 @@ public static void insertarINMUEBLE_MEDIDOR(String direccion, String zona, Strin
                 Statement statement = (Statement) miConexion.createStatement();
             
                 PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("insert into "
-                        + "RECIBO(FECHAVENCI, TOTAL, ESTADO, IDLECTURA) "
+                        + "RECIBO(FECHAVENCI, TOTAL,IDLECTURA,ESTADO) "
                         + " values(TO_DATE(?,'dd/mm/yyyy hh24:mi:ss'),?,?,?)");
                 
                
                 pstm.setString(1, fechavenci);
                 pstm.setDouble(2,total);
-                pstm.setInt(3, 1);
-                pstm.setInt(4,idlectura);
+                pstm.setInt(3,idlectura);
+                 pstm.setInt(4, 1);
                
             
                 pstm.execute();
