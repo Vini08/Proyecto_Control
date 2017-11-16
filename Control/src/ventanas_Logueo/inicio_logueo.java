@@ -396,7 +396,7 @@ System.exit(1);        // TODO add your handling code here:
                 }
                 if(a==3){
                     username=txt_user.getText();
-                    Cajero nuevo=new Cajero();
+                    Cajero nuevo=new Cajero(username);
                     nuevo.setVisible(true);
                     nuevo.setLocationRelativeTo(null);
                     this.dispose();

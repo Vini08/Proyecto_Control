@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
 public class Cajero extends javax.swing.JFrame {
 private int x;
 private int y;
-
+public static String NameUsuario;
 
       
         
@@ -35,8 +35,10 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
    Color BTNmenuMouse =new Color(34,57,79);
    Color BTNmenuMousePressed =new Color(95,122,148); 
     
-   public Cajero() {
+   public Cajero(String usernam) {
         initComponents();
+        NameUsuario = usernam;
+        jLabel2.setText(NameUsuario);
        jButton13.setOpaque(true);
        jButton13.setContentAreaFilled(false);
        Border thickBorderSearch = new LineBorder(BTNmenuACT, 86);
@@ -57,6 +59,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         inicioEmpleado = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jButton13 = new javax.swing.JButton();
@@ -102,15 +105,24 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel2.setText("jLabel2");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1130, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(339, 339, 339)
+                .addComponent(jLabel2)
+                .addContainerGap(750, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jLabel2)
+                .addContainerGap(632, Short.MAX_VALUE))
         );
 
         inicioEmpleado.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, 730));
@@ -522,7 +534,7 @@ nw.show();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cajero().setVisible(true);
+                new Cajero(NameUsuario).setVisible(true);
             }
         });
     }
@@ -536,6 +548,7 @@ nw.show();
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

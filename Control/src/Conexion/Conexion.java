@@ -22,7 +22,7 @@ public class Conexion {
   
     static String bd="XE";
     static String login="facturacion";//Valores de prueba 
-    static String password="bar1019";//Valores de prueba
+    static String password="oracle88";//Valores de prueba
     static String url="jdbc:oracle:thin:@localhost:1521:XE";
     
     public static Connection Enlace(Connection conn)throws SQLException    {
