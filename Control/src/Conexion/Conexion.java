@@ -148,5 +148,24 @@ public class Conexion {
                     }
                     return res;
                 }
+           
+             public static ResultSet BuscarReciboM(int medidor) throws SQLException
+                {
+                    Connection conn=null;
+                    Connection miConexion = (Connection) Conexion.Enlace(conn);
+                    ResultSet res = null;
+                    
+                    try
+                    {
+                        
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO,inmueble.zona, lectura.LECTURAANTERIOR, lectura.LECTURAACTUAL, lectura.METROSCUBICOS, recibo.fechavenci, recibo.TOTAL, recibo.IDRECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where medidor.idmedidor = ? and RECIBO.ESTADO =1 ");
+                       pstm.setInt(1,medidor);
+                        res=pstm.executeQuery();
+                    } catch (Exception e)
+                    {
+                       
+                    }
+                    return res;
+                }
         
 }

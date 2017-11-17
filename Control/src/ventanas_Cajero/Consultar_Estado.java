@@ -168,6 +168,7 @@ repaint();
 
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 950, 300));
@@ -176,6 +177,8 @@ repaint();
         jLabel11.setForeground(new java.awt.Color(88, 88, 88));
         jLabel11.setText("Por favor ingrese el No. de Medidor a Buscar");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 580, 30));
+
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 190, 40));
 
         jLabel12.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
@@ -209,59 +212,20 @@ repaint();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        //TODO add your handling code here:
-       List lista = new ArrayList();
-        for(int i=0; i<jTable1.getRowCount();i++){
-           listadoRecibos recibos = new listadoRecibos(jTable1.getValueAt(i, 0).toString(), jTable1.getValueAt(i, 1).toString(), jTable1.getValueAt(i, 2).toString(), jTable1.getValueAt(i, 3).toString(), jTable1.getValueAt(i, 4).toString(), jTable1.getValueAt(i, 5).toString(),jTable1.getValueAt(i, 6).toString(), jTable1.getValueAt(i, 7).toString(), jTable1.getValueAt(i, 8).toString() );
-            lista.add(recibos);
-        }
-            
         try {
-          JasperReport reporte = (JasperReport) JRLoader.loadObject("recibos.jasper");
-           Map parametro = new HashMap();
-           // parametro.put("zona", jComboBox1.getSelectedItem());
-            JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, new JRBeanCollectionDataSource(lista));
-            JasperViewer.viewReport(jprint);
-        } catch (JRException ex) {
+            //TODO add your handling code here:
+            int medidor=Integer.parseInt(jTextField1.getText());
+            Conexion cxn = new Conexion();// llamamos a la clase Conexion
+            MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
+            DefaultTableModel modelot = new DefaultTableModel();
+            conn=Conexion.Enlace(conn);
+            rs=Conexion.BuscarReciboM(medidor);
+            modelot=tabla.Imprimir(rs,modelot);
+            jTable1.setModel(modelot);
+        } catch (SQLException ex) {
             Logger.getLogger(Consultar_Estado.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        /** String path= "";
-        try{
-            URL url = this.getClass().getResource("/Reportes/recibos.jasper");
-            path = URLDecoder.decode(path, "UTF-8");
-            
-             Connection conn=null;
-             Connection miConexion = (Connection) Conexion.Enlace(conn);
-            
-            Map parametros = new HashMap();
-            JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
-            JasperPrint imprimir = JasperFillManager.fillReport(reporte,parametros, miConexion);
-            JasperViewer visor = new JasperViewer(imprimir,false);
-            visor.setTitle("Libro Diario");
-            visor.setVisible(true);
-        }
-        catch(Exception ex){
-            System.out.println(ex.getMessage());
-        
-        /** String path= "";
-        try{
-            URL url = this.getClass().getResource("/Reportes/recibos.jasper");
-            path = URLDecoder.decode(path, "UTF-8");
-            
-             Connection conn=null;
-             Connection miConexion = (Connection) Conexion.Enlace(conn);
-            
-            Map parametros = new HashMap();
-            JasperReport reporte = (JasperReport) JRLoader.loadObject(url);
-            JasperPrint imprimir = JasperFillManager.fillReport(reporte,parametros, miConexion);
-            JasperViewer visor = new JasperViewer(imprimir,false);
-            visor.setTitle("Libro Diario");
-            visor.setVisible(true);
-        }
-        catch(Exception ex){
-            System.out.println(ex.getMessage());
-         }  */ 
+     
     }//GEN-LAST:event_jLabel10MouseClicked
 
 
