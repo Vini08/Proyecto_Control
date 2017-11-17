@@ -490,6 +490,13 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
                  pstm.execute();
                  pstm.close();
                  
+            medidor.setText("");
+            jDateChooser1.setDate(null);
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
+                 
                  JOptionPane.showMessageDialog(null, "Datos Agregados");
              } catch (Exception ex) {
                  

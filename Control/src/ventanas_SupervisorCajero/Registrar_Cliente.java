@@ -272,6 +272,13 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
         cli.setTelefono (Integer.parseInt(telefono.getText()));        
         
             Insertar.ingresarCliente(cli);
+            
+             nombre.setText("");
+            apellido.setText("");
+            dpi.setText("");
+            nit.setText("");
+            telefono.setText("");
+          
         
         JOptionPane.showMessageDialog(null, "Datos Agregados");
         } catch (SQLException ex) {
