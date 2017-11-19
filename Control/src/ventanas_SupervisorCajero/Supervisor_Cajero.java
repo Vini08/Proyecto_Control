@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import ventanas_Logueo.inicio_logueo;
 
 /**
  *
@@ -882,7 +883,11 @@ jButton9.setOpaque(true);        // Codigo para que vuelva el color de fondo ori
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        System.exit(1);        // TODO add your handling code here:
+            // TODO add your handling code here:
+        inicio_logueo nuevo = new inicio_logueo();
+        nuevo.setVisible(true);
+        nuevo.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
