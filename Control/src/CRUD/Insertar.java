@@ -184,7 +184,7 @@ public static void insertarINMUEBLE_MEDIDOR(String direccion, String zona, Strin
                 pstm.setString(1, fechavenci);
                 pstm.setDouble(2,total);
                 pstm.setInt(3,idlectura);
-                 pstm.setInt(4, 1);
+                pstm.setInt(4, 1);
                
             
                 pstm.execute();

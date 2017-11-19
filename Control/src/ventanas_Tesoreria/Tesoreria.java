@@ -529,9 +529,12 @@ jButton8.setOpaque(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8MouseReleased
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-jPanel2.removeAll();
-jPanel2.repaint();
-        // TODO add your handling code here:
+  // TODO add your handling code here:
+     jPanel2.removeAll();
+        jPanel2.repaint();
+        Reporte_Agencia list = new Reporte_Agencia();
+        jPanel2.add(list);
+        list.show(); 
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseEntered
@@ -554,6 +557,11 @@ jButton9.setOpaque(true);        // Codigo para que vuelva el color de fondo ori
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        jPanel2.removeAll();
+        jPanel2.repaint();
+        Reportes_Cajero list = new Reportes_Cajero();
+        jPanel2.add(list);
+        list.show();  
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked

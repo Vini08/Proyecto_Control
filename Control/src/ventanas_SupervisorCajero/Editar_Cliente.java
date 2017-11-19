@@ -179,7 +179,7 @@ repaint();
                 jLabel8MouseExited(evt);
             }
         });
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 600, 250, 50));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 600, 250, 50));
 
         jButton1.setBackground(new java.awt.Color(45, 70, 94));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -192,7 +192,7 @@ repaint();
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 600, 250, 57));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 600, 250, 57));
 
         jLabel9.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(88, 88, 88));
@@ -219,7 +219,7 @@ repaint();
                 jLabel10MouseExited(evt);
             }
         });
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 250, 55));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 230, 55));
 
         jButton2.setBackground(new java.awt.Color(45, 70, 94));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,7 +232,7 @@ repaint();
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 540, 250, 57));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 250, 57));
 
         jLabel11.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -249,7 +249,7 @@ repaint();
                 jLabel11MouseExited(evt);
             }
         });
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 250, 60));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 230, 60));
 
         jButton3.setBackground(new java.awt.Color(102, 102, 102));
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -262,7 +262,7 @@ repaint();
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 250, 57));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 220, 57));
 
         jLabel4.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(88, 88, 88));

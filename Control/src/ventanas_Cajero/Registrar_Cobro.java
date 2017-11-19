@@ -538,13 +538,16 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
                 
                 try {
                     Connection miConexion = (Connection) Conexion.Enlace(conn);
+                    java.util.Date utilDate=new java.util.Date();
+                    long InMilisegundos=utilDate.getTime();
+                    java.sql.Time sqlTime=new java.sql.Time(InMilisegundos);
                     
                     Statement statement = (Statement) miConexion.createStatement();
                     
                     
                     PreparedStatement pstm4 = Conexion.Enlace(conn).prepareStatement("insert into "
                             + "FACTURA(FECHA, TOTAL, IDCLIENTE, IDEMPLEADO,IDPAGO,IDLECTURA) "
-                            + " values(TO_DATE(?,'dd/mm/yyyy hh24:mi:ss'),?,?,?,?,?)");
+                            + " values(TO_DATE(?,'dd/mm/yyyy'),?,?,?,?,?)");
                     
                     
                     pstm4.setString(1, fecha);
