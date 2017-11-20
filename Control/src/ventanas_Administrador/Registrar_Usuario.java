@@ -154,6 +154,9 @@ repaint();
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Cancelar");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel8MouseEntered(evt);
             }
@@ -339,6 +342,11 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
             evt.consume();
         }  
     }//GEN-LAST:event_jTextField6KeyTyped
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        resetearEdit();
+    }//GEN-LAST:event_jLabel8MouseClicked
 
     public void resetearEdit(){
         jTextField1.setText("");

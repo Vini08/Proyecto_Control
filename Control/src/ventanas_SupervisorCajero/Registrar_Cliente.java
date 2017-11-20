@@ -144,6 +144,9 @@ repaint();
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Cancelar");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel8MouseEntered(evt);
             }
@@ -300,6 +303,11 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_dpiKeyTyped
 
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        resetearEdit();
+    }//GEN-LAST:event_jLabel8MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellido;
@@ -319,4 +327,11 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
 
+      public void resetearEdit(){
+        nombre.setText("");
+        apellido.setText("");
+        dpi.setText("");
+        nit.setText("");
+        telefono.setText("");
+    }
 }

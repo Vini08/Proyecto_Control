@@ -63,7 +63,7 @@ public class Conexion {
                     try
                     {
                         
-                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select empleado.NOMBRE, empleado.APELLIDO, empleado.DPI, empleado.DIRECCION, empleado.TELEFONO from empleado");
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select empleado.NOMBRE, empleado.APELLIDO, empleado.DPI, empleado.DIRECCION, empleado.TELEFONO, ROL.NOMBREROL as ROL from empleado INNER JOIN ROL ON empleado.IDROL = ROL.IDROL");
                         res=pstm.executeQuery();
                     } catch (Exception e)
                     {

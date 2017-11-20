@@ -85,6 +85,7 @@ repaint();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -116,7 +117,12 @@ repaint();
         jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 950, 300));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 730, 300));
+
+        jLabel11.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(88, 88, 88));
+        jLabel11.setText("Lista de Clientes con mas de 4 meses pendientes de cancelar");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 780, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -128,6 +134,7 @@ repaint();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

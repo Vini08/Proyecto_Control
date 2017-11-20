@@ -514,7 +514,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-       
+       resetearEdit();
     }//GEN-LAST:event_jLabel8MouseClicked
 
 
@@ -537,7 +537,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
             if(Inzona>=1||Inzona<=4){
                 fechaVencimiento=14+"-"+fVencimiento(flectura)+" "+sqlTime;
             }if(Inzona>=5){
-                fechaVencimiento=18+"-"+fVencimiento(flectura)+" "+sqlTime;
+                fechaVencimiento=30+"-"+fVencimiento(flectura)+" "+sqlTime;
                 
             }
             Insertar.ingresarRecibo(fechaVencimiento, cobro, idlec);
@@ -589,4 +589,12 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField medidor;
     // End of variables declaration//GEN-END:variables
+  public void resetearEdit(){
+        medidor.setText("");
+        jDateChooser1.setDate(null);
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+    }
 }

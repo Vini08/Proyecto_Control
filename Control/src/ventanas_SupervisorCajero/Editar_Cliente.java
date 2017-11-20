@@ -172,6 +172,9 @@ repaint();
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Cancelar");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel8MouseEntered(evt);
             }
@@ -421,6 +424,11 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_DPIKeyTyped
 
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        resetearEdit();
+    }//GEN-LAST:event_jLabel8MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DPI;
@@ -444,4 +452,10 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField zona;
     // End of variables declaration//GEN-END:variables
+  public void resetearEdit(){
+        DPI.setText("");
+        direccion.setText("");
+        zona.setText("");
+
+    }
 }
