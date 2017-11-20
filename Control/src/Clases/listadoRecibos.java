@@ -12,6 +12,7 @@ package Clases;
 public class listadoRecibos {
     String nombre;
     String apellido;
+    String direccion;
     String zona;
     String lecturaAnterior;
     String lecturaActual;
@@ -20,9 +21,10 @@ public class listadoRecibos {
     String total;
     String idrecibo;
 
-    public listadoRecibos(String nombre, String apellido, String zona, String lecturaAnterior, String lecturaActual, String metrosCubicos, String fechaVenci, String total, String idrecibo) {
+    public listadoRecibos(String nombre, String apellido, String direccion, String zona, String lecturaAnterior, String lecturaActual, String metrosCubicos, String fechaVenci, String total, String idrecibo) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.direccion = direccion;
         this.zona = zona;
         this.lecturaAnterior = lecturaAnterior;
         this.lecturaActual = lecturaActual;
@@ -46,6 +48,14 @@ public class listadoRecibos {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getZona() {
@@ -103,6 +113,8 @@ public class listadoRecibos {
     public void setIdrecibo(String idrecibo) {
         this.idrecibo = idrecibo;
     }
+
+   
 
     
     

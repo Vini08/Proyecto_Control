@@ -119,7 +119,7 @@ public class Conexion {
                     try
                     {
                         
-                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO,inmueble.zona, lectura.LECTURAANTERIOR, lectura.LECTURAACTUAL, lectura.METROSCUBICOS, recibo.fechavenci, recibo.TOTAL, recibo.IDRECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where TO_char(recibo.FECHAVENCI, 'MM')= ?  and inmueble.ZONA = ? ");
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO, inmueble.DIRECCION,inmueble.zona, lectura.LECTURAANTERIOR, lectura.LECTURAACTUAL, lectura.METROSCUBICOS, recibo.fechavenci, recibo.TOTAL, recibo.IDRECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where TO_char(recibo.FECHAVENCI, 'MM')= ?  and inmueble.ZONA = ? and recibo.ESTADO=1");
                        pstm.setInt(1,fecha);
                        pstm.setInt(2, zona);
                         res=pstm.executeQuery();

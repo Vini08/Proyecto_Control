@@ -12,6 +12,7 @@
 	<field name="fechaVenci" class="java.lang.String"/>
 	<field name="total" class="java.lang.String"/>
 	<field name="idrecibo" class="java.lang.String"/>
+	<field name="direccion" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -25,94 +26,112 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="189" splitType="Stretch">
+		<band height="199" splitType="Stretch">
 			<textField>
-				<reportElement uuid="68ebe21c-48de-4292-bb9f-a6061180b687" x="101" y="73" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="68ebe21c-48de-4292-bb9f-a6061180b687" x="101" y="80" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="163e4287-989a-49b4-9641-b76671e88761" x="201" y="73" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="163e4287-989a-49b4-9641-b76671e88761" x="201" y="80" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="7c60062e-f4be-45fc-915d-588001a9b619" x="100" y="132" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="7c60062e-f4be-45fc-915d-588001a9b619" x="99" y="164" width="100" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{lecturaAnterior}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="02e21646-939f-48c0-b588-047826d7e2b4" x="200" y="132" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="02e21646-939f-48c0-b588-047826d7e2b4" x="199" y="164" width="100" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{lecturaActual}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="1eeefca7-8843-4ce1-bab5-5d3931621449" x="300" y="132" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="1eeefca7-8843-4ce1-bab5-5d3931621449" x="299" y="164" width="100" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{metrosCubicos}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="58dfdec0-8c4e-416e-b1f7-a81382b148df" x="456" y="73" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="58dfdec0-8c4e-416e-b1f7-a81382b148df" x="423" y="60" width="132" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaVenci}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="145ca72b-9c36-4864-8109-70d6fa221681" x="456" y="145" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="145ca72b-9c36-4864-8109-70d6fa221681" x="399" y="164" width="100" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="e25c40ad-9f9d-4cba-8efa-2d3ee47df39d" x="456" y="40" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="e25c40ad-9f9d-4cba-8efa-2d3ee47df39d" x="455" y="20" width="100" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{idrecibo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="1" y="73" width="100" height="20"/>
+				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="1" y="80" width="100" height="20"/>
 				<textElement>
-					<font isItalic="true"/>
+					<font size="11" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Cliente:]]></text>
 			</staticText>
 			<line>
-				<reportElement uuid="8db071cb-efc3-47af-95c3-ec089d96084c" x="0" y="172" width="555" height="1"/>
+				<reportElement uuid="8db071cb-efc3-47af-95c3-ec089d96084c" x="1" y="187" width="555" height="1"/>
 			</line>
 			<staticText>
-				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="0" y="132" width="100" height="20"/>
+				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="-1" y="164" width="100" height="20"/>
 				<textElement>
-					<font isItalic="true"/>
+					<font size="11" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Lecturas:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="338" y="73" width="118" height="20"/>
+				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="423" y="40" width="132" height="20"/>
 				<textElement>
-					<font isItalic="true"/>
+					<font size="11" isBold="true" isItalic="false"/>
 				</textElement>
-				<text><![CDATA[Fecha de Vencimiento:]]></text>
+				<text><![CDATA[Fecha de Vencimiento]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="396" y="40" width="60" height="20"/>
+				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="395" y="20" width="60" height="20" forecolor="#FF0000"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="11" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Recibo No.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="1" y="93" width="100" height="20"/>
+				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="1" y="100" width="100" height="20"/>
 				<textElement>
-					<font isItalic="true"/>
+					<font size="11" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Direccion:]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="b1bfc9eb-268a-4d9e-8f15-5ba4cb66b435" x="101" y="93" width="100" height="20"/>
-				<textElement/>
+				<reportElement uuid="b1bfc9eb-268a-4d9e-8f15-5ba4cb66b435" x="101" y="120" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{zona}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="416" y="145" width="40" height="20"/>
-				<textElement>
-					<font isItalic="true"/>
+				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" mode="Opaque" x="399" y="144" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[TOTAL:]]></text>
 			</staticText>
@@ -121,32 +140,59 @@
 				<textElement>
 					<font size="13" isBold="true"/>
 				</textElement>
-				<text><![CDATA[EMPRESA MANANTIALL]]></text>
+				<text><![CDATA[EMPRESA MANANTIAL]]></text>
 			</staticText>
 			<image>
-				<reportElement uuid="49886519-3858-4662-bb22-a440bc312fbe" x="1" y="0" width="50" height="53"/>
+				<reportElement uuid="49886519-3858-4662-bb22-a440bc312fbe" x="1" y="0" width="59" height="60"/>
 				<imageExpression><![CDATA["C:\\Users\\Fernando Ambrosio\\Documents\\NetBeansProjects\\Proyecto_Control\\Control\\src\\imagenes\\logo.jpg"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="101" y="112" width="100" height="20"/>
-				<textElement>
-					<font isItalic="true"/>
+				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" mode="Opaque" x="100" y="144" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true" isItalic="false"/>
 				</textElement>
-				<text><![CDATA[Lectura Anterior:]]></text>
+				<text><![CDATA[Lectura Anterior]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="201" y="112" width="100" height="20"/>
-				<textElement>
-					<font isItalic="true"/>
+				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" mode="Opaque" x="200" y="144" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Lectura Actual]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="301" y="113" width="99" height="20"/>
-				<textElement>
-					<font isItalic="true"/>
+				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" mode="Opaque" x="300" y="144" width="99" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true" isItalic="false"/>
 				</textElement>
 				<text><![CDATA[Consumo Metros]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e4f30984-0d4b-4ceb-89f4-bb03ef397d88" x="100" y="100" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="78e4cee3-5ccc-4921-8b1f-b257b6361c8c" x="1" y="120" width="100" height="20"/>
+				<textElement>
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Zona:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="47f2250f-e3f0-4768-9c45-47d89c6e5775" x="234" y="20" width="125" height="16"/>
+				<textElement/>
+				<text><![CDATA[Servicio de Agua Potable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1e780024-8d56-4676-8de6-d45b63ea6b17" x="199" y="52" width="192" height="20"/>
+				<textElement/>
+				<text><![CDATA[5ta Calle 5-78 Zona 5, Huehuetenango]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c86d010e-f1b0-489d-bde4-0957745111b0" x="249" y="36" width="100" height="16"/>
+				<textElement/>
+				<text><![CDATA[Nit: 588364-4]]></text>
 			</staticText>
 		</band>
 	</detail>

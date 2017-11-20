@@ -334,7 +334,7 @@ try {
         //TODO add your handling code here:
        List lista = new ArrayList();
         for(int i=0; i<jTable1.getRowCount();i++){
-           listadoRecibos recibos = new listadoRecibos(jTable1.getValueAt(i, 0).toString(), jTable1.getValueAt(i, 1).toString(), jTable1.getValueAt(i, 2).toString(), jTable1.getValueAt(i, 3).toString(), jTable1.getValueAt(i, 4).toString(), jTable1.getValueAt(i, 5).toString(),jTable1.getValueAt(i, 6).toString(), jTable1.getValueAt(i, 7).toString(), jTable1.getValueAt(i, 8).toString() );
+           listadoRecibos recibos = new listadoRecibos(jTable1.getValueAt(i, 0).toString(), jTable1.getValueAt(i, 1).toString(), jTable1.getValueAt(i, 2).toString(), jTable1.getValueAt(i, 3).toString(), jTable1.getValueAt(i, 4).toString(), jTable1.getValueAt(i, 5).toString(),jTable1.getValueAt(i, 6).toString(), jTable1.getValueAt(i, 7).toString(), jTable1.getValueAt(i, 8).toString(),jTable1.getValueAt(i, 9).toString() );
             lista.add(recibos);
         }
             
