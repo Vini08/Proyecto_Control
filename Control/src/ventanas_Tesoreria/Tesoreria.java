@@ -191,7 +191,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jButton4.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Edit File_24px.png"))); // NOI18N
-        jButton4.setText("   Lecturas");
+        jButton4.setText("  Lista Negra");
         jButton4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton4.setFocusPainted(false);
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -218,7 +218,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
 
         jButton7.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 21)); // NOI18N
         jButton7.setForeground(new java.awt.Color(20, 20, 20));
-        jButton7.setText("    Listado de Recibos");
+        jButton7.setText("    Listado de Clientes");
         jButton7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton7.setFocusPainted(false);
         jButton7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -451,9 +451,13 @@ jButton4.setOpaque(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton7MouseExited
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-jPanel2.removeAll();
-jPanel2.repaint();
-        // TODO add your handling code here:
+    // TODO add your handling code here:
+      jPanel2.removeAll();
+        jPanel2.repaint();
+        Lista_Negra list = new Lista_Negra();
+        jPanel2.add(list);
+        list.show();
+    
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseReleased

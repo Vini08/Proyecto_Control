@@ -158,7 +158,7 @@ public class Conexion {
                     try
                     {
                         
-                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO,inmueble.zona, lectura.LECTURAANTERIOR, lectura.LECTURAACTUAL, lectura.METROSCUBICOS, recibo.fechavenci, recibo.TOTAL, recibo.IDRECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where medidor.idmedidor = ? and RECIBO.ESTADO =1 ");
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO,inmueble.zona, lectura.LECTURAANTERIOR, lectura.LECTURAACTUAL, lectura.METROSCUBICOS, recibo.fechavenci, recibo.TOTAL, recibo.IDRECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where medidor.idmedidor = ? and RECIBO.ESTADO =1 order by recibo.fechavenci asc ");
                        pstm.setInt(1,medidor);
                         res=pstm.executeQuery();
                     } catch (Exception e)
@@ -199,6 +199,24 @@ public class Conexion {
                         
                         PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select IDFACTURA,FECHA,TOTAL, TIPOPAGO.NOMBRETIPO, EMPLEADO.USUARIO from factura inner join EMPLEADO on factura.IDEMPLEADO = EMPLEADO.IDEMPLEADO inner join ROL on EMPLEADO.IDROL = ROL.IDROL inner join TIPOPAGO ON  FACTURA.IDPAGO = TIPOPAGO.IDTIPO where TO_char(factura.FECHA, 'DD/MM/YYYY')= ? order by factura.FECHA , factura.IDFACTURA asc");
                        pstm.setString(1, fecha);
+                        res=pstm.executeQuery();
+                    } catch (Exception e)
+                    {
+                       
+                    }
+                    return res;
+                }
+                
+                public static ResultSet ClientesM(ResultSet rs) throws SQLException
+                {
+                     Connection conn=null;
+                     Connection miConexion = (Connection) Conexion.Enlace(conn);
+                    ResultSet res = null;
+                    
+                    try
+                    {
+                        
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select  CLIENTE.NOMBRE, CLIENTE.APELLIDO, inmueble.DIRECCION, inmueble.ZONA, SUM(recibo.estado) as Meses from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where  lectura.IDMEDIDOR = medidor.IDMEDIDOR and recibo.ESTADO ='1'  GROUP BY CLIENTE.NOMBRE, CLIENTE.APELLIDO,  inmueble.DIRECCION, inmueble.ZONA HAVING sum(recibo.estado) >=4");
                         res=pstm.executeQuery();
                     } catch (Exception e)
                     {

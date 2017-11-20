@@ -503,7 +503,13 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
             }
          
          reciboNuevo(Double.parseDouble(jTextField5.getText()));
-        
+         
+            medidor.setText("");
+            jDateChooser1.setDate(null);
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
         
     }//GEN-LAST:event_jLabel10MouseClicked
 
