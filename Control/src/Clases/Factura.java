@@ -10,6 +10,7 @@ package Clases;
  * @author Fernando Ambrosio
  */
 public class Factura {
+   
     String numero;
     String nombre;
     String apellido;
@@ -134,6 +135,6 @@ public class Factura {
         this.total = total;
     }
 
-    
+   
     
 }

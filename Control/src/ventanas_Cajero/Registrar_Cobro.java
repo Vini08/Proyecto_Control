@@ -465,79 +465,52 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     }//GEN-LAST:event_jLabel10MouseExited
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-
+ 
+        
+           
         try {                                      
-            
+            Connection conn=null;  
             Statement stmt;
             ResultSet rsult;
-            PreparedStatement pstm3 = Conexion.Enlace(conn).prepareStatement("select FACTURA.IDFACTURA from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA inner join FACTURA on lectura.IDLECTURA = FACTURA.IDLECTURA where recibo.IDRECIBO = ?");
-            pstm3.setString(1, jTextField5.getText() );
-            rsult=pstm3.executeQuery();
+            
+            int idrecibo=Integer.parseInt(jTextField5.getText());
+            String fecha= new SimpleDateFormat("dd/MM/yyyy").format(jDateChooser1.getDate());
+            int total=Integer.parseInt(to.getText());
+            String nombretipo= (String) jComboBox1.getSelectedItem();
+            String idempleado=jTextField6.getText();
+            int idlectura= Integer.parseInt(co.getText());
+            
+    
+            PreparedStatement pstm1 = Conexion.Enlace(conn).prepareStatement("select IDTIPO from tipopago where NOMBRETIPO = ?");
+            pstm1.setString(1, nombretipo );
+            rsult=pstm1.executeQuery();
             
             while (rsult.next()) {
-                ID_Factura = rsult.getString("IDFACTURA");
+                nombreTipo = rsult.getString("IDTIPO");
             }
+            
+            PreparedStatement pstm2 = Conexion.Enlace(conn).prepareStatement("select CLIENTE.IDCLIENTE, LECTURA.IDLECTURA from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where recibo.IDRECIBO = ?");
+            pstm2.setInt(1, idrecibo );
+            rsult=pstm2.executeQuery();
+            
+            while (rsult.next()) {
+                ID_Cliente = rsult.getString("IDCLIENTE");
+                ID_Lectura = rsult.getString("IDLECTURA");
+            }
+            
+            PreparedStatement pstm5 = Conexion.Enlace(conn).prepareStatement("select idempleado from empleado where USUARIO = ?");
+            pstm5.setString(1, idempleado );
+            rsult=pstm5.executeQuery();
+            
+            while (rsult.next()) {
+                ID_Empleado = rsult.getString("IDEMPLEADO");
+            }
+            
+            
+            
+      
             try {
-                Connection conn=null;
-                
-                DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
-                Object [] fila=new Object[12];
-                fila[0]= ID_Factura;
-                fila[1]=c1.getText();
-                fila[2]=c2.getText();
-                fila[3]=co.getText();
-                fila[4]=di.getText();
-                fila[5]=di2.getText();
-                fila[6]=mc.getText();
-                fila[7]=new SimpleDateFormat("dd/MM/yyyy").format (jDateChooser1.getDate());
-                fila[8]=jTextField6.getText();
-                fila[9]=jTextField5.getText();
-                fila[10]=jComboBox1.getSelectedItem();
-                fila[11]=to.getText();
-                modelo.addRow(fila);
-                jTable2.setModel(modelo);
-                
-                int idrecibo=Integer.parseInt(jTextField5.getText());
-                String fecha= new SimpleDateFormat("dd/MM/yyyy").format(jDateChooser1.getDate());
-                int total=Integer.parseInt(to.getText());
-                String nombretipo= (String) jComboBox1.getSelectedItem();
-                String idempleado=jTextField6.getText();
-                int idlectura= Integer.parseInt(co.getText());
-                
-                
-                PreparedStatement pstm1 = Conexion.Enlace(conn).prepareStatement("select IDTIPO from tipopago where NOMBRETIPO = ?");
-                pstm1.setString(1, nombretipo );
-                rsult=pstm1.executeQuery();
-                
-                while (rsult.next()) {
-                    nombreTipo = rsult.getString("IDTIPO");
-                }
-                
-                
-                PreparedStatement pstm2 = Conexion.Enlace(conn).prepareStatement("select CLIENTE.IDCLIENTE, LECTURA.IDLECTURA from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where recibo.IDRECIBO = ?");
-                pstm2.setInt(1, idrecibo );
-                rsult=pstm2.executeQuery();
-                
-                while (rsult.next()) {
-                    ID_Cliente = rsult.getString("IDCLIENTE");
-                    ID_Lectura = rsult.getString("IDLECTURA");
-                }
-                
-                PreparedStatement pstm5 = Conexion.Enlace(conn).prepareStatement("select idempleado from empleado where USUARIO = ?");
-                pstm5.setString(1, idempleado );
-                rsult=pstm5.executeQuery();
-                
-                while (rsult.next()) {
-                    ID_Empleado = rsult.getString("IDEMPLEADO");
-                }  
-                
-                
-                while (rsult.next()) {
-                    ID_Empleado = rsult.getString("IDEMPLEADO");
-                } 
-                
-                try {
-                    Connection miConexion = (Connection) Conexion.Enlace(conn);
+                Connection miConexion = (Connection) Conexion.Enlace(conn);
                     java.util.Date utilDate=new java.util.Date();
                     long InMilisegundos=utilDate.getTime();
                     java.sql.Time sqlTime=new java.sql.Time(InMilisegundos);
@@ -558,36 +531,61 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
                     pstm4.setString(6, ID_Lectura);
                     pstm4.execute();
                     pstm4.close();
-                } catch (Exception ex) {
-                    Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            } catch (Exception ex) {
+                Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                      
+            try{
+                Connection miConexion = (Connection) Conexion.Enlace(conn);
                 
-                try{
-                    Connection miConexion = (Connection) Conexion.Enlace(conn);
-                    
-                    Statement statement = (Statement) miConexion.createStatement();
-                    
-                    
-                    try (PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("UPDATE RECIBO "
-                            + "SET ESTADO = ? "
-                            + "WHERE IDRECIBO = ? ")) {
-                        pstm.setInt(1, 2);
-                        pstm.setInt(2, idrecibo);
-                        pstm.execute();
-                    }
-                } catch (SQLException ex) {
+                Statement statement = (Statement) miConexion.createStatement();  
+                
+                
+                try (PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("UPDATE RECIBO "
+                        + "SET ESTADO = ? "
+                        + "WHERE IDRECIBO = ? ")) {
+                    pstm.setInt(1, 2);
+                    pstm.setInt(2, idrecibo);
+                    pstm.execute();
+                }
+                 } catch (SQLException ex) {
                     Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
                     
                 }
-                
             } catch (SQLException ex) {
                 Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
                 
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+         try{
+         ResultSet rsult;
+         PreparedStatement pstm6 = Conexion.Enlace(conn).prepareStatement("select MAX(IDFACTURA) as Numero from factura");
+            rsult=pstm6.executeQuery();
             
-        }             
+            while (rsult.next()) {
+                ID_Factura = rsult.getString("NUMERO");
+            }
+            } catch (SQLException ex) {
+                    Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
+                    
+                }
+        
+         DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();          
+            Object [] fila=new Object[12];
+            fila[0]= ID_Factura;
+            fila[1]=c1.getText();
+            fila[2]=c2.getText();
+            fila[3]=co.getText();
+            fila[4]=di.getText();
+            fila[5]=di2.getText();
+            fila[6]=mc.getText();
+            fila[7]=new SimpleDateFormat("dd/MM/yyyy").format (jDateChooser1.getDate());
+            fila[8]=jTextField6.getText();
+            fila[9]=jTextField5.getText();
+            fila[10]=jComboBox1.getSelectedItem();
+            fila[11]=to.getText();
+            modelo.addRow(fila);
+            jTable2.setModel(modelo);
+                   
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
