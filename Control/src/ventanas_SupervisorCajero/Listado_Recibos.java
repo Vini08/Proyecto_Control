@@ -45,6 +45,7 @@ public class Listado_Recibos extends javax.swing.JInternalFrame {
     static Statement st=null;
     static ResultSet rs=null;
     static DefaultComboBoxModel modelo;
+     static DefaultComboBoxModel modeloa;
     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null; 
 Color BTNmenuACT =new Color(45,70,94);
@@ -57,7 +58,9 @@ Color X2 =new Color(102,102,102);
             //7try {
             initComponents();
             modelo = new DefaultComboBoxModel();
+            modeloa = new DefaultComboBoxModel();
             llena_combo();
+            llena_combod();
             
            // Conexion cxn = new Conexion();// llamamos a la clase Conexion
             //MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
@@ -121,6 +124,25 @@ try {
 }     
 }
     
+    public void llena_combod(){ // static para poder llamarlo desde el otro frame o JDialog
+
+try {
+    modeloa.removeAllElements(); // eliminamos lo elementos
+    conn=Enlace(conn);
+    st=conn.createStatement();
+    ResultSet rs=st.executeQuery("SELECT DISTINCT EXTRACT(YEAR FROM FECHAVENCI) as año  FROM recibo");
+    modeloa.addElement("---");
+    while(rs.next())
+    {                
+        modeloa.addElement(rs.getString("año"));
+        jComboBox3.setModel(modeloa);
+    }
+      // seteamos el modelo y se cargan los datos
+} catch (SQLException ex) {
+    Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
+}     
+}
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,6 +161,8 @@ try {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -197,6 +221,7 @@ try {
 
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 950, 300));
@@ -210,8 +235,8 @@ try {
 
         jLabel9.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(88, 88, 88));
-        jLabel9.setText("Mes");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 60, 30));
+        jLabel9.setText("Año");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 60, 30));
 
         jLabel11.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(88, 88, 88));
@@ -219,6 +244,13 @@ try {
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 60, 30));
 
         getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 100, 40));
+
+        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 100, 40));
+
+        jLabel12.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(88, 88, 88));
+        jLabel12.setText("Mes");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 60, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -315,12 +347,13 @@ try {
             
             
             int zona=Integer.parseInt((String) jComboBox1.getSelectedItem());
+            int fechaa=Integer.parseInt((String) jComboBox3.getSelectedItem());
             
             Conexion cxn = new Conexion();// llamamos a la clase Conexion
             MostrarTabla tabla=new MostrarTabla();//llamamos a la clase MostrarJTable
             DefaultTableModel modelot = new DefaultTableModel();
             conn=Conexion.Enlace(conn);
-            rs=Conexion.BuscarRecibo(fecha, zona);
+            rs=Conexion.BuscarRecibo(fechaa,fecha, zona);
             modelot=tabla.Imprimir(rs,modelot);
             jTable1.setModel(modelot);
               
@@ -373,9 +406,11 @@ try {
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

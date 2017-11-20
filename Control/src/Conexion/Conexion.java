@@ -110,7 +110,7 @@ public class Conexion {
                     return res;
                 }
 
-        public static ResultSet BuscarRecibo(int fecha, int zona) throws SQLException
+        public static ResultSet BuscarRecibo(int fechaa, int fecha,  int zona) throws SQLException
                 {
                     Connection conn=null;
                     Connection miConexion = (Connection) Conexion.Enlace(conn);
@@ -119,9 +119,10 @@ public class Conexion {
                     try
                     {
                         
-                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO, inmueble.DIRECCION,inmueble.zona, lectura.LECTURAANTERIOR, lectura.LECTURAACTUAL, lectura.METROSCUBICOS, recibo.fechavenci, recibo.TOTAL, recibo.IDRECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where TO_char(recibo.FECHAVENCI, 'MM')= ?  and inmueble.ZONA = ? and recibo.ESTADO=1");
-                       pstm.setInt(1,fecha);
-                       pstm.setInt(2, zona);
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO, inmueble.DIRECCION,inmueble.zona, lectura.LECTURAANTERIOR AS LECTURA_ANTERIOR, lectura.LECTURAACTUAL AS LECTURA_ACTUAL, lectura.METROSCUBICOS AS CONSUMO, recibo.fechavenci AS FECHA_VENCIMIENTO, recibo.TOTAL, recibo.IDRECIBO as NO_RECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where  TO_char(recibo.FECHAVENCI, 'YYYY')= ? and TO_char(recibo.FECHAVENCI, 'MM')= ?  and inmueble.ZONA = ? and recibo.ESTADO=1");
+                       pstm.setInt(1,fechaa);
+                       pstm.setInt(2,fecha);
+                       pstm.setInt(3, zona);
                         res=pstm.executeQuery();
                     } catch (Exception e)
                     {
