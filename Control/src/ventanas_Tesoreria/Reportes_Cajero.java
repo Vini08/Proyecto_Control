@@ -115,6 +115,8 @@ repaint();
         cajero = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        totald = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -134,8 +136,8 @@ repaint();
 
         jLabel2.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(88, 88, 88));
-        jLabel2.setText("Cajero:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 90, 40));
+        jLabel2.setText("TOTAL Q.");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 480, 130, 40));
 
         jLabel10.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 26)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -180,6 +182,7 @@ repaint();
 
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 790, 250));
@@ -228,6 +231,20 @@ repaint();
             }
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 260, 50));
+
+        jLabel4.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(88, 88, 88));
+        jLabel4.setText("Cajero:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 90, 40));
+
+        totald.setEditable(false);
+        totald.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        totald.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totaldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(totald, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 480, 150, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -291,6 +308,21 @@ repaint();
          } catch (SQLException ex) {
              Logger.getLogger(Reportes_Cajero.class.getName()).log(Level.SEVERE, null, ex);
          }
+         
+        double sumatoria1=0;
+        int totalRow= jTable1.getRowCount();
+       
+        totalRow-=1; 
+       
+        for(int i=0;i<=(totalRow);i++)
+        {
+             double sumatoria= Double.parseDouble(String.valueOf(jTable1.getValueAt(i,3)));
+
+             sumatoria1+=sumatoria;
+              totald.setText(String.valueOf(sumatoria1));
+          
+          
+           }
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
@@ -304,13 +336,17 @@ repaint();
         try {
           JasperReport reporte = (JasperReport) JRLoader.loadObject("reportec.jasper");
            Map parametro = new HashMap();
-           // parametro.put("zona", jComboBox1.getSelectedItem());
+           parametro.put("totald",totald.getText() );
             JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, new JRBeanCollectionDataSource(lista));
             JasperViewer.viewReport(jprint);
         } catch (JRException ex) {
             Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void totaldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totaldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totaldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -323,7 +359,9 @@ repaint();
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField totald;
     // End of variables declaration//GEN-END:variables
 }

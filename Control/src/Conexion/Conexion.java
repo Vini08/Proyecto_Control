@@ -178,7 +178,7 @@ public class Conexion {
                     try
                     {
                         
-                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select IDFACTURA AS NO_FACTURA,FECHA AS FECHA,TOTAL, TIPOPAGO.NOMBRETIPO AS TIPO_DE_PAGO from factura inner join EMPLEADO on factura.IDEMPLEADO = EMPLEADO.IDEMPLEADO inner join ROL on EMPLEADO.IDROL = ROL.IDROL inner join TIPOPAGO ON  FACTURA.IDPAGO = TIPOPAGO.IDTIPO where EMPLEADO.USUARIO = ? and TO_char(factura.FECHA, 'DD/MM/YYYY')= ? order by factura.FECHA asc ");
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select IDFACTURA AS NO_FACTURA,FECHA AS FECHA, TIPOPAGO.NOMBRETIPO AS TIPO_DE_PAGO, TOTAL from factura inner join EMPLEADO on factura.IDEMPLEADO = EMPLEADO.IDEMPLEADO inner join ROL on EMPLEADO.IDROL = ROL.IDROL inner join TIPOPAGO ON  FACTURA.IDPAGO = TIPOPAGO.IDTIPO where EMPLEADO.USUARIO = ? and TO_char(factura.FECHA, 'DD/MM/YYYY')= ? order by factura.FECHA asc ");
                        pstm.setString(1, cajero);
                        pstm.setString(2, fecha);
                         res=pstm.executeQuery();

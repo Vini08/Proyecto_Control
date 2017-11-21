@@ -13,14 +13,14 @@ public class ReporteC {
     
     String numero;
     String fecha;
+     String tipo;
     String total;
-    String tipo;
 
-    public ReporteC(String numero, String fecha, String total, String tipo) {
+    public ReporteC(String numero, String fecha, String tipo, String total) {
         this.numero = numero;
         this.fecha = fecha;
-        this.total = total;
         this.tipo = tipo;
+        this.total = total;
     }
 
     public String getNumero() {
@@ -39,14 +39,6 @@ public class ReporteC {
         this.fecha = fecha;
     }
 
-    public String getTotal() {
-        return total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total;
-    }
-
     public String getTipo() {
         return tipo;
     }
@@ -54,6 +46,15 @@ public class ReporteC {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
    
-    
+
+   
 }
