@@ -329,16 +329,17 @@ repaint();
         // TODO add your handling code here:
          List lista = new ArrayList();
         for(int i=0; i<jTable1.getRowCount();i++){
-           ReporteC reporte = new ReporteC(jTable1.getValueAt(i, 0).toString(), jTable1.getValueAt(i, 1).toString(), jTable1.getValueAt(i, 2).toString(), jTable1.getValueAt(i, 3).toString() );
-            lista.add(reporte);
+           ReporteC reporte = new ReporteC(jTable1.getValueAt(i, 0).toString(), jTable1.getValueAt(i, 1).toString(), jTable1.getValueAt(i, 2).toString(), Integer.parseInt(jTable1.getValueAt(i, 3).toString()));
+           reporte.setSuma(i);
+           lista.add(reporte);
         }
             
         try {
           JasperReport reporte = (JasperReport) JRLoader.loadObject("reportec.jasper");
            Map parametro = new HashMap();
-           parametro.put("totald",totald.getText() );
+           //parametro.put("totald",totald.getText() );
             JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, new JRBeanCollectionDataSource(lista));
-            JasperViewer.viewReport(jprint);
+            JasperViewer.viewReport(jprint,false);
         } catch (JRException ex) {
             Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
         }

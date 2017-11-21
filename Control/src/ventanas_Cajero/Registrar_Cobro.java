@@ -659,7 +659,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
            Map parametro = new HashMap();
             //parametro.put("zona", jComboBox1.getSelectedItem());
             JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, new JRBeanCollectionDataSource(lista));
-            JasperViewer.viewReport(jprint);
+            JasperViewer.viewReport(jprint, false);
         } catch (JRException ex) {
             Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
         }

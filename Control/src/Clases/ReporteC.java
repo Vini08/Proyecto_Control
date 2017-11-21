@@ -14,9 +14,10 @@ public class ReporteC {
     String numero;
     String fecha;
      String tipo;
-    String total;
+    int total;
+    int suma;
 
-    public ReporteC(String numero, String fecha, String tipo, String total) {
+    public ReporteC(String numero, String fecha, String tipo, int total) {
         this.numero = numero;
         this.fecha = fecha;
         this.tipo = tipo;
@@ -47,14 +48,21 @@ public class ReporteC {
         this.tipo = tipo;
     }
 
-    public String getTotal() {
+    public int getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(int total) {
         this.total = total;
     }
-   
 
-   
+    public int getSuma() {
+        return suma;
+    }
+
+    public void setSuma(int suma) {
+        this.suma = suma;
+    }
+
+  
 }
