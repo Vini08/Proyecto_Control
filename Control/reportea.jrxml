@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1954d9c-8cfc-468d-a99d-506ced11268e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="numero" class="java.lang.String"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="total" class="java.lang.Integer"/>
+	<variable name="suma" class="java.lang.Integer">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="47f2250f-e3f0-4768-9c45-47d89c6e5775" x="214" y="27" width="125" height="16"/>
+				<textElement/>
+				<text><![CDATA[Servicio de Agua Potable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1e780024-8d56-4676-8de6-d45b63ea6b17" x="170" y="59" width="192" height="20"/>
+				<textElement/>
+				<text><![CDATA[5ta Calle 5-78 Zona 5, Huehuetenango]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c86d010e-f1b0-489d-bde4-0957745111b0" x="227" y="43" width="100" height="16"/>
+				<textElement/>
+				<text><![CDATA[Nit: 588364-4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7eaf71b4-6094-4170-adf7-450077abc39b" x="176" y="0" width="186" height="27"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMPRESA MANANTIAL]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="caa84cdc-5505-4e58-a9a8-1844f2904763" x="0" y="0" width="74" height="79"/>
+				<imageExpression><![CDATA["C:\\Users\\Fernando Ambrosio\\Documents\\NetBeansProjects\\Proyecto_Control\\Control\\src\\imagenes\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="00a47d3f-9515-44a1-8c75-aadb8b764796" x="0" y="15" width="255" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Reporte de Ingresos en Agencia General]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="8f671637-5565-4952-8e4f-cd0f8966586c" mode="Opaque" x="0" y="41" width="124" height="20" forecolor="#FFFFFF" backcolor="#006699"/>
+				<box leftPadding="0">
+					<pen lineWidth="1.0" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero de Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="80369bef-3ea5-4103-8a74-425148e150be" mode="Opaque" x="124" y="41" width="107" height="20" forecolor="#FFFFFF" backcolor="#006699"/>
+				<box leftPadding="0">
+					<pen lineWidth="1.0" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b2c8f681-11e4-4384-8253-9f8b7939542d" mode="Opaque" x="231" y="41" width="100" height="20" forecolor="#FFFFFF" backcolor="#006699"/>
+				<box leftPadding="0">
+					<pen lineWidth="1.0" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo de Pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f8972dc2-be5c-4b13-bedf-150711425fac" mode="Opaque" x="331" y="41" width="100" height="20" forecolor="#FFFFFF" backcolor="#006699"/>
+				<box leftPadding="0">
+					<pen lineWidth="1.0" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8aea09ce-0b20-41c8-8c4e-9713c4412c2c" mode="Opaque" x="431" y="41" width="100" height="20" forecolor="#FFFFFF" backcolor="#006699"/>
+				<box leftPadding="0">
+					<pen lineWidth="1.0" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c59c8d28-31cb-48bd-bb8d-44b7055ba3e0" x="0" y="1" width="124" height="20"/>
+				<box>
+					<pen lineWidth="1.0" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4bd5692a-ea64-4e24-9d92-ec58aab6e332" x="124" y="1" width="107" height="20"/>
+				<box>
+					<pen lineWidth="1.0" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ac9001cb-20e5-4a28-86be-ab748a81d067" x="231" y="1" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b6b1a815-7211-4af7-99d4-3d87e909b09e" x="331" y="1" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c6b5cca7-b452-4860-a5e4-269122368d8d" x="431" y="1" width="100" height="20"/>
+				<box>
+					<pen lineWidth="1.0" lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement uuid="33a76be3-fafa-4304-957f-19a7501e972d" x="455" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="bff61036-189c-4e35-8880-b32ccabc336f" x="401" y="0" width="54" height="20"/>
+				<textElement/>
+				<text><![CDATA[No. Pagina]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement uuid="367ec88c-fe70-4d64-ad96-aab5adf39e13" mode="Opaque" x="431" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#990033"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{suma}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="80228147-024f-4d0c-9fef-151f49a7c540" x="382" y="0" width="49" height="20"/>
+				<textElement>
+					<font size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[TOTAL Q.]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

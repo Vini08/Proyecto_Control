@@ -198,7 +198,7 @@ public class Conexion {
                     try
                     {
                         
-                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select IDFACTURA AS NO_FACTURA,FECHA AS FECHA,TOTAL, TIPOPAGO.NOMBRETIPO AS TIPO_DE_PAGO, EMPLEADO.USUARIO AS USUARIO from factura inner join EMPLEADO on factura.IDEMPLEADO = EMPLEADO.IDEMPLEADO inner join ROL on EMPLEADO.IDROL = ROL.IDROL inner join TIPOPAGO ON  FACTURA.IDPAGO = TIPOPAGO.IDTIPO where TO_char(factura.FECHA, 'DD/MM/YYYY')= ? order by factura.FECHA , factura.IDFACTURA asc");
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select IDFACTURA AS NO_FACTURA,FECHA AS FECHA, TIPOPAGO.NOMBRETIPO AS TIPO_DE_PAGO, EMPLEADO.USUARIO AS USUARIO,TOTAL from factura inner join EMPLEADO on factura.IDEMPLEADO = EMPLEADO.IDEMPLEADO inner join ROL on EMPLEADO.IDROL = ROL.IDROL inner join TIPOPAGO ON  FACTURA.IDPAGO = TIPOPAGO.IDTIPO where TO_char(factura.FECHA, 'DD/MM/YYYY')= ? order by factura.FECHA , factura.IDFACTURA asc");
                        pstm.setString(1, fecha);
                         res=pstm.executeQuery();
                     } catch (Exception e)

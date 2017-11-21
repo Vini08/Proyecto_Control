@@ -5,6 +5,8 @@
  */
 package ventanas_Tesoreria;
 
+import Clases.ReporteA;
+import Clases.ReporteC;
 import Conexion.Conexion;
 import Conexion.MostrarTabla;
 import java.awt.Color;
@@ -14,12 +16,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+import ventanas_SupervisorCajero.Listado_Recibos;
 
 
 /**
@@ -76,6 +90,8 @@ repaint();
         jLabel3 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        totald = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -100,6 +116,9 @@ repaint();
         jLabel10.setMaximumSize(new java.awt.Dimension(157, 27));
         jLabel10.setMinimumSize(new java.awt.Dimension(157, 27));
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel10MouseEntered(evt);
             }
@@ -174,6 +193,20 @@ repaint();
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 260, 50));
 
+        jLabel2.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(88, 88, 88));
+        jLabel2.setText("TOTAL Q.");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 480, 130, 40));
+
+        totald.setEditable(false);
+        totald.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        totald.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totaldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(totald, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 480, 150, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -233,7 +266,45 @@ repaint();
          } catch (SQLException ex) {
              Logger.getLogger(Reportes_Cajero.class.getName()).log(Level.SEVERE, null, ex);
          }
+          double sumatoria1=0;
+        int totalRow= jTable1.getRowCount();
+       
+        totalRow-=1; 
+       
+        for(int i=0;i<=(totalRow);i++)
+        {
+             double sumatoria= Double.parseDouble(String.valueOf(jTable1.getValueAt(i,4)));
+
+             sumatoria1+=sumatoria;
+              totald.setText(String.valueOf(sumatoria1));
+          
+          
+           }
     }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void totaldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totaldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totaldActionPerformed
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        // TODO add your handling code here:
+        List lista = new ArrayList();
+        for(int i=0; i<jTable1.getRowCount();i++){
+           ReporteA reporte = new ReporteA(jTable1.getValueAt(i, 0).toString(), jTable1.getValueAt(i, 1).toString(), jTable1.getValueAt(i, 2).toString(), jTable1.getValueAt(i, 3).toString(), Integer.parseInt(jTable1.getValueAt(i, 4).toString()));
+           reporte.setSuma(i);
+           lista.add(reporte);
+        }
+            
+        try {
+          JasperReport reporte = (JasperReport) JRLoader.loadObject("reportea.jasper");
+           Map parametro = new HashMap();
+           //parametro.put("totald",totald.getText() );
+            JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, new JRBeanCollectionDataSource(lista));
+            JasperViewer.viewReport(jprint,false);
+        } catch (JRException ex) {
+            Logger.getLogger(Listado_Recibos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jLabel10MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -243,8 +314,10 @@ repaint();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField totald;
     // End of variables declaration//GEN-END:variables
 }

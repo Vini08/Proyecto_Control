@@ -13,16 +13,17 @@ public class ReporteA {
     
     String numero;
     String fecha;
-    String total;
     String tipo;
     String usuario;
+    int total;
+    int suma;
 
-    public ReporteA(String numero, String fecha, String total, String tipo, String usuario) {
+    public ReporteA(String numero, String fecha, String tipo, String usuario, int total) {
         this.numero = numero;
         this.fecha = fecha;
-        this.total = total;
         this.tipo = tipo;
         this.usuario = usuario;
+        this.total = total;
     }
 
     public String getNumero() {
@@ -41,14 +42,6 @@ public class ReporteA {
         this.fecha = fecha;
     }
 
-    public String getTotal() {
-        return total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total;
-    }
-
     public String getTipo() {
         return tipo;
     }
@@ -64,6 +57,21 @@ public class ReporteA {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    
-    
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public int getSuma() {
+        return suma;
+    }
+
+    public void setSuma(int suma) {
+        this.suma = suma;
+    }
+
 }
