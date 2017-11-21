@@ -225,5 +225,23 @@ public class Conexion {
                     }
                     return res;
                 }
+                
+                public static ResultSet MostrarR(ResultSet rs) throws SQLException
+                {
+                     Connection conn=null;
+                     Connection miConexion = (Connection) Conexion.Enlace(conn);
+                    ResultSet res = null;
+                    
+                    try
+                    {
+                        
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select recibo.IDRECIBO as NO_RECIBO, cliente.nombre, CLIENTE.APELLIDO, inmueble.DIRECCION,inmueble.zona, lectura.LECTURAANTERIOR AS LECTURA_ANTERIOR, lectura.LECTURAACTUAL AS LECTURA_ACTUAL, lectura.METROSCUBICOS AS CONSUMO, recibo.fechavenci AS FECHA_VENCIMIENTO, recibo.TOTAL from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where recibo.ESTADO='1'");
+                        res=pstm.executeQuery();
+                    } catch (Exception e)
+                    {
+                       
+                    }
+                    return res;
+                }
         
 }

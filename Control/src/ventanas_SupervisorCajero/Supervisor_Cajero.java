@@ -70,6 +70,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -408,6 +409,32 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
             }
         });
 
+        jButton8.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 21)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(20, 20, 20));
+        jButton8.setText("     Eliminar Recibo");
+        jButton8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton8.setFocusPainted(false);
+        jButton8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton8MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton8MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton8MouseReleased(evt);
+            }
+        });
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -420,6 +447,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
             .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,7 +467,9 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
                 .addComponent(jButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7)
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton8)
+                .addContainerGap(268, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 240, 610));
@@ -466,6 +496,7 @@ Border thickBorde = new LineBorder(Color.WHITE, 4);
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 jButton6.setVisible(true);
 jButton7.setVisible(true);
+jButton8.setVisible(true);
 jButton2.setVisible(false);
 jButton3.setVisible(false);
 jButton5.setVisible(false);
@@ -480,6 +511,7 @@ jButton5.setVisible(false);
         jButton5.setVisible(true);
         jButton6.setVisible(false);
         jButton7.setVisible(false);
+        jButton8.setVisible(false);
        
         
         // Codigo para mostrar sub botones y ocultar los demas que no pertenecen a boton padre
@@ -518,6 +550,8 @@ jButton6.setBackground(BTNmenuACT);
 jButton6.setOpaque(true);
 jButton7.setBackground(BTNmenuACT);
 jButton7.setOpaque(true);
+jButton8.setBackground(BTNmenuACT);
+jButton8.setOpaque(true);
 jButton12.setBackground(BTNmenuACT);
 jButton12.setOpaque(true);
 // TODO add your handling code here:
@@ -672,6 +706,7 @@ jButton12.setOpaque(true);         // TODO add your handling code here:
         jButton5.setVisible(false);
         jButton6.setVisible(false);
         jButton7.setVisible(false);
+        jButton8.setVisible(false);
      
     }//GEN-LAST:event_jButton12ActionPerformed
 
@@ -737,6 +772,39 @@ ed.show();        // TODO add your handling code here:
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void jButton8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseEntered
+        // TODO add your handling code here:
+    jButton8.setBackground(BTNmenuMouse);
+    jButton8.setOpaque(true);
+    }//GEN-LAST:event_jButton8MouseEntered
+
+    private void jButton8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseExited
+        // TODO add your handling code here:
+    jButton8.setBackground(BTNmenuACT);
+    jButton8.setOpaque(true);
+    }//GEN-LAST:event_jButton8MouseExited
+
+    private void jButton8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MousePressed
+        // TODO add your handling code here:
+        jButton8.setBackground(BTNmenuMousePressed);
+        jButton8.setOpaque(true);  
+    }//GEN-LAST:event_jButton8MousePressed
+
+    private void jButton8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseReleased
+        // TODO add your handling code here:
+        jButton8.setBackground(BTNmenuMouse);
+       jButton8.setOpaque(true);
+    }//GEN-LAST:event_jButton8MouseReleased
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        jPanel2.removeAll();
+        jPanel2.repaint();
+        Eliminar_Recibo list = new Eliminar_Recibo();
+        jPanel2.add(list);
+        list.show(); 
+    }//GEN-LAST:event_jButton8ActionPerformed
+
    
     
     public static void main(String args[]) {
@@ -783,6 +851,7 @@ ed.show();        // TODO add your handling code here:
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
@@ -799,6 +868,7 @@ public void SetearBTNS(){
         jButton5.setVisible(false);
         jButton6.setVisible(false);
         jButton7.setVisible(false);
+        jButton8.setVisible(false);
         //colorFondo
         jButton1.setBackground(BTNmenuACT);
         jButton1.setOpaque(true);
@@ -821,6 +891,9 @@ public void SetearBTNS(){
         jButton7.setBackground(BTNmenuACT);
         jButton7.setOpaque(true);
         jButton7.setContentAreaFilled(false);
+        jButton8.setBackground(BTNmenuACT);
+        jButton8.setOpaque(true);
+        jButton8.setContentAreaFilled(false);
         jButton12.setOpaque(true);
         jButton12.setContentAreaFilled(false);
 }
