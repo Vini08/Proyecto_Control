@@ -37,7 +37,7 @@ import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Listado_Recibos extends javax.swing.JInternalFrame {
     

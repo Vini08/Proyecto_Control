@@ -23,7 +23,7 @@ import static ventanas_Logueo.inicio_logueo.username;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Cajero extends javax.swing.JFrame {
 private int x;

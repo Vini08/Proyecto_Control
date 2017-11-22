@@ -33,7 +33,7 @@ import javax.swing.border.LineBorder;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Registrar_Lectura extends javax.swing.JInternalFrame {
     

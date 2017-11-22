@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Admin
+ * @author Fernando Ambrosio
  */
 public class Consultar {
     

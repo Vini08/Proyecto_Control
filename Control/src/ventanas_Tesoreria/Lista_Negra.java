@@ -26,7 +26,7 @@ import ventanas_SupervisorCajero.Eliminar_Cliente;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Lista_Negra extends javax.swing.JInternalFrame {
     

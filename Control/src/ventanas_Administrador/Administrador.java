@@ -13,7 +13,7 @@ import ventanas_Logueo.inicio_logueo;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Administrador extends javax.swing.JFrame {
 private int x;

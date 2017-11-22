@@ -228,7 +228,7 @@
 			<staticText>
 				<reportElement uuid="aa596c68-3a90-417d-9db3-2dd4b697731e" x="0" y="211" width="309" height="20"/>
 				<textElement/>
-				<text><![CDATA[dirijase a las oficinas de la empresa. para ser atendido. Gracias]]></text>
+				<text><![CDATA[a las oficinas de la empresa. para ser atendido. Gracias]]></text>
 			</staticText>
 		</band>
 	</detail>

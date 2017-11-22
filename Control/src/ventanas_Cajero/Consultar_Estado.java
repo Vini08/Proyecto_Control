@@ -5,10 +5,7 @@
  */
 package ventanas_Cajero;
 
-import ventanas_SupervisorCajero.*;
-import Clases.listadoRecibos;
 import Conexion.Conexion;
-import static Conexion.Conexion.Enlace;
 import Conexion.MostrarTabla;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,10 +13,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -28,18 +21,12 @@ import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
+
 
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Consultar_Estado extends javax.swing.JInternalFrame {
     

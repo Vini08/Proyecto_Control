@@ -41,7 +41,7 @@ import ventanas_SupervisorCajero.Listado_Recibos;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Reportes_Cajero extends javax.swing.JInternalFrame {
      static Connection conn=null;

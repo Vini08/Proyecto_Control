@@ -29,7 +29,7 @@ import static ventanas_SupervisorCajero.Eliminar_Cliente.conn;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Editar_Cliente extends javax.swing.JInternalFrame {
     

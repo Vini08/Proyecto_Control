@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Eliminar_Cliente extends javax.swing.JInternalFrame {
 

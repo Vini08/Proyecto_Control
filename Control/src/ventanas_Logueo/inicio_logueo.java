@@ -20,7 +20,7 @@ import ventanas_Tesoreria.Tesoreria;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class inicio_logueo extends javax.swing.JFrame {
     public static String username;

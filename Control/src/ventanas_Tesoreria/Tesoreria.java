@@ -21,7 +21,7 @@ import ventanas_Logueo.inicio_logueo;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Tesoreria extends javax.swing.JFrame {
 private int x;

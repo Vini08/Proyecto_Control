@@ -13,7 +13,7 @@ import ventanas_Administrador.Administrador;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Control {
 

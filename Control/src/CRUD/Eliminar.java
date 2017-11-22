@@ -7,7 +7,7 @@ package CRUD;
 
 /**
  *
- * @author Pablo
+ * @author Fernando Ambrosio
  */
 public class Eliminar {
     

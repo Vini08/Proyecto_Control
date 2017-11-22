@@ -48,7 +48,7 @@ import ventanas_Logueo.inicio_logueo;
 
 /**
  *
- * @author Vinicio
+ * @author Fernando Ambrosio
  */
 public class Registrar_Cobro extends javax.swing.JInternalFrame {
     public static String NameUsuario;
