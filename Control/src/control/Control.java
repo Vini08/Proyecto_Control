@@ -5,11 +5,7 @@
  */
 package control;
 
-import Conexion.Conexion;
 import ventanas_SupervisorCajero.Supervisor_Cajero;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import ventanas_Administrador.Administrador;
 
 /**
  *
@@ -23,7 +19,7 @@ public class Control {
       public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                   Supervisor_Cajero p = new Supervisor_Cajero();
+                    Supervisor_Cajero p = new Supervisor_Cajero();
                    p.setLocationRelativeTo(null);        // Centering on screen...
                     p.setSize(1365, 730);
                      p.setVisible(true);
