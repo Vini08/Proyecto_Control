@@ -50,7 +50,7 @@ public class Conexion {
     
      public static ResultSet Cliente(ResultSet rs)throws SQLException    {
        st=sta(st);
-       rs=st.executeQuery("select * from CLIENTE");
+       rs=st.executeQuery("select * from CLIENTE ORDER BY IDCLIENTE ASC");
         return rs;
     }
      
@@ -119,7 +119,7 @@ public class Conexion {
                     try
                     {
                         
-                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO, inmueble.DIRECCION,inmueble.zona, lectura.LECTURAANTERIOR AS LECTURA_ANTERIOR, lectura.LECTURAACTUAL AS LECTURA_ACTUAL, lectura.METROSCUBICOS AS CONSUMO, recibo.fechavenci AS FECHA_VENCIMIENTO, recibo.TOTAL, recibo.IDRECIBO as NO_RECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where  TO_char(recibo.FECHAVENCI, 'YYYY')= ? and TO_char(recibo.FECHAVENCI, 'MM')= ?  and inmueble.ZONA = ? and recibo.ESTADO=1");
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select cliente.nombre, CLIENTE.APELLIDO, inmueble.DIRECCION,inmueble.zona, lectura.LECTURAANTERIOR AS LECTURA_ANTERIOR, lectura.LECTURAACTUAL AS LECTURA_ACTUAL, lectura.METROSCUBICOS AS CONSUMO, recibo.fechavenci AS FECHA_VENCIMIENTO, recibo.TOTAL, recibo.IDRECIBO as NO_RECIBO from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where  TO_char(recibo.FECHAVENCI, 'YYYY')= ? and TO_char(recibo.FECHAVENCI, 'MM')= ?  and inmueble.ZONA = ? and recibo.ESTADO=1 ORDER BY recibo.IDRECIBO asc ");
                        pstm.setInt(1,fechaa);
                        pstm.setInt(2,fecha);
                        pstm.setInt(3, zona);
@@ -235,7 +235,7 @@ public class Conexion {
                     try
                     {
                         
-                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select recibo.IDRECIBO as NO_RECIBO, cliente.nombre, CLIENTE.APELLIDO, inmueble.DIRECCION,inmueble.zona, lectura.LECTURAANTERIOR AS LECTURA_ANTERIOR, lectura.LECTURAACTUAL AS LECTURA_ACTUAL, lectura.METROSCUBICOS AS CONSUMO, recibo.fechavenci AS FECHA_VENCIMIENTO, recibo.TOTAL from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where recibo.ESTADO='1'");
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("select recibo.IDRECIBO as NO_RECIBO, cliente.nombre, CLIENTE.APELLIDO, inmueble.DIRECCION,inmueble.zona, lectura.LECTURAANTERIOR AS LECTURA_ANTERIOR, lectura.LECTURAACTUAL AS LECTURA_ACTUAL, lectura.METROSCUBICOS AS CONSUMO, recibo.fechavenci AS FECHA_VENCIMIENTO, recibo.TOTAL from CLIENTE inner join inmueble on cliente.IDCLIENTE = inmueble.IDCLIENTE inner join medidor on inmueble.IDINMUEBLE = medidor.IDINMUEBLE inner join lectura on medidor.IDMEDIDOR = lectura.IDMEDIDOR inner join recibo on lectura.IDLECTURA =  recibo.IDLECTURA where recibo.ESTADO=1 ORDER BY recibo.IDRECIBO asc");
                         res=pstm.executeQuery();
                     } catch (Exception e)
                     {
