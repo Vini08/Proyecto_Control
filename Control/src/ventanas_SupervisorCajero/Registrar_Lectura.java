@@ -171,6 +171,9 @@ repaint();
             }
         });
         medidor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                medidorKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 medidorKeyTyped(evt);
             }
@@ -275,6 +278,11 @@ repaint();
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 510, 250, 57));
 
         jDateChooser1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jDateChooser1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jDateChooser1KeyReleased(evt);
+            }
+        });
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 460, 50));
 
         pack();
@@ -540,36 +548,12 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     private void medidorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medidorMouseReleased
         // TODO add your handling code here:
         
-        try {
-                String med=(medidor.getText());
-
-                conn=Conexion.Enlace(conn);
-                rs=Conexion.BucarLec(med);
-
-                while(rs.next()){
-                    jTextField2.setText(rs.getString("LECTURA"));
-                   
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+    
     }//GEN-LAST:event_medidorMouseReleased
 
     private void medidorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medidorMouseEntered
         // TODO add your handling code here:
-         try {
-                String med=(medidor.getText());
-
-                conn=Conexion.Enlace(conn);
-                rs=Conexion.BucarLec(med);
-
-                while(rs.next()){
-                    jTextField2.setText(rs.getString("LECTURA"));
-                   
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+       
     }//GEN-LAST:event_medidorMouseEntered
 
     private void medidorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medidorKeyTyped
@@ -582,6 +566,16 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
 
     private void medidorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medidorMousePressed
         // TODO add your handling code here:
+     
+    }//GEN-LAST:event_medidorMousePressed
+
+    private void jDateChooser1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jDateChooser1KeyReleased
+        // TODO add your handling code here:
+           
+    }//GEN-LAST:event_jDateChooser1KeyReleased
+
+    private void medidorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medidorKeyReleased
+        // TODO add your handling code here:
          try {
                 String med=(medidor.getText());
 
@@ -595,7 +589,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
-    }//GEN-LAST:event_medidorMousePressed
+    }//GEN-LAST:event_medidorKeyReleased
 
 
     public void reciboNuevo(Double cobro){

@@ -546,6 +546,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
                     pstm4.setString(6, ID_Lectura);
                     pstm4.execute();
                     pstm4.close();
+                    
             } catch (Exception ex) {
                 Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -567,6 +568,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
                     Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
                     
                 }
+            JOptionPane.showMessageDialog(null, "Operacion Efecutada");
             } catch (SQLException ex) {
                 Logger.getLogger(Registrar_Cobro.class.getName()).log(Level.SEVERE, null, ex);
                 
