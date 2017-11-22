@@ -30,6 +30,7 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import static ventanas_SupervisorCajero.Editar_Cliente.conn;
 
 /**
  *
@@ -38,6 +39,8 @@ import javax.swing.border.LineBorder;
 public class Registrar_Lectura extends javax.swing.JInternalFrame {
     
     static Connection conn=null;
+    static Statement s=null;
+     static ResultSet rs=null;
     public static String ID_Tarifa;
     private JComponent Barra = ((javax.swing.plaf.basic.BasicInternalFrameUI) getUI()).getNorthPane();
 private Dimension DimensionBarra = null; 
@@ -156,6 +159,22 @@ repaint();
         medidor.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
         medidor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         medidor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        medidor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                medidorMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                medidorMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                medidorMouseReleased(evt);
+            }
+        });
+        medidor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                medidorKeyTyped(evt);
+            }
+        });
         getContentPane().add(medidor, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 456, 56));
 
         jTextField2.setFont(new java.awt.Font("Microsoft Yi Baiti", 0, 33)); // NOI18N
@@ -518,6 +537,66 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
        resetearEdit();
     }//GEN-LAST:event_jLabel8MouseClicked
 
+    private void medidorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medidorMouseReleased
+        // TODO add your handling code here:
+        
+        try {
+                String med=(medidor.getText());
+
+                conn=Conexion.Enlace(conn);
+                rs=Conexion.BucarLec(med);
+
+                while(rs.next()){
+                    jTextField2.setText(rs.getString("LECTURA"));
+                   
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+    }//GEN-LAST:event_medidorMouseReleased
+
+    private void medidorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medidorMouseEntered
+        // TODO add your handling code here:
+         try {
+                String med=(medidor.getText());
+
+                conn=Conexion.Enlace(conn);
+                rs=Conexion.BucarLec(med);
+
+                while(rs.next()){
+                    jTextField2.setText(rs.getString("LECTURA"));
+                   
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+    }//GEN-LAST:event_medidorMouseEntered
+
+    private void medidorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_medidorKeyTyped
+        // TODO add your handling code here:
+         char c=evt.getKeyChar();
+        if(Character.isLetter(c)&&!evt.isAltDown()){
+            evt.consume();
+        }  
+    }//GEN-LAST:event_medidorKeyTyped
+
+    private void medidorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medidorMousePressed
+        // TODO add your handling code here:
+         try {
+                String med=(medidor.getText());
+
+                conn=Conexion.Enlace(conn);
+                rs=Conexion.BucarLec(med);
+
+                while(rs.next()){
+                    jTextField2.setText(rs.getString("LECTURA"));
+                   
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+    }//GEN-LAST:event_medidorMousePressed
+
 
     public void reciboNuevo(Double cobro){
         Consultar nuevo=new Consultar();
@@ -534,11 +613,12 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
             String idmed=nuevo.UltimaLectura().get(2);
             int Inzona=Integer.parseInt(nuevo.obtenerZona(idmed));
          
+            
             String fechaVencimiento="";
             if(Inzona>=1||Inzona<=4){
                 fechaVencimiento=14+"-"+fVencimiento(flectura)+" "+sqlTime;
             }if(Inzona>=5){
-                fechaVencimiento=30+"-"+fVencimiento(flectura)+" "+sqlTime;
+                fechaVencimiento=28+"-"+fVencimiento(flectura)+" "+sqlTime;
                 
             }
             Insertar.ingresarRecibo(fechaVencimiento, cobro, idlec);

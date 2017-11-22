@@ -243,5 +243,24 @@ public class Conexion {
                     }
                     return res;
                 }
+                
+                  public static ResultSet BucarLec(String medidor) throws SQLException
+                {
+                     Connection conn=null;
+                     Connection miConexion = (Connection) Conexion.Enlace(conn);
+                    ResultSet res = null;
+                    
+                    try
+                    {
+                        
+                        PreparedStatement pstm = Conexion.Enlace(conn).prepareStatement("SELECT MAX(LECTURAACTUAL) as lectura from LECTURA INNER JOIN MEDIDOR ON LECTURA.IDMEDIDOR = MEDIDOR.IDMEDIDOR WHERE MEDIDOR.IDMEDIDOR = ?");
+                        pstm.setString(1, medidor);
+                        res=pstm.executeQuery();
+                    } catch (Exception e)
+                    {
+                       
+                    }
+                    return res;
+                }
         
 }
