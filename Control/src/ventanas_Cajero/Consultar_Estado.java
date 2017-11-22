@@ -24,6 +24,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
@@ -212,6 +213,10 @@ repaint();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        if (jTextField1.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Inrese el Numero de Medidor a Buscar");
+        }
+        else {
         try {
             //TODO add your handling code here:
             int medidor=Integer.parseInt(jTextField1.getText());
@@ -225,7 +230,7 @@ repaint();
         } catch (SQLException ex) {
             Logger.getLogger(Consultar_Estado.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
+     }
     }//GEN-LAST:event_jLabel10MouseClicked
 
 

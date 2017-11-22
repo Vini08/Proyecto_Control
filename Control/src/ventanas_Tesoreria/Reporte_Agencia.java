@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
@@ -250,6 +251,10 @@ repaint();
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
+        if (jDateChooser1.getDate() == null){
+             JOptionPane.showMessageDialog(null, "Seleccione una Fecha");
+        }
+        else { 
         try {
              // TODO add your handling code here:
              
@@ -277,8 +282,7 @@ repaint();
 
              sumatoria1+=sumatoria;
               totald.setText(String.valueOf(sumatoria1));
-          
-          
+           }
            }
     }//GEN-LAST:event_jLabel12MouseClicked
 

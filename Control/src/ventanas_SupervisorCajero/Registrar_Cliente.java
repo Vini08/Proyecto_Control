@@ -266,7 +266,11 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     }//GEN-LAST:event_jLabel10MouseExited
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-    try {
+   if (nombre.getText().equals("") || apellido.getText().equals("") || dpi.getText().equals("") || nit.getText().equals("") || telefono.getText().equals("") ){
+         JOptionPane.showMessageDialog(null, "Por favor llene Todos los Campos");
+        }
+   else {
+        try {
       Cliente cli = new Cliente();
         cli.setNombre(nombre.getText());
         cli.setApellido(apellido.getText());
@@ -286,7 +290,8 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
         JOptionPane.showMessageDialog(null, "Datos Agregados");
         } catch (SQLException ex) {
           Logger.getLogger(Registrar_Cliente.class.getName()).log(Level.SEVERE, null,ex);
-        }          // TODO add your handling code here:        // TODO add your handling code here:
+        }   
+   }
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonoKeyTyped

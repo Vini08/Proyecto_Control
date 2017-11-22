@@ -447,12 +447,14 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
     }//GEN-LAST:event_jTextField3KeyReleased
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-         try {                                      
+        if (medidor.getText().equals("") || jDateChooser1.getDate()== null  || jTextField2.getText().equals("") || jTextField3.getText().equals("") || jTextField4.getText().equals("") || jTextField5.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Complete los campos Vacios");
+        } 
+        else { 
+        try {                                      
              // TODO add your handling code here:
              
              Connection conn=null;
-             
-             
              String fechaLectura= new SimpleDateFormat("yyyy/MM/dd").format(jDateChooser1.getDate());
              int lecturaAnterior=Integer.parseInt(jTextField2.getText());
              int lecturaActual=Integer.parseInt(jTextField3.getText());
@@ -469,8 +471,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
              while (rsult.next()) {
                  ID_Tarifa = rsult.getString("IDTARIFA");
              }
-             
-             
+
              try {
                  Connection miConexion = (Connection) Conexion.Enlace(conn);
                  
@@ -510,7 +511,7 @@ Border thickBorder = new LineBorder(BTNmenuMouse, 86);
             jTextField3.setText("");
             jTextField4.setText("");
             jTextField5.setText("");
-        
+     }   
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked

@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
@@ -292,7 +293,12 @@ repaint();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-         try {
+         
+        if (cajero.getText().equals("") || jDateChooser1.getDate()==null){
+            JOptionPane.showMessageDialog(null, "Complete los Campos Vacios");
+        }
+        else { 
+        try {
              // TODO add your handling code here:
              String nomcajero=cajero.getText();
              String fecha= new SimpleDateFormat("dd/MM/yyyy").format(jDateChooser1.getDate());
@@ -320,8 +326,7 @@ repaint();
 
              sumatoria1+=sumatoria;
               totald.setText(String.valueOf(sumatoria1));
-          
-          
+           }
            }
     }//GEN-LAST:event_jLabel12MouseClicked
 

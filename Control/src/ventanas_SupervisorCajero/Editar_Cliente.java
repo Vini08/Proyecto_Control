@@ -222,7 +222,7 @@ repaint();
                 jLabel10MouseExited(evt);
             }
         });
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 230, 55));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 250, 55));
 
         jButton2.setBackground(new java.awt.Color(45, 70, 94));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -252,9 +252,9 @@ repaint();
                 jLabel11MouseExited(evt);
             }
         });
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 230, 60));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 250, 50));
 
-        jButton3.setBackground(new java.awt.Color(102, 102, 102));
+        jButton3.setBackground(new java.awt.Color(45, 70, 94));
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton3MouseEntered(evt);
@@ -265,7 +265,7 @@ repaint();
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 220, 57));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 250, 57));
 
         jLabel4.setFont(new java.awt.Font("Microsoft Yi Baiti", 1, 28)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(88, 88, 88));
@@ -359,26 +359,11 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
         // TODO add your handling code here:
     }//GEN-LAST:event_DPIActionPerformed
 
-    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
-   Border thickBorder = new LineBorder(X1, 86);
-       jButton3.setBorder(thickBorder);     // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseEntered
-
-    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
-     Border thickBorder = new LineBorder(X2, 86);
-       jButton3.setBorder(thickBorder);    // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseExited
-
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseEntered
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-      
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+       if (direccion.getText().equals("") || zona.getText().equals("")){
+           JOptionPane.showMessageDialog(this,"Complete los Campos Vacios");
+       }
+       else { 
         try {
             Insertar.insertarINMUEBLE_MEDIDOR(direccion.getText(), zona.getText(), id_cliente.getText());
             DPI.setText("");
@@ -391,24 +376,8 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
          } catch (SQLException ex) {
              Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
          }
+        }
     }//GEN-LAST:event_jLabel10MouseClicked
-
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-   try {
-        String dpi=(DPI.getText());
-     
-        conn=Conexion.Enlace(conn);
-        rs=Conexion.Buscaridcliente(dpi);
-        
-        while(rs.next()){
-        id_cliente.setText(rs.getString("IDCLIENTE"));
-        nombre.setText(rs.getString("NOMBRE"));
-        apellido.setText(rs.getString("APELLIDO"));
-            }
-        } catch (SQLException ex) {
-         System.out.println(ex.getMessage());
-     }        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseClicked
 
     private void zonaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_zonaKeyTyped
      char c=evt.getKeyChar();
@@ -429,6 +398,45 @@ Border thickBorder = new LineBorder(BTNmenuACT, 86);
         resetearEdit();
     }//GEN-LAST:event_jLabel8MouseClicked
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
+        Border thickBorder = new LineBorder(X2, 86);
+        jButton3.setBorder(thickBorder);    // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseExited
+
+    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
+        Border thickBorder = new LineBorder(X1, 86);
+        jButton3.setBorder(thickBorder);     // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseEntered
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        if (DPI.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"Ingrese el No. de DPI");
+        }
+        else {
+            try {
+                String dpi=(DPI.getText());
+
+                conn=Conexion.Enlace(conn);
+                rs=Conexion.Buscaridcliente(dpi);
+
+                while(rs.next()){
+                    id_cliente.setText(rs.getString("IDCLIENTE"));
+                    nombre.setText(rs.getString("NOMBRE"));
+                    apellido.setText(rs.getString("APELLIDO"));
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+    }//GEN-LAST:event_jLabel11MouseClicked
+ }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DPI;
